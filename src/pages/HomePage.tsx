@@ -17,6 +17,10 @@ export function HomePage() {
               src="/images/logo.png" 
               alt="Engineering in Kannada" 
               className="h-50 w-auto"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = 'https://via.placeholder.com/200x50?text=Engineering+in+Kannada';
+              }}
             />
           </div>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
