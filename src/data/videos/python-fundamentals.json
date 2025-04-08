@@ -1,0 +1,29 @@
+{
+  "courseId": "python-fundamentals",
+  "videos": [
+    {
+      "id": "python-fundamentals-1",
+      "title": "Introduction to Coding and Python",
+      "type": "Theory",
+      "youtubeUrl": "https://www.youtube.com/watch?v=8c74mXV2lJ0&list=PLlGueSbLhZoBRnTsGiDJeTXuQCALOTN07&index=1&pp=iAQB",
+      "notesUrl": "",
+      "codingQuestionUrl": ""
+    },
+    {
+      "id": "python-fundamentals-2",
+      "title": "Python Variables and Data Types",
+      "type": "Theory",
+      "youtubeUrl": "https://www.youtube.com/watch?v=jr1FF9-VAJs&list=PLlGueSbLhZoBRnTsGiDJeTXuQCALOTN07&index=2&pp=iAQB",
+      "notesUrl": "",
+      "codingQuestionUrl": ""
+    },
+    {
+      "id": "python-fundamentals-3",
+      "title": "Still updating this site",
+      "type": "Under progress",
+      "youtubeUrl": "",
+      "notesUrl": "",
+      "codingQuestionUrl": ""
+    }
+  ]
+} 

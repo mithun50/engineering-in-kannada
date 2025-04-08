@@ -5,15 +5,15 @@
       "id": "python-oops-1",
       "title": "Introduction to Object Oriented Programming",
       "type": "Concept",
-      "youtubeUrl": "https://www.youtube.com/watch?v=aXuYPVStgdk",
+      "youtubeUrl": "https://www.youtube.com/watch?v=aXuYPVStgdk&list=PLlGueSbLhZoBRnTsGiDJeTXuQCALOTN07&index=23&pp=iAQB0gcJCTgDd0p55Nqk",
       "notesUrl": "",
       "codingQuestionUrl": ""
     },
     {
       "id": "python-oops-2",
-      "title": "Classes and Objects",
+      "title": "Constructor, self and optional parameters",
       "type": "Concept",
-      "youtubeUrl": "https://www.youtube.com/watch?v=8c74mXV2lJ0",
+      "youtubeUrl": "https://www.youtube.com/watch?v=at9RaJC3Jsg&list=PLlGueSbLhZoBRnTsGiDJeTXuQCALOTN07&index=24&pp=iAQB",
       "notesUrl": "",
       "codingQuestionUrl": ""
     }

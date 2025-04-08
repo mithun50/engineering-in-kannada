@@ -1,0 +1,61 @@
+{
+  "courseId": "web-dev-manjunath",
+  "videos": [
+    {
+      "id": "web-dev-1", 
+      "title": "Introduction to HTML and CSS",
+      "type": "Concept",
+      "youtubeUrl": "https://www.youtube.com/watch?v=mVbsESNhDAk&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=1&pp=iAQB",
+      "notesUrl": "",
+      "codingQuestionUrl": ""
+    },
+    {
+      "id": "web-dev-2",
+      "title": "CSS Basics",
+      "type": "Concept", 
+      "youtubeUrl": "https://www.youtube.com/watch?v=kzoveSCMJAU&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=2&pp=iAQB",
+      "notesUrl": "",
+      "codingQuestionUrl": ""
+    },
+    {
+      "id": "web-dev-3",
+      "title": "CSS Grid and Flexbox",
+      "type": "Hands-On",
+      "youtubeUrl": "https://www.youtube.com/watch?v=TkpulmeSEqI&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=3&pp=iAQB",
+      "notesUrl": "",
+      "codingQuestionUrl": ""
+    },
+    {
+      "id": "web-dev-4",
+      "title": "Media Queries and Responsive Design",
+      "type": "Hands-On",
+      "youtubeUrl": "https://www.youtube.com/watch?v=rEootTokgu4&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=4&pp=iAQB",
+      "notesUrl": "",
+      "codingQuestionUrl": ""
+    },
+    {
+      "id": "web-dev-5", 
+      "title": "CSS Animation",
+      "type": "Hands-On",
+      "youtubeUrl": "https://www.youtube.com/watch?v=eCwXvcJuYi8&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=5&pp=iAQB",
+      "notesUrl": "",
+      "codingQuestionUrl": ""
+    },
+    {
+      "id": "web-dev-6",
+      "title": "Website Project Part 1",
+      "type": "Project",
+      "youtubeUrl": "https://www.youtube.com/watch?v=5W73TFVgcmo&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=6&pp=iAQB",
+      "notesUrl": "",
+      "codingQuestionUrl": ""
+    },
+    {
+      "id": "web-dev-7",
+      "title": "Website Project Part 2",
+      "type": "Project", 
+      "youtubeUrl": "https://www.youtube.com/watch?v=16eg-s66txE&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=7&pp=iAQB",
+      "notesUrl": "",
+      "codingQuestionUrl": ""
+    }
+  ]
+}

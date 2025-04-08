@@ -4,13 +4,18 @@
       "id": "quote-1",
       "type": "quote",
       "content": "The only way to do great work is to love what you do.",
-      "author": "Steve Jobs",
       "isActive": true
     },
     {
       "id": "announcement-1",
       "type": "announcement",
-      "content": "New Python course coming soon! Stay tuned for updates.",
+      "content": "DSA in Python course coming soon! Stay tuned for updates.",
+      "isActive": true
+    },
+    {
+      "id": "announcement-2",
+      "type": "announcement",
+      "content": "Follow me on Instagram for short form tutorials and tech updates.",
       "isActive": true
     }
   ]

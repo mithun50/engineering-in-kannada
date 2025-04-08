@@ -1,7 +1,6 @@
 import React from 'react';
 import coursesData from '../data/courses.json';
 import { CourseCard } from '../components/CourseCard';
-import { GraduationCap } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { AnnouncementBanner } from '../components/AnnouncementBanner';
@@ -13,11 +12,12 @@ export function HomePage() {
       <Header />
       <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="text-center">
-          <div className="flex items-center justify-center gap-3">
-            <GraduationCap className="h-12 w-12 text-primary" />
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            ಕನ್ನಡದಲ್ಲಿ ಇಂಜಿನಿಯರಿಂಗ್
-            </h1>
+          <div className="flex justify-center">
+            <img 
+              src="/images/logo.png" 
+              alt="Engineering in Kannada" 
+              className="h-50 w-auto"
+            />
           </div>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
             Quality technical education in Kannada, 
