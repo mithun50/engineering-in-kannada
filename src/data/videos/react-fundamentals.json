@@ -1,0 +1,21 @@
+{
+  "courseId": "react-fundamentals",
+  "videos": [
+    {
+      "id": "react-fundamentals-v1",
+      "title": "Introduction to React",
+      "difficulty": "Beginner",
+      "youtubeUrl": "https://youtube.com/watch?v=example1",
+      "notesUrl": "https://github.com/example/react-course/01-intro",
+      "codingQuestionUrl": "https://leetcode.com/problems/example1"
+    },
+    {
+      "id": "react-fundamentals-v2",
+      "title": "Components & Props",
+      "difficulty": "Beginner",
+      "youtubeUrl": "https://youtube.com/watch?v=example2",
+      "notesUrl": "https://github.com/example/react-course/02-components",
+      "codingQuestionUrl": "https://leetcode.com/problems/example2"
+    }
+  ]
+}
