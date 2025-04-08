@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { GraduationCap, Home, BookOpen, Github, Menu, X } from 'lucide-react';
+import { GraduationCap, Home, BookOpen, Github, Menu, X, Youtube, Instagram } from 'lucide-react';
 
 export function Header() {
   const location = useLocation();
@@ -38,13 +38,31 @@ export function Header() {
               Courses
             </Link>
             <a
-              href="https://github.com/yourusername"
+              href="https://www.youtube.com/@EngineeringinKannada"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm text-gray-300 hover:text-primary"
+            >
+              <Youtube className="h-4 w-4" />
+              YouTube
+            </a>
+            <a
+              href="https://www.instagram.com/engineering_in_kannada/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm text-gray-300 hover:text-primary"
+            >
+              <Instagram className="h-4 w-4" />
+              Instagram
+            </a>
+            <a
+              href="https://github.com/chandansgowda/engineering-in-kannada"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm text-gray-300 hover:text-primary"
             >
               <Github className="h-4 w-4" />
-              GitHub
+              Contribute
             </a>
           </div>
 
@@ -82,6 +100,26 @@ export function Header() {
                 <BookOpen className="h-4 w-4" />
                 Courses
               </Link>
+              <a
+                href="https://www.youtube.com/@EngineeringinKannada"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 p-2 text-sm text-gray-300 hover:text-primary"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Youtube className="h-4 w-4" />
+                YouTube
+              </a>
+              <a
+                href="https://www.instagram.com/engineering_in_kannada/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 p-2 text-sm text-gray-300 hover:text-primary"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Instagram className="h-4 w-4" />
+                Instagram
+              </a>
               <a
                 href="https://github.com/yourusername"
                 target="_blank"

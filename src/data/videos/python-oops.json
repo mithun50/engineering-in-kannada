@@ -1,0 +1,21 @@
+{
+  "courseId": "python-oops",
+  "videos": [
+    {
+      "id": "python-oops-1",
+      "title": "Introduction to Object Oriented Programming",
+      "type": "Concept",
+      "youtubeUrl": "https://www.youtube.com/watch?v=aXuYPVStgdk",
+      "notesUrl": "",
+      "codingQuestionUrl": ""
+    },
+    {
+      "id": "python-oops-2",
+      "title": "Classes and Objects",
+      "type": "Concept",
+      "youtubeUrl": "https://www.youtube.com/watch?v=8c74mXV2lJ0",
+      "notesUrl": "",
+      "codingQuestionUrl": ""
+    }
+  ]
+} 

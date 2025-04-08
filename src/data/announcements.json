@@ -1,0 +1,17 @@
+{
+  "items": [
+    {
+      "id": "quote-1",
+      "type": "quote",
+      "content": "The only way to do great work is to love what you do.",
+      "author": "Steve Jobs",
+      "isActive": true
+    },
+    {
+      "id": "announcement-1",
+      "type": "announcement",
+      "content": "New Python course coming soon! Stay tuned for updates.",
+      "isActive": true
+    }
+  ]
+} 

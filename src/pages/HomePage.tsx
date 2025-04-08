@@ -4,7 +4,7 @@ import { CourseCard } from '../components/CourseCard';
 import { GraduationCap } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { MotivationalQuote } from '../components/MotivationalQuote';
+import { AnnouncementBanner } from '../components/AnnouncementBanner';
 import { Course } from '../types';
 
 export function HomePage() {
@@ -16,18 +16,18 @@ export function HomePage() {
           <div className="flex items-center justify-center gap-3">
             <GraduationCap className="h-12 w-12 text-primary" />
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-              Engineering in Kannada
+            ಕನ್ನಡದಲ್ಲಿ ಇಂಜಿನಿಯರಿಂಗ್
             </h1>
           </div>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
-            ಎಲ್ಲರಿಗೂ ಉತ್ತಮ ತಾಂತ್ರಿಕ ಶಿಕ್ಷಣ. Quality technical education in Kannada, 
-            accessible to everyone. Start your learning journey today with our 
-            carefully curated content.
+            Quality technical education in Kannada, 
+            accessible to everyone. Start your learning journey today with my 
+            free and carefully curated content.
           </p>
         </div>
 
         <div className="mt-8">
-          <MotivationalQuote />
+          <AnnouncementBanner />
         </div>
 
         <div className="mt-16">

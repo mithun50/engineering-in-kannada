@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Youtube, Twitter, Linkedin } from 'lucide-react';
+import { GraduationCap, Youtube, Twitter, Linkedin, Instagram } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -12,13 +12,13 @@ export function Footer() {
           </div>
           
           <p className="mt-4 max-w-md text-center text-sm text-gray-400">
-            Empowering Kannada-speaking students with quality engineering and programming education.
+            Empowering Kannada-speaking students with quality engineering education.
             Learn at your own pace, completely free.
           </p>
           
           <div className="mt-8 flex items-center gap-6">
             <a
-              href="https://youtube.com/@yourusername"
+              href="https://www.youtube.com/@EngineeringinKannada"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-primary"
@@ -26,7 +26,15 @@ export function Footer() {
               <Youtube className="h-5 w-5" />
             </a>
             <a
-              href="https://twitter.com/yourusername"
+              href="https://www.instagram.com/engineering_in_kannada/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-primary"
+            >
+              <Instagram className="h-5 w-5" />
+            </a>
+            <a
+              href="https://twitter.com/chandansgowdru"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-primary"
@@ -34,7 +42,7 @@ export function Footer() {
               <Twitter className="h-5 w-5" />
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/chandan-s-gowda-4b2913183/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-primary"

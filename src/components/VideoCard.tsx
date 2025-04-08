@@ -100,7 +100,7 @@ export function VideoCard({ video }: VideoCardProps) {
             <h3 className="text-base font-semibold text-white sm:text-lg">{video.title}</h3>
           </div>
           <span className="mt-1 inline-flex items-center rounded-full bg-primary/20 px-2 py-1 text-xs font-medium text-primary sm:px-3">
-            {video.difficulty}
+            {video.type}
           </span>
         </div>
         <div className="flex items-center gap-2">

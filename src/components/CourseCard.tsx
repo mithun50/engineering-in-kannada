@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Course } from '../types';
 import { BookOpen, Star } from 'lucide-react';
 import { useProgressStore } from '../store/progress';
+import { getTotalVideos } from '../utils/courseUtils';
 
 interface CourseCardProps {
   course: Course;
@@ -12,6 +13,11 @@ export function CourseCard({ course }: CourseCardProps) {
   const navigate = useNavigate();
   const { toggleCourseStarred, isCourseStarred } = useProgressStore();
   const isStarred = isCourseStarred(course.id);
+  const [totalVideos, setTotalVideos] = useState(0);
+
+  useEffect(() => {
+    getTotalVideos(course.id).then(count => setTotalVideos(count));
+  }, [course.id]);
 
   const handleStarClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -48,9 +54,10 @@ export function CourseCard({ course }: CourseCardProps) {
       <div className="p-6">
         <div className="flex items-center gap-2">
           <BookOpen className="h-5 w-5 text-primary" />
-          <h3 className="text-xl font-bold text-white">{course.title}</h3>
+          <span className="text-sm text-gray-400">{totalVideos} videos</span>
         </div>
-        <p className="mt-2 text-gray-300">{course.description}</p>
+        <h3 className="mt-2 text-xl font-semibold text-white">{course.title}</h3>
+        <p className="mt-2 text-gray-400">{course.description}</p>
       </div>
     </div>
   );
