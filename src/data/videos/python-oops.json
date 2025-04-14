@@ -6,7 +6,7 @@
       "title": "Introduction to Object Oriented Programming",
       "type": "Concept",
       "youtubeUrl": "https://www.youtube.com/watch?v=aXuYPVStgdk&list=PLlGueSbLhZoBRnTsGiDJeTXuQCALOTN07&index=23&pp=iAQB0gcJCTgDd0p55Nqk",
-      "notesUrl": "",
+      "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/15.md",
       "codingQuestionUrl": ""
     },
     {
@@ -14,7 +14,31 @@
       "title": "Constructor, self and optional parameters",
       "type": "Concept",
       "youtubeUrl": "https://www.youtube.com/watch?v=at9RaJC3Jsg&list=PLlGueSbLhZoBRnTsGiDJeTXuQCALOTN07&index=24&pp=iAQB",
-      "notesUrl": "",
+      "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/16.md",
+      "codingQuestionUrl": ""
+    },
+    {
+      "id": "python-oops-3",
+      "title": "Pillars of OOPs Part 1 : Abstraction and Encapsulation",
+      "type": "Concept",
+      "youtubeUrl": "https://www.youtube.com/watch?v=ucdxseIpfYE",
+      "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/17.md",
+      "codingQuestionUrl": ""
+    },
+    {
+      "id": "python-oops-4",
+      "title": "Pillars of OOPs Part 2 : Inheritance and Polymorphism",
+      "type": "Concept",
+      "youtubeUrl": "https://www.youtube.com/watch?v=g14iWkxRCQs",
+      "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/17.md",
+      "codingQuestionUrl": ""
+    },
+    {
+      "id": "python-oops-5",
+      "title": "Getters Setters, Overloading & Overriding, Abstract Classes",
+      "type": "Concept",
+      "youtubeUrl": "https://www.youtube.com/watch?v=3TVZmjMeMKg",
+      "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/18.md",
       "codingQuestionUrl": ""
     }
   ]
