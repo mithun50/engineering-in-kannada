@@ -1,0 +1,197 @@
+{
+    "courseId": "c-fundamentals",
+    "videos": [
+      {
+        "id": "c-fundamentals-1",
+        "title": "Intro, Input/Output , Data Types and Operators 👨‍💻",
+        "type": "Theory",
+        "youtubeUrl": "https://www.youtube.com/watch?v=0sd6OpPG2UM&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=1&pp=iAQB",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-2",
+        "title": "If-else , For & While Loops, Switch case 👨‍💻",
+        "type": "Theory",
+        "youtubeUrl": "https://www.youtube.com/watch?v=LEb_PirvYEU&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=2",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-3",
+        "title": "Arrays, Multidimensional Arrays or Matrices 👨‍💻",
+        "type": "Theory",
+        "youtubeUrl": "https://www.youtube.com/watch?v=RWMHf5kRmDo&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=3",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-4",
+        "title": "Functions , User Defined & Standard Library 👨‍💻",
+        "type": "Theory",
+        "youtubeUrl": "https://www.youtube.com/watch?v=ZNltu1NUGz4&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=4",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-5",
+        "title": "Introduction to DSA, Types of Data Structures",
+        "type": "DSA",
+        "youtubeUrl": "https://www.youtube.com/watch?v=iDe1fWnneCA&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=5",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-6",
+        "title": "Define, Initialize and Manipulate Structs in C",
+        "type": "DSA",
+        "youtubeUrl": "https://www.youtube.com/watch?v=OEDZLbQqaK8&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=6",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-7",
+        "title": "How to nest struct inside another struct in C ",
+        "type": "DSA",
+        "youtubeUrl": "https://www.youtube.com/watch?v=dc8DpiGAS4M&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=7",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-8",
+        "title": "Introduction to address and pointers in C ",
+        "type": "DSA",
+        "youtubeUrl": "https://www.youtube.com/watch?v=UfTS7LDPf2Y&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=8",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-9",
+        "title": "Addition and Subtraction in pointers and Arrays",
+        "type": "DSA",
+        "youtubeUrl": "https://www.youtube.com/watch?v=Ek0QrA39Uas&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=9",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-10",
+        "title": "Local Scope, Passing Address as Parameter",
+        "type": "DSA",
+        "youtubeUrl": "https://www.youtube.com/watch?v=GdEy8I-m6xg&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=10",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-11",
+        "title": " Arrays Menu Driven Program",
+        "type": "DSA",
+        "youtubeUrl": "https://www.youtube.com/watch?v=c-kortlln4w&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=11",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-12",
+        "title": " Arrays Menu Driven Program ",
+        "type": "DSA",
+        "youtubeUrl": "https://www.youtube.com/watch?v=Yovsd8aoiV8&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=12",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-13",
+        "title": "Binary Search Algorithm | Algorithm with Real World Examples",
+        "type": "DSA",
+        "youtubeUrl": "https://www.youtube.com/watch?v=IwiD7shJVcQ&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=13",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-14",
+        "title": "Algorithms and Code in C | Array Menu Driven Program",
+        "type": "DSA",
+        "youtubeUrl": "https://www.youtube.com/watch?v=Kf8i_vPSYRc&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=14",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-15",
+        "title": " Array Insertion | Menu Driven Program ",
+        "type": "DSA",
+        "youtubeUrl": "https://www.youtube.com/watch?v=D5eKRbiKY6Q&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=15",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-16",
+        "title": "Array Element Deletion",
+        "type": "DSA",
+        "youtubeUrl": "https://www.youtube.com/watch?v=MBqOUNZ2nRg&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=16",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-17",
+        "title": "Array Element Deletion",
+        "type": "DSA",
+        "youtubeUrl": "https://www.youtube.com/watch?v=83-lWtSuwk8&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=17",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+        {
+            "id": "c-fundamentals-18",
+            "title": "ChatGPT in Kannada ☹️",
+            "type": "New Tool",
+            "youtubeUrl": "https://www.youtube.com/watch?v=0a1b2c3d4e5&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=18",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+        },
+      {
+        "id": "c-fundamentals-19",
+        "title": "Data Structures and Algorithms ಕಲಿಯುವುದು ತುಂಬಾ ಸುಲಭ | ಈ Website ಉಪಯೋಗಿಸಿ",
+        "type": "Suggestion , DSA" ,
+        "youtubeUrl": "https://www.youtube.com/watch?v=ADhSfxPQNh8&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=19",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-20",
+        "title": "Swap Two Variables Algorithm and Program in C ",
+        "type": "DSA" ,
+        "youtubeUrl": "https://www.youtube.com/watch?v=ADhSfxPQNh8&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=20",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-21",
+        "title": "Reversing an Array Algorithm and Program in C ",
+        "type": " DSA" ,
+        "youtubeUrl": "https://www.youtube.com/watch?v=ADhSfxPQNh8&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=21",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-22",
+        "title": "Bubble Sort Algorithm in Kannada | How to sort an array using bubble sort?",
+        "type": "DSA" ,
+        "youtubeUrl": "https://www.youtube.com/watch?v=F56XLS0IFiE&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=22",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-23",
+        "title": "Bubble Sort C Program in Kannada | How to sort an array using bubble sort?",
+        "type": "DSA" ,
+        "youtubeUrl": "https://www.youtube.com/watch?v=NHXhQnVKKdA&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=23",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      },
+      {
+        "id": "c-fundamentals-24",
+        "title": "Optimized Bubble Sort C Program in Kannada | Time complexity optimization",
+        "type": "DSA" ,
+        "youtubeUrl": "https://www.youtube.com/watch?v=9J5qC3Jqqv0&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=24",
+        "notesUrl": "",
+        "codingQuestionUrl": ""
+      }
+    ]
+  } 

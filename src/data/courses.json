@@ -20,6 +20,13 @@
       "description": "Learn HTML, CSS and JS basics with Manjunath in Kannada with hands-on project.",
       "thumbnail": "https://i3.ytimg.com/vi/mVbsESNhDAk/hqdefault.jpg",
       "difficulty": "Beginner"
+    },
+    {
+      "id": "c-fundamentals",
+      "title": "C Programming in Kannada",
+      "description": "Learn C Programming in Kannada from zero with DSA.",
+      "thumbnail": "https://i3.ytimg.com/vi/mVbsESNhDAk/hqdefault.jpg",
+      "difficulty": "Intermediate"
     }
   ]
 }
