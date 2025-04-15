@@ -5,6 +5,7 @@ A platform for learning engineering concepts in Kannada through YouTube playlist
 ## Adding a New Course
 
 1. Add course details to `src/data/courses.json`:
+
 ```json
 {
   "id": "course-id",
@@ -16,6 +17,7 @@ A platform for learning engineering concepts in Kannada through YouTube playlist
 ```
 
 2. Create a new video file at `src/data/videos/course-id.json`:
+
 ```json
 {
   "courseId": "course-id",
@@ -35,6 +37,7 @@ A platform for learning engineering concepts in Kannada through YouTube playlist
 ## Updating Existing Content
 
 1. To update course details:
+
    - Edit `src/data/courses.json`
    - Update the relevant course object
 
@@ -46,16 +49,19 @@ A platform for learning engineering concepts in Kannada through YouTube playlist
 ## Contribution Guidelines
 
 1. **Course Structure**:
+
    - Keep course IDs lowercase with hyphens (e.g., `python-basics`)
    - Use descriptive titles in both English and Kannada
    - Provide clear difficulty levels
 
 2. **Video Organization**:
+
    - Number videos sequentially (1, 2, 3...)
    - Include all available resources (notes, practice questions)
    - Use consistent video types (Theory/Practice/Project)
 
 3. **Quality Checks**:
+
    - Verify all YouTube URLs are working
    - Ensure thumbnails are high quality
    - Check for proper translations in titles/descriptions
@@ -68,9 +74,49 @@ A platform for learning engineering concepts in Kannada through YouTube playlist
 
 ## Local Development
 
+### Prerequisites
+
+1. Node.js (v16 or higher)
+2. npm or yarn
+3. Git
+4. GitHub Personal Access Token (for contributor leaderboard)
+
+### Setting up GitHub Token
+
+1. Create a GitHub Personal Access Token:
+
+   - Go to GitHub Settings > Developer settings > [Personal access tokens](https://github.com/settings/tokens)
+   - Click "Generate new token (classic)"
+   - Give it a descriptive name (e.g., "Engineering in Kannada Local Dev")
+   - Select the following scopes:
+     - `repo:status`
+     - `public_repo`
+   - Click "Generate token"
+   - **Copy the token immediately** (you won't be able to see it again)
+
+2. Create Environment Variables:
+   - Create a `.env` file in the project root
+   - Add your GitHub token:
+     ```env
+     VITE_GITHUB_TOKEN=your_github_token_here
+     ```
+   - Replace `your_github_token_here` with the token you copied
+
+### Installation
+
 ```bash
+# Clone the repository
+git clone https://github.com/chandansgowda/engineering-in-kannada.git
+
+# Navigate to project directory
+cd engineering-in-kannada
+
 # Install dependencies
 npm install
+
+# Create environment file
+cp .env.example .env
+# Edit .env and add your GitHub token
 
 # Start development server
 npm run dev
@@ -93,7 +139,7 @@ npm run build
 - Bookmark favorite videos
 - View course materials and coding exercises
 - Responsive design for all devices
-
+- Contributor leaderboard
 
 ## Technologies Used
 
@@ -103,4 +149,3 @@ npm run build
 - Tailwind CSS
 - React Router
 - Zustand (State Management)
-- Canvas Confetti (Celebration Effects) 
