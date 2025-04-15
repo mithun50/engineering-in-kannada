@@ -1,11 +1,21 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { GraduationCap, Home, BookOpen, Github, Menu, X, Youtube, Instagram } from 'lucide-react';
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import {
+  GraduationCap,
+  Home,
+  BookOpen,
+  Github,
+  Menu,
+  X,
+  Youtube,
+  Instagram,
+  Trophy,
+} from "lucide-react";
 
 export function Header() {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  
+
   return (
     <header className="bg-dark/50 backdrop-blur-sm border-b border-white/10 sticky top-0 z-50">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -13,16 +23,20 @@ export function Header() {
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-2">
               <GraduationCap className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold text-white">Engineering in Kannada</span>
+              <span className="text-xl font-bold text-white">
+                Engineering in Kannada
+              </span>
             </Link>
           </div>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
             <Link
               to="/"
               className={`flex items-center gap-2 text-sm ${
-                location.pathname === '/' ? 'text-primary' : 'text-gray-300 hover:text-primary'
+                location.pathname === "/"
+                  ? "text-primary"
+                  : "text-gray-300 hover:text-primary"
               }`}
             >
               <Home className="h-4 w-4" />
@@ -31,11 +45,24 @@ export function Header() {
             <Link
               to="/courses"
               className={`flex items-center gap-2 text-sm ${
-                location.pathname.includes('/course') ? 'text-primary' : 'text-gray-300 hover:text-primary'
+                location.pathname.includes("/course")
+                  ? "text-primary"
+                  : "text-gray-300 hover:text-primary"
               }`}
             >
               <BookOpen className="h-4 w-4" />
               Courses
+            </Link>
+            <Link
+              to="/leaderboard"
+              className={`flex items-center gap-2 text-sm ${
+                location.pathname === "/leaderboard"
+                  ? "text-primary"
+                  : "text-gray-300 hover:text-primary"
+              }`}
+            >
+              <Trophy className="h-4 w-4" />
+              Leaderboard
             </Link>
             <a
               href="https://www.youtube.com/@EngineeringinKannada"
@@ -72,7 +99,11 @@ export function Header() {
             className="md:hidden p-2 text-gray-300 hover:text-primary"
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
 
@@ -83,7 +114,9 @@ export function Header() {
               <Link
                 to="/"
                 className={`flex items-center gap-2 p-2 text-sm ${
-                  location.pathname === '/' ? 'text-primary' : 'text-gray-300 hover:text-primary'
+                  location.pathname === "/"
+                    ? "text-primary"
+                    : "text-gray-300 hover:text-primary"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -93,12 +126,26 @@ export function Header() {
               <Link
                 to="/courses"
                 className={`flex items-center gap-2 p-2 text-sm ${
-                  location.pathname.includes('/course') ? 'text-primary' : 'text-gray-300 hover:text-primary'
+                  location.pathname.includes("/course")
+                    ? "text-primary"
+                    : "text-gray-300 hover:text-primary"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 <BookOpen className="h-4 w-4" />
                 Courses
+              </Link>
+              <Link
+                to="/leaderboard"
+                className={`flex items-center gap-2 p-2 text-sm ${
+                  location.pathname === "/leaderboard"
+                    ? "text-primary"
+                    : "text-gray-300 hover:text-primary"
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Trophy className="h-4 w-4" />
+                Leaderboard
               </Link>
               <a
                 href="https://www.youtube.com/@EngineeringinKannada"
