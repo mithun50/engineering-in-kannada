@@ -1,5 +1,6 @@
-import React from 'react';
-import { GraduationCap, Youtube, Twitter, Linkedin, Instagram } from 'lucide-react';
+import React from "react";
+import { GraduationCap, Youtube, Linkedin, Instagram } from "lucide-react";
+import { FaXTwitter } from "react-icons/fa6";
 
 export function Footer() {
   return (
@@ -8,14 +9,16 @@ export function Footer() {
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-2">
             <GraduationCap className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold text-white">Engineering in Kannada</span>
+            <span className="text-xl font-bold text-white">
+              Engineering in Kannada
+            </span>
           </div>
-          
+
           <p className="mt-4 max-w-md text-center text-sm text-gray-400">
-            Empowering Kannada-speaking students with quality engineering education.
-            Learn at your own pace, completely free.
+            Empowering Kannada-speaking students with quality engineering
+            education. Learn at your own pace, completely free.
           </p>
-          
+
           <div className="mt-8 flex items-center gap-6">
             <a
               href="https://www.youtube.com/@EngineeringinKannada"
@@ -39,7 +42,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-primary"
             >
-              <Twitter className="h-5 w-5" />
+              <FaXTwitter className="h-5 w-5" />
             </a>
             <a
               href="https://www.linkedin.com/in/chandan-s-gowda-4b2913183/"
@@ -50,12 +53,13 @@ export function Footer() {
               <Linkedin className="h-5 w-5" />
             </a>
           </div>
-          
+
           <div className="mt-8 text-center text-sm text-gray-400">
-            <p>© {new Date().getFullYear()} Engineering in Kannada. All rights reserved.</p>
-            <p className="mt-1">
-              Made with ❤️ for the Kannada tech community
+            <p>
+              © {new Date().getFullYear()} Engineering in Kannada. All rights
+              reserved.
             </p>
+            <p className="mt-1">Made with ❤️ for the Kannada tech community</p>
           </div>
         </div>
       </div>
