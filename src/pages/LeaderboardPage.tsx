@@ -91,7 +91,7 @@ export function LeaderboardPage() {
                       scope="col"
                       className="px-6 py-4 text-right text-sm font-semibold text-white"
                     >
-                      Links
+                      Profile
                     </th>
                   </tr>
                 </thead>

@@ -98,7 +98,7 @@ A platform for learning engineering concepts in Kannada through YouTube playlist
    - Create a `.env` file in the project root
    - Add your GitHub token:
      ```env
-     VITE_GITHUB_TOKEN=your_github_token_here
+     GITHUB_TOKEN=your_github_token_here
      ```
    - Replace `your_github_token_here` with the token you copied
 

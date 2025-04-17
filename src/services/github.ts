@@ -1,7 +1,7 @@
 const REPO_OWNER = "chandansgowda";
 const REPO_NAME = "engineering-in-kannada";
 const GITHUB_API_BASE = "https://api.github.com";
-const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN as string;
+const GITHUB_TOKEN = import.meta.env.GITHUB_TOKEN as string;
 
 interface GitHubUser {
   login: string;
@@ -12,6 +12,8 @@ interface GitHubUser {
 interface GitHubPullRequest {
   user: GitHubUser;
   commits_url: string;
+  state: "open" | "closed";
+  merged_at: string | null;
 }
 
 interface GitHubIssue {
@@ -87,7 +89,7 @@ async function processPullRequests(
   userProfiles: Record<string, { avatar: string; name?: string }>
 ) {
   const processPromises = prsData.map(async (pr) => {
-    if (pr.user?.login) {
+    if (pr.user?.login && (pr.state === "open" || pr.merged_at)) {
       const login = pr.user.login;
       prCounts[login] = (prCounts[login] || 0) + 1;
 
