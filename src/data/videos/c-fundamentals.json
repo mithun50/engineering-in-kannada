@@ -1,8 +1,8 @@
 {
-    "courseId": "c-fundamentals",
+    "courseId": " c-basics-crash-old",
     "videos": [
       {
-        "id": "c-fundamentals-1",
+        "id": " c-basics-crash-old-1",
         "title": "Intro, Input/Output , Data Types and Operators 👨‍💻",
         "type": "Theory + Code",
         "youtubeUrl": "https://www.youtube.com/watch?v=0sd6OpPG2UM&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=1&pp=iAQB",
@@ -10,7 +10,7 @@
         "codingQuestionUrl": ""
       },
       {
-        "id": "c-fundamentals-2",
+        "id": " c-basics-crash-old-2",
         "title": "If-else , For & While Loops, Switch case 👨‍💻",
         "type": "Theory + Code",
         "youtubeUrl": "https://www.youtube.com/watch?v=LEb_PirvYEU&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=2",
@@ -18,7 +18,7 @@
         "codingQuestionUrl": ""
       },
       {
-        "id": "c-fundamentals-3",
+        "id": " c-basics-crash-old-3",
         "title": "Arrays, Multidimensional Arrays or Matrices 👨‍💻",
         "type": "Theory + Code",
         "youtubeUrl": "https://www.youtube.com/watch?v=RWMHf5kRmDo&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=3",
@@ -26,7 +26,7 @@
         "codingQuestionUrl": ""
       },
       {
-        "id": "c-fundamentals-4",
+        "id": " c-basics-crash-old-4",
         "title": "Functions , User Defined & Standard Library 👨‍💻",
         "type": "Theory + Code",
         "youtubeUrl": "https://www.youtube.com/watch?v=ZNltu1NUGz4&list=PLlGueSbLhZoCEMAeoeXoyd3NFnkR4iUP3&index=4",
