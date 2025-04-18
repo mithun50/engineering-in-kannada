@@ -95,7 +95,7 @@ export function VideoCard({ video }: VideoCardProps) {
 
   const handleNotesAndVideoClick= (uri:string)=>{
     if(uri===""){
-      dispatchToast("🚀 Coming Soon! ")
+      dispatchToast("🚀 Coming Soon! Stay tuned.")
       return;
     }
     open(uri);

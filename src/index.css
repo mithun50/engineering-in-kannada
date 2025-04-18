@@ -8,5 +8,5 @@
 
 .custom-toast {
     @apply bg-dark text-white rounded-lg shadow-lg;
-
+    margin-top: 10vh;
 }
