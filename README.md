@@ -4,8 +4,6 @@ A platform for learning engineering concepts in Kannada through YouTube playlist
 
 ## Table of Contents
 
-- [Engineering in Kannada](#engineering-in-kannada)
-  - [Table of Contents](#table-of-contents)
   - [Adding a New Course](#adding-a-new-course)
   - [Updating Existing Content](#updating-existing-content)
   - [Contribution Guidelines](#contribution-guidelines)
