@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-progress {
+    background: #FFD700;
+}
+
+.custom-toast {
+    @apply bg-dark text-white rounded-lg shadow-lg;
+    @media (min-width: 768px) {
+    margin-top: 10vh;
+    }
+}
