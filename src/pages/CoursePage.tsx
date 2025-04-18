@@ -6,9 +6,9 @@ import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { MotivationalQuote } from '../components/MotivationalQuote';
 import { useProgressStore } from '../store/progress';
 import { Video } from '../types';
+import { ToastContainer } from 'react-toastify';
 
 // Create a component to render the video list
 const VideoList = React.lazy(() => {
@@ -33,6 +33,9 @@ const VideoList = React.lazy(() => {
         <div className="flex items-center justify-between">
           <h3 className="text-lg font-semibold text-white">Progress: {Math.round(progress)}%</h3>
           <div className="h-2 w-32 rounded-full bg-white/10">
+          <ToastContainer
+          toastClassName={'custom-toast'}
+          />
             <div
               className="h-full rounded-full bg-primary transition-all duration-300"
               style={{ width: `${progress}%` }}

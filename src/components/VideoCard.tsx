@@ -3,6 +3,7 @@ import { Video } from '../types';
 import { PlayCircle, FileText, CheckCircle, Star, Code } from 'lucide-react';
 import { useProgressStore } from '../store/progress';
 import confetti from 'canvas-confetti';
+import { dispatchToast } from '../utils/toastWithCustomMessages';
 
 interface VideoCardProps {
   video: Video;
@@ -92,6 +93,15 @@ export function VideoCard({ video }: VideoCardProps) {
     toggleVideoStarred(video.id);
   };
 
+  const handleNotesAndVideoClick= (uri:string)=>{
+    if(uri===""){
+      dispatchToast("🚀 Coming Soon! ")
+      return;
+    }
+    open(uri);
+  }
+
+
   return (
     <div className="rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 p-4 sm:p-6 transition-all duration-300 hover:bg-white/20">
       <div className="flex items-start justify-between">
@@ -130,24 +140,22 @@ export function VideoCard({ video }: VideoCardProps) {
         </div>
       </div>
       <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:gap-4">
-        <a
-          href={video.youtubeUrl}
-          target="_blank"
+        <button
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-dark transition-colors hover:bg-primary/80"
+          onClick={()=>handleNotesAndVideoClick(video.youtubeUrl)}
         >
           <PlayCircle className="h-4 w-4" />
           Watch Video
-        </a>
-        <a
-          href={video.notesUrl}
-          target="_blank"
+        </button>
+        <button
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-2 rounded-lg bg-white/10 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/20"
+          onClick={()=>handleNotesAndVideoClick(video.notesUrl)}
         >
           <FileText className="h-4 w-4" />
           View Notes
-        </a>
+        </button>
         {video.codingQuestionUrl && (
           <a
             href={video.codingQuestionUrl}
