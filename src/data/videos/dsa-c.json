@@ -1,0 +1,149 @@
+{
+    "courseId": "dsa-c",
+    "videos": [
+        {
+            "id": "dsa-c-1",
+            "title": "Introduction to DSA, Types of Data Structures",
+            "type": "DSA + Theory",
+            "youtubeUrl": "https://www.youtube.com/watch?v=iDe1fWnneCA&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=1",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-2",
+            "title": "Define, Initialize and Manipulate Structs in C",
+            "type": "DSA + Theory",
+            "youtubeUrl": "https://www.youtube.com/watch?v=OEDZLbQqaK8&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=2",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-3",
+            "title": "How to nest struct inside another struct in C ",
+            "type": "DSA + Theory",
+            "youtubeUrl": "https://www.youtube.com/watch?v=dc8DpiGAS4M&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=3",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-4",
+            "title": "Introduction to address and pointers in C ",
+            "type": "Theory + Code",
+            "youtubeUrl": "https://www.youtube.com/watch?v=UfTS7LDPf2Y&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=4",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-5",
+            "title": "Addition and Subtraction in pointers and Arrays",
+            "type": "DSA + Theory",
+            "youtubeUrl": "https://www.youtube.com/watch?v=Ek0QrA39Uas&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=5",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-6",
+            "title": "Local Scope, Passing Address as Parameter",
+            "type": "Theory + Code",
+            "youtubeUrl": "https://www.youtube.com/watch?v=GdEy8I-m6xg&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=6",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-7",
+            "title": " Array Input and Output",
+            "type": "Arrays",
+            "youtubeUrl": "https://www.youtube.com/watch?v=c-kortlln4w&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=7",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-8",
+            "title": "Linear Search Algorithm | Arrays Menu Driven Program ",
+            "type": "Algorithm + Code",
+            "youtubeUrl": "https://www.youtube.com/watch?v=Yovsd8aoiV8&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=8",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-9",
+            "title": "Binary Search Algorithm | Algorithm with Real World Examples",
+            "type": "Algorithm + Code",
+            "youtubeUrl": "https://www.youtube.com/watch?v=IwiD7shJVcQ&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=9",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-10",
+            "title": "Binary Search | Algorithms and Code in C ",
+            "type": "Algorithm + Code",
+            "youtubeUrl": "https://www.youtube.com/watch?v=Kf8i_vPSYRc&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=10",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-11",
+            "title": " Array Insertion | Menu Driven Program ",
+            "type": "Arrays",
+            "youtubeUrl": "https://www.youtube.com/watch?v=D5eKRbiKY6Q&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=11",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-12",
+            "title": "Delete using Index | Array Element Deletion",
+            "type": "Arrays",
+            "youtubeUrl": "https://www.youtube.com/watch?v=MBqOUNZ2nRg&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=12",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-13",
+            "title": "Delete Value in Array | Array Element Deletion",
+            "type": "Arrays",
+            "youtubeUrl": "https://www.youtube.com/watch?v=83-lWtSuwk8&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=13",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-14",
+            "title": "Swap Two Variables Algorithm and Program in C ",
+            "type": "DSA + Code",
+            "youtubeUrl": "https://www.youtube.com/watch?v=38CloNYtopw&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=14",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-15",
+            "title": "Reversing an Array Algorithm and Program in C ",
+            "type": "Algorithm + Code" ,
+            "youtubeUrl": "https://www.youtube.com/watch?v=1oz7FoTJbPw&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=15",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-16",
+            "title": "Bubble Sort Algorithm | How to sort an array using bubble sort?",
+            "type": "Algorithm + Theory",
+            "youtubeUrl": "https://www.youtube.com/watch?v=F56XLS0IFiE&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=16",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-17",
+            "title": "Bubble Sort C Program | How to bubble sort using C?",
+            "type": "Algorithm + Code" ,
+            "youtubeUrl": "https://www.youtube.com/watch?v=NHXhQnVKKdA&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=17",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-18",
+            "title": "Optimized Bubble Sort C Program in Kannada | Time complexity optimization",
+            "type": "Algorithm + Code" ,
+            "youtubeUrl": "https://www.youtube.com/watch?v=9J5qC3Jqqv0&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=18",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          }
+    ]
+}
