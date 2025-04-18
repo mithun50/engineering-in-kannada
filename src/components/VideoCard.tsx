@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Video } from '../types';
 import { PlayCircle, FileText, CheckCircle, Star, Code } from 'lucide-react';
 import { useProgressStore } from '../store/progress';
 import confetti from 'canvas-confetti';
 import { dispatchToast } from '../utils/toastWithCustomMessages';
+import { useBreakpoint } from '../utils/useBreakPoint';
 
 interface VideoCardProps {
   video: Video;
@@ -14,6 +15,7 @@ export function VideoCard({ video }: VideoCardProps) {
   const completed = isVideoCompleted(video.id);
   const starred = isVideoStarred(video.id);
   const checkboxRef = React.useRef<HTMLButtonElement>(null);
+  const isDesktop=useBreakpoint();
 
   const playCelebrationSound = () => {
     const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
@@ -88,6 +90,7 @@ export function VideoCard({ video }: VideoCardProps) {
     }
   };
 
+
   const handleStar = (e: React.MouseEvent) => {
     e.stopPropagation();
     toggleVideoStarred(video.id);
@@ -95,7 +98,7 @@ export function VideoCard({ video }: VideoCardProps) {
 
   const handleNotesAndVideoClick= (uri:string)=>{
     if(uri===""){
-      dispatchToast("🚀 Coming Soon! Stay tuned.")
+      dispatchToast("🚀 Coming Soon! Stay tuned.",isDesktop?"top-right":"bottom-center")
       return;
     }
     open(uri);

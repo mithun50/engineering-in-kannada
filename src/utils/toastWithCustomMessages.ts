@@ -1,8 +1,9 @@
-import { Bounce, toast } from 'react-toastify';
+import { Bounce, toast, ToastPosition } from 'react-toastify';
 
-export const dispatchToast=(message:string)=>{
+
+export const dispatchToast=(message:string,position:ToastPosition)=>{
     toast(message, {
-        position: 'top-right',
+        position: position,
         autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: false,
