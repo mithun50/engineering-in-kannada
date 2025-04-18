@@ -2,6 +2,17 @@
 
 A platform for learning engineering concepts in Kannada through YouTube playlists from Engineering in Kannada.
 
+## Table of Contents
+
+  - [Adding a New Course](#adding-a-new-course)
+  - [Updating Existing Content](#updating-existing-content)
+  - [Contribution Guidelines](#contribution-guidelines)
+  - [Local Development](#local-development)
+  - [Notes for Contributors](#notes-for-contributors)
+  - [Features](#features)
+  - [Technologies Used](#technologies-used)
+
+
 ## Adding a New Course
 
 1. Add course details to `src/data/courses.json`:
