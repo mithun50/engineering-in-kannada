@@ -12,7 +12,7 @@ export interface Course {
   title: string;
   description: string;
   thumbnail: string;
-  difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
+  difficulty: "Beginner" | "Intermediate" | "Advanced";
   starred?: boolean;
 }
 
@@ -27,7 +27,7 @@ export interface VideoData {
 
 export interface AnnouncementItem {
   id: string;
-  type: 'quote' | 'announcement';
+  type: "quote" | "announcement";
   content: string;
   author?: string;
   isActive: boolean;
@@ -35,4 +35,20 @@ export interface AnnouncementItem {
 
 export interface AnnouncementsData {
   items: AnnouncementItem[];
+}
+
+export interface Contributor {
+  id: string;
+  name: string;
+  avatar: string;
+  prs: number;
+  issues: number;
+  commits: number;
+  githubUrl?: string;
+  linkedinUrl?: string;
+  portfolioUrl?: string;
+}
+
+export interface ContributorsData {
+  contributors: Contributor[];
 }
