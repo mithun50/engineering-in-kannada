@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import {
   GraduationCap,
   Home,
-  BookOpen,
   Github,
   Menu,
   X,
@@ -41,17 +40,6 @@ export function Header() {
             >
               <Home className="h-4 w-4" />
               Home
-            </Link>
-            <Link
-              to="/courses"
-              className={`flex items-center gap-2 text-sm ${
-                location.pathname.includes("/course")
-                  ? "text-primary"
-                  : "text-gray-300 hover:text-primary"
-              }`}
-            >
-              <BookOpen className="h-4 w-4" />
-              Courses
             </Link>
             <Link
               to="/leaderboard"
@@ -124,18 +112,6 @@ export function Header() {
                 Home
               </Link>
               <Link
-                to="/courses"
-                className={`flex items-center gap-2 p-2 text-sm ${
-                  location.pathname.includes("/course")
-                    ? "text-primary"
-                    : "text-gray-300 hover:text-primary"
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <BookOpen className="h-4 w-4" />
-                Courses
-              </Link>
-              <Link
                 to="/leaderboard"
                 className={`flex items-center gap-2 p-2 text-sm ${
                   location.pathname === "/leaderboard"
@@ -168,7 +144,7 @@ export function Header() {
                 Instagram
               </a>
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/chandansgowda/engineering-in-kannada"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 p-2 text-sm text-gray-300 hover:text-primary"
