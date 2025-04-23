@@ -35,7 +35,7 @@
           },
           {
             "id": "dsa-c-5",
-            "title": "5. Pointers and Arrays",
+            "title": "5. Pointers Arithmetic",
             "type": "DSA + Theory",
             "youtubeUrl": "https://www.youtube.com/watch?v=Ek0QrA39Uas&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=5",
             "notesUrl": "",
@@ -67,7 +67,7 @@
           },
           {
             "id": "dsa-c-9",
-            "title": "9. Binary Search Algorithm ",
+            "title": "9. Binary Search - Algorithm",
             "type": "Algorithm + Code",
             "youtubeUrl": "https://www.youtube.com/watch?v=IwiD7shJVcQ&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=9",
             "notesUrl": "",
@@ -75,7 +75,7 @@
           },
           {
             "id": "dsa-c-10",
-            "title": "10. Binary Search Algorithm II ",
+            "title": "10. Binary Search - Implementation",
             "type": "Algorithm + Code",
             "youtubeUrl": "https://www.youtube.com/watch?v=Kf8i_vPSYRc&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=10",
             "notesUrl": "",
@@ -91,7 +91,7 @@
           },
           {
             "id": "dsa-c-12",
-            "title": "12. Array Element Deletion",
+            "title": "12. Array Element Deletion - using Index",
             "type": "Arrays",
             "youtubeUrl": "https://www.youtube.com/watch?v=MBqOUNZ2nRg&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=12",
             "notesUrl": "",
@@ -99,7 +99,7 @@
           },
           {
             "id": "dsa-c-13",
-            "title": "13. Array Element Deletion II",
+            "title": "13. Array Element Deletion - using Value",
             "type": "Arrays",
             "youtubeUrl": "https://www.youtube.com/watch?v=83-lWtSuwk8&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=13",
             "notesUrl": "",
@@ -123,7 +123,7 @@
           },
           {
             "id": "dsa-c-16",
-            "title": "16. Bubble Sort ",
+            "title": "16. Bubble Sort - Algorithm ",
             "type": "Algorithm + Theory",
             "youtubeUrl": "https://www.youtube.com/watch?v=F56XLS0IFiE&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=16",
             "notesUrl": "",
@@ -131,7 +131,7 @@
           },
           {
             "id": "dsa-c-17",
-            "title": "17. Bubble Sort II",
+            "title": "17. Bubble Sort - Implementation",
             "type": "Algorithm + Code" ,
             "youtubeUrl": "https://www.youtube.com/watch?v=NHXhQnVKKdA&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=17",
             "notesUrl": "",
@@ -139,7 +139,7 @@
           },
           {
             "id": "dsa-c-18",
-            "title": "18. Bubble Sort III",
+            "title": "18. Bubble Sort - Optimization",
             "type": "Algorithm + Code" ,
             "youtubeUrl": "https://www.youtube.com/watch?v=9J5qC3Jqqv0&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=18",
             "notesUrl": "",
