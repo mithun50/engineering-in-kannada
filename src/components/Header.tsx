@@ -10,10 +10,12 @@ import {
   Instagram,
   Trophy,
 } from "lucide-react";
+import { useSearchStore } from "../store/search";
 
 export function Header() {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const { query, setQuery } = useSearchStore();
 
   return (
     <header className="bg-dark/50 backdrop-blur-sm border-b border-white/10 sticky top-0 z-50">
@@ -80,6 +82,13 @@ export function Header() {
               Contribute
             </a>
           </div>
+          <input
+              type="text"
+              placeholder="Search courses..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              className="ml-2 rounded-md px-2 py-1 text-sm bg-black text-white border border-gray-600 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+            />
 
           {/* Mobile Menu Button */}
           <button
@@ -153,6 +162,13 @@ export function Header() {
                 <Github className="h-4 w-4" />
                 GitHub
               </a>
+              <input
+              type="text"
+              placeholder="Search courses..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              className="ml-2 rounded-md px-2 py-1 text-sm bg-black text-white border border-gray-600 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+            />
             </div>
           </div>
         )}
