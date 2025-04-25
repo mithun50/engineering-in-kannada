@@ -9,7 +9,7 @@ declare global {
 }
 
 // Use environment variable for tracking ID
-export const GA_TRACKING_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
+export const GA_TRACKING_ID = import.meta.env.GOOGLE_ANALYTICS_MEASUREMENT_ID;
 
 // Log page views
 export const pageview = (url: string) => {
