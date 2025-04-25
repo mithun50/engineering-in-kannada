@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { getBlogPosts } from '../utils/blogUtils';
 import { Calendar, User, Tag, BookOpen } from 'lucide-react';
-import { Header } from './Header';
-import { Footer } from './Footer';
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
 
 export function Blogs() {
   const blogs = getBlogPosts();

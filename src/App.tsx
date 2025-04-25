@@ -4,8 +4,8 @@ import { HomePage } from "./pages/HomePage";
 import { CoursePage } from "./pages/CoursePage";
 import { LeaderboardPage } from "./pages/LeaderboardPage";
 import BackToTop from "./components/BackToTop";
-import {Blogs} from './components/Blogs';
-import BlogPost from './pages/BlogPost';
+import { Blogs } from './pages/Blogs';
+import { BlogPost } from './pages/BlogPost';
 
 function App() {
   return (

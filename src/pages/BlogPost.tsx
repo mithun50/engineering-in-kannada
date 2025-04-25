@@ -7,7 +7,7 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ArrowLeft } from 'lucide-react';
 
-const BlogPost: React.FC = () => {
+export const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const blog = slug ? getBlogPost(slug) : null;
 
@@ -66,6 +66,4 @@ const BlogPost: React.FC = () => {
       <Footer />
     </div>
   );
-};
-
-export default BlogPost; 
+}; 
