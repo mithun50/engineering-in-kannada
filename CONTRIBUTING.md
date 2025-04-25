@@ -55,7 +55,7 @@ Please note that this project adheres to a **Code of Conduct**. By participating
 
 ## 📬 Contact
 
-Have questions? Feel free to [open an issue](https://github.com/engineering-in-kannada/issues) or reach out to the project maintainers.
+Have questions? Feel free to [open an issue](https://github.com/chandansgowda/engineering-in-kannada/issues) or reach out to the project maintainers.
 
 ---
 
