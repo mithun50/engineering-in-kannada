@@ -62,6 +62,8 @@ A platform for learning engineering concepts in Kannada through YouTube playlist
   "title": "Your Blog Title",
   "date": "YYYY-MM-DD",
   "author": "Your Name",
+  "authorUrl": "Your professional profile URL (e.g., LinkedIn, GitHub, Twitter)",
+  "description": "A brief description of your blog post that will be shown in the blog cards.",
   "tags": ["tag1", "tag2"]
 }
 ```

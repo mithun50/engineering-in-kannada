@@ -2,5 +2,7 @@
   "title": "Contributing to Open Source: A Beginner’s Guide to Forks and Pull Requests",
   "date": "2024-04-24",
   "author": "K Vijay",
+  "authorUrl": "https://github.com/k-vijay-05",
+  "description": "A comprehensive guide for beginners to contribute to the open source projects. Learn the  process of forking repositories, making changes, and submitting pull requests to become an active open source contributor.",
   "tags": ["OpenSource", "Github", "Git"]
 } 

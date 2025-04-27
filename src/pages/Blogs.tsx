@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { getBlogPosts } from '../utils/blogUtils';
+import { truncateWords } from '../utils/textUtils';
 import { Calendar, User, Tag, BookOpen } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -30,7 +31,7 @@ export function Blogs() {
             >
               <div className="p-6">
                 <div className="flex items-center gap-4 text-gray-400 text-sm mb-4">
-                <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2">
                     <User className="h-4 w-4 text-primary" />
                     <span>{blog.metadata.author}</span>
                   </div>
@@ -39,9 +40,12 @@ export function Blogs() {
                     <span>{new Date(blog.metadata.date).toLocaleDateString()}</span>
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-4">
-                  {blog.metadata.title}
+                <h3 className="text-xl font-bold text-white mb-3 leading-tight">
+                  {truncateWords(blog.metadata.title, 10)}
                 </h3>
+                <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                  {truncateWords(blog.metadata.description, 20)}
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {blog.metadata.tags.map((tag) => (
                     <span

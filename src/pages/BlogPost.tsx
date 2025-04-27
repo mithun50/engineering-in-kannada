@@ -41,7 +41,21 @@ export const BlogPost: React.FC = () => {
           <div className="mb-8">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">{blog.metadata.title}</h1>
             <div className="flex items-center gap-6 text-gray-400 text-sm">
-              <span>By {blog.metadata.author}</span>
+              <span>
+                By{' '}
+                {blog.metadata.authorUrl ? (
+                  <a
+                    href={blog.metadata.authorUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                  >
+                    {blog.metadata.author}
+                  </a>
+                ) : (
+                  blog.metadata.author
+                )}
+              </span>
               <span>{new Date(blog.metadata.date).toLocaleDateString()}</span>
             </div>
           </div>

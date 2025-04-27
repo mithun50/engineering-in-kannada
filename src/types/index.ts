@@ -57,6 +57,8 @@ export interface BlogMetadata {
   title: string;
   date: string;
   author: string;
+  authorUrl?: string;
+  description: string;
   tags: string[];
 }
 
