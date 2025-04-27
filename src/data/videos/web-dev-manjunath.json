@@ -3,7 +3,7 @@
   "videos": [
     {
       "id": "web-dev-1", 
-      "title": "Introduction to HTML and CSS",
+      "title": "1. Introduction to HTML and CSS",
       "type": "Concept",
       "youtubeUrl": "https://www.youtube.com/watch?v=mVbsESNhDAk&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=1&pp=iAQB",
       "notesUrl": "",
@@ -11,7 +11,7 @@
     },
     {
       "id": "web-dev-2",
-      "title": "CSS Basics",
+      "title": "2. CSS Basics",
       "type": "Concept", 
       "youtubeUrl": "https://www.youtube.com/watch?v=kzoveSCMJAU&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=2&pp=iAQB",
       "notesUrl": "",
@@ -19,7 +19,7 @@
     },
     {
       "id": "web-dev-3",
-      "title": "CSS Grid and Flexbox",
+      "title": "3. CSS Grid and Flexbox",
       "type": "Hands-On",
       "youtubeUrl": "https://www.youtube.com/watch?v=TkpulmeSEqI&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=3&pp=iAQB",
       "notesUrl": "",
@@ -27,7 +27,7 @@
     },
     {
       "id": "web-dev-4",
-      "title": "Media Queries and Responsive Design",
+      "title": "4. Media Queries and Responsive Design",
       "type": "Hands-On",
       "youtubeUrl": "https://www.youtube.com/watch?v=rEootTokgu4&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=4&pp=iAQB",
       "notesUrl": "",
@@ -35,7 +35,7 @@
     },
     {
       "id": "web-dev-5", 
-      "title": "CSS Animation",
+      "title": "5. CSS Animation",
       "type": "Hands-On",
       "youtubeUrl": "https://www.youtube.com/watch?v=eCwXvcJuYi8&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=5&pp=iAQB",
       "notesUrl": "",
@@ -43,7 +43,7 @@
     },
     {
       "id": "web-dev-6",
-      "title": "Website Project Part 1",
+      "title": "6. Website Project Part 1",
       "type": "Project",
       "youtubeUrl": "https://www.youtube.com/watch?v=5W73TFVgcmo&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=6&pp=iAQB",
       "notesUrl": "",
@@ -51,7 +51,7 @@
     },
     {
       "id": "web-dev-7",
-      "title": "Website Project Part 2",
+      "title": "7. Website Project Part 2",
       "type": "Project", 
       "youtubeUrl": "https://www.youtube.com/watch?v=16eg-s66txE&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=7&pp=iAQB",
       "notesUrl": "",

@@ -1,0 +1,149 @@
+{
+    "courseId": "dsa-c",
+    "videos": [
+        {
+            "id": "dsa-c-1",
+            "title": "1. Introduction to DSA",
+            "type": "DSA + Theory",
+            "youtubeUrl": "https://www.youtube.com/watch?v=iDe1fWnneCA&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=1",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-2",
+            "title": "2. Structs",
+            "type": "DSA + Theory",
+            "youtubeUrl": "https://www.youtube.com/watch?v=OEDZLbQqaK8&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=2",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-3",
+            "title": "3. Nested Structs",
+            "type": "DSA + Theory",
+            "youtubeUrl": "https://www.youtube.com/watch?v=dc8DpiGAS4M&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=3",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-4",
+            "title": "4. Pointers",
+            "type": "Theory + Code",
+            "youtubeUrl": "https://www.youtube.com/watch?v=UfTS7LDPf2Y&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=4",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-5",
+            "title": "5. Pointers Arithmetic",
+            "type": "DSA + Theory",
+            "youtubeUrl": "https://www.youtube.com/watch?v=Ek0QrA39Uas&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=5",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-6",
+            "title": "6. Scopes",
+            "type": "Theory + Code",
+            "youtubeUrl": "https://www.youtube.com/watch?v=GdEy8I-m6xg&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=6",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-7",
+            "title": "7. Arrays",
+            "type": "Arrays",
+            "youtubeUrl": "https://www.youtube.com/watch?v=c-kortlln4w&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=7",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-8",
+            "title": "8. Linear Search Algorithm",
+            "type": "Algorithm + Code",
+            "youtubeUrl": "https://www.youtube.com/watch?v=Yovsd8aoiV8&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=8",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-9",
+            "title": "9. Binary Search - Algorithm",
+            "type": "Algorithm + Code",
+            "youtubeUrl": "https://www.youtube.com/watch?v=IwiD7shJVcQ&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=9",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-10",
+            "title": "10. Binary Search - Implementation",
+            "type": "Algorithm + Code",
+            "youtubeUrl": "https://www.youtube.com/watch?v=Kf8i_vPSYRc&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=10",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-11",
+            "title": "11. Arrays Insertion ",
+            "type": "Arrays",
+            "youtubeUrl": "https://www.youtube.com/watch?v=D5eKRbiKY6Q&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=11",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-12",
+            "title": "12. Array Element Deletion - using Index",
+            "type": "Arrays",
+            "youtubeUrl": "https://www.youtube.com/watch?v=MBqOUNZ2nRg&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=12",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-13",
+            "title": "13. Array Element Deletion - using Value",
+            "type": "Arrays",
+            "youtubeUrl": "https://www.youtube.com/watch?v=83-lWtSuwk8&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=13",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-14",
+            "title": "14. Swapping",
+            "type": "DSA + Code",
+            "youtubeUrl": "https://www.youtube.com/watch?v=38CloNYtopw&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=14",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-15",
+            "title": "15. Reversing an Array ",
+            "type": "Algorithm + Code" ,
+            "youtubeUrl": "https://www.youtube.com/watch?v=1oz7FoTJbPw&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=15",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-16",
+            "title": "16. Bubble Sort - Algorithm ",
+            "type": "Algorithm + Theory",
+            "youtubeUrl": "https://www.youtube.com/watch?v=F56XLS0IFiE&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=16",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-17",
+            "title": "17. Bubble Sort - Implementation",
+            "type": "Algorithm + Code" ,
+            "youtubeUrl": "https://www.youtube.com/watch?v=NHXhQnVKKdA&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=17",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          },
+          {
+            "id": "dsa-c-18",
+            "title": "18. Bubble Sort - Optimization",
+            "type": "Algorithm + Code" ,
+            "youtubeUrl": "https://www.youtube.com/watch?v=9J5qC3Jqqv0&list=PLlGueSbLhZoCNnEEoeOXICh0k4wz0hG-V&index=18",
+            "notesUrl": "",
+            "codingQuestionUrl": ""
+          }
+    ]
+}
