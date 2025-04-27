@@ -27,6 +27,13 @@
       "description": "Basic C Programming in Kannada crash course.",
       "thumbnail": "https://i.ytimg.com/vi/0sd6OpPG2UM/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDYHXnfNHb_1mSOjLYbePMJPKVqaA",
       "difficulty": "Beginner"
+    },
+    {
+      "id": "dsa-c",
+      "title": "Data Structures and Algorithms in C",
+      "description": "Learn Data Structures and Algorithms in C in Kannada.",
+      "thumbnail": "https://i.ytimg.com/vi/iDe1fWnneCA/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAZH7kV7J3uszbIxnRQowDjt7rpCg",
+      "difficulty": "Intermediate"
     }
   ]
 }
