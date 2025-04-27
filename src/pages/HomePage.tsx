@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import coursesData from '../data/courses.json';
 import { CourseCard } from '../components/CourseCard';
 import { Header } from '../components/Header';
