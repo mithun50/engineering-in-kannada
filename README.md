@@ -5,6 +5,7 @@ A platform for learning engineering concepts in Kannada through YouTube playlist
 ## Table of Contents
 
   - [Adding a New Course](#adding-a-new-course)
+  - [Adding a Blog Post](#adding-a-blog-post)
   - [Updating Existing Content](#updating-existing-content)
   - [Contribution Guidelines](#contribution-guidelines)
   - [Local Development](#local-development)
@@ -44,6 +45,30 @@ A platform for learning engineering concepts in Kannada through YouTube playlist
   ]
 }
 ```
+
+## Adding a Blog Post
+
+1. Create a new directory in `src/blogs/your-blog-slug/` with:
+
+```
+- content.md    # Your blog post content in markdown
+- metadata.json # Blog post metadata
+```
+
+2. Add metadata in `metadata.json`:
+
+```json
+{
+  "title": "Your Blog Title",
+  "date": "YYYY-MM-DD",
+  "author": "Your Name",
+  "authorUrl": "Your professional profile URL (e.g., LinkedIn, GitHub, Twitter)",
+  "description": "A brief description of your blog post that will be shown in the blog cards.",
+  "tags": ["tag1", "tag2"]
+}
+```
+
+3. Write your blog content in `content.md` using markdown format.
 
 ## Updating Existing Content
 
@@ -149,6 +174,7 @@ npm run build
 - Track video progress
 - Bookmark favorite videos
 - View course materials and coding exercises
+- Read technical blogs and articles
 - Responsive design for all devices
 - Contributor leaderboard
 

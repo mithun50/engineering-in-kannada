@@ -52,3 +52,18 @@ export interface Contributor {
 export interface ContributorsData {
   contributors: Contributor[];
 }
+
+export interface BlogMetadata {
+  title: string;
+  date: string;
+  author: string;
+  authorUrl?: string;
+  description: string;
+  tags: string[];
+}
+
+export interface BlogPost {
+  metadata: BlogMetadata;
+  content: string;
+  slug: string;
+}

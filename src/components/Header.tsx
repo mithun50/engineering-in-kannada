@@ -9,6 +9,7 @@ import {
   Youtube,
   Instagram,
   Trophy,
+  BookOpen,
 } from "lucide-react";
 
 export function Header() {
@@ -40,6 +41,17 @@ export function Header() {
             >
               <Home className="h-4 w-4" />
               Home
+            </Link>
+            <Link
+              to="/blogs"
+              className={`flex items-center gap-2 text-sm ${
+                location.pathname === "/blogs"
+                  ? "text-primary"
+                  : "text-gray-300 hover:text-primary"
+              }`}
+            >
+              <BookOpen className="h-4 w-4" />
+              Blogs
             </Link>
             <Link
               to="/leaderboard"
@@ -110,6 +122,18 @@ export function Header() {
               >
                 <Home className="h-4 w-4" />
                 Home
+              </Link>
+              <Link
+                to="/blogs"
+                className={`flex items-center gap-2 p-2 text-sm ${
+                  location.pathname === "/blogs"
+                    ? "text-primary"
+                    : "text-gray-300 hover:text-primary"
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <BookOpen className="h-4 w-4" />
+                Blogs
               </Link>
               <Link
                 to="/leaderboard"
