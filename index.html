@@ -17,9 +17,44 @@
   </script>
   <!-- End Google Analytics -->
 
+  <!-- Google Translate -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,kn,hi,ta,te,ml,mr', // Add the languages you want to support
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+      
+      // Add responsive styling for mobile
+      const responsiveStyle = document.createElement('style');
+      responsiveStyle.textContent = `
+        @media (max-width: 768px) {
+          .goog-te-menu-value {
+            font-size: 14px;
+          }
+          #google_translate_element {
+            width: 100%;
+            max-width: 300px;
+          }
+          .goog-te-gadget {
+            margin: 0 auto;
+          }
+        }
+      `;
+      document.head.appendChild(responsiveStyle);
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <!-- End Google Translate -->
+
 </head>
 
 <body>
+  <!-- Google Translate Element -->
+  <div id="google_translate_element"></div>
+  
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
