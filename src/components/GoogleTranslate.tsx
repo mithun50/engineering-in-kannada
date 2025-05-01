@@ -30,7 +30,6 @@ const GoogleTranslate: React.FC<{
   const [selectedLanguage, setSelectedLanguage] = useState('en');
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Only run once per app load
   useEffect(() => {
     const savedLanguage = localStorage.getItem('preferred_language') || 'en';
     setSelectedLanguage(savedLanguage);
@@ -57,7 +56,6 @@ const GoogleTranslate: React.FC<{
             'google_translate_element'
           );
 
-          // Apply saved language after Google Translate loads
           const tryApplySavedLang = () => {
             const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
             if (selectElement) {
@@ -68,7 +66,6 @@ const GoogleTranslate: React.FC<{
           };
           tryApplySavedLang();
 
-          // Fix Google Translate body styling issues
           const observer = new MutationObserver(() => {
             if (document.body.style.top) {
               const scrollTop = parseInt(document.body.style.top || '0', 10) * -1;
@@ -106,7 +103,6 @@ const GoogleTranslate: React.FC<{
     }
   }, []);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -120,10 +116,34 @@ const GoogleTranslate: React.FC<{
     };
   }, []);
 
-  // Function to manually trigger translation
   const changeLanguage = (langCode: string) => {
     localStorage.setItem('preferred_language', langCode);
     setSelectedLanguage(langCode);
+
+    if (langCode === 'en') {
+      // Reset to original language
+      const gtFrame = document.querySelector('iframe.goog-te-banner-frame') as HTMLIFrameElement;
+      if (gtFrame) {
+        const innerDoc = gtFrame.contentDocument || gtFrame.contentWindow?.document;
+        const resetButton = innerDoc?.querySelector('.goog-te-button button');
+        if (resetButton) {
+          (resetButton as HTMLButtonElement).click();
+        }
+      }
+
+      const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+      if (selectElement) {
+        selectElement.value = '';
+        selectElement.dispatchEvent(new Event('change'));
+        selectElement.dispatchEvent(new Event('blur'));
+      }
+
+      setIsDropdownOpen(false);
+      if (setIsMenuOpen) {
+        setIsMenuOpen(false);
+      }
+      return;
+    }
 
     const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
     if (selectElement) {
@@ -177,4 +197,4 @@ const GoogleTranslate: React.FC<{
 };
 
 export default GoogleTranslate;
-   
+    
