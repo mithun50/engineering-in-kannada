@@ -14,7 +14,6 @@ import {
   BookOpen,
 } from "lucide-react";
 import GoogleTranslate from "./GoogleTranslate";
-import "./GoogleTranslate.css";
 
 export function Header() {
   const location = useLocation();
@@ -49,7 +48,7 @@ export function Header() {
             <Link
               to="/blogs"
               className={`flex items-center gap-2 text-sm ${
-                location.pathname === "/blogs"
+                location.pathname === "/blogs" || location.pathname.startsWith("/blogs/")
                   ? "text-primary"
                   : "text-gray-300 hover:text-primary"
               }`}
@@ -133,7 +132,7 @@ export function Header() {
               <Link
                 to="/blogs"
                 className={`flex items-center gap-2 p-2 text-sm ${
-                  location.pathname === "/blogs"
+                  location.pathname === "/blogs" || location.pathname.startsWith("/blogs/")
                     ? "text-primary"
                     : "text-gray-300 hover:text-primary"
                 }`}
@@ -186,11 +185,13 @@ export function Header() {
               </a>
               
               {/* Add Google Translate in mobile navigation */}
-              <GoogleTranslate position="mobile" setIsMenuOpen={setIsMenuOpen} />
+              <div className="p-2">
+                <GoogleTranslate position="mobile" setIsMenuOpen={setIsMenuOpen} />
+              </div>
             </div>
           </div>
         )}
       </nav>
     </header>
   );
-          }
+}
