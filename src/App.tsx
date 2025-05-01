@@ -1,6 +1,6 @@
 // src/App.tsx
 
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
 import { CoursePage } from "./pages/CoursePage";
@@ -15,7 +15,7 @@ import * as ga from './utils/analytics';
 function AnalyticsWrapper({ children }: { children: React.ReactNode }) {
   const location = useLocation();
 
-  useEffect(() => {
+  React.useEffect(() => {
     ga.pageview(location.pathname + location.search);
   }, [location]);
 
@@ -24,39 +24,12 @@ function AnalyticsWrapper({ children }: { children: React.ReactNode }) {
 
 // Layout component to include Header with all routes
 function Layout({ children }: { children: React.ReactNode }) {
-  useEffect(() => {
-    // Set up a MutationObserver to fix Google Translate issues
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.type === 'childList' && document.body.style.top) {
-          // Reset the top style that Google Translate adds
-          const scrollTop = parseInt(document.body.style.top, 10) * -1;
-          document.body.style.removeProperty('top');
-          document.body.style.position = 'static';
-          window.scrollTo(0, scrollTop);
-        }
-      });
-    });
-    
-    // Start observing the body element for attribute changes
-    observer.observe(document.body, { 
-      attributes: true, 
-      attributeFilter: ['style'] 
-    });
-    
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
   return (
     <>
       <Header />
       <main>
         {children}
       </main>
-      {/* Google Translate Element container will be created once */}
-      <div id="google_translate_element" className="hidden"></div>
     </>
   );
 }
