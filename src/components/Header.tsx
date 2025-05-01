@@ -95,22 +95,25 @@ export function Header() {
               Contribute
             </a>
             
-            {/* Add Google Translate in desktop navigation */}
+            {/* Google Translate in desktop navigation */}
             <GoogleTranslate position="desktop" />
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-gray-300 hover:text-primary"
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
+          <div className="md:hidden flex items-center gap-4">
+            <GoogleTranslate position="mobile" setIsMenuOpen={setIsMenuOpen} />
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 text-gray-300 hover:text-primary"
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -183,15 +186,10 @@ export function Header() {
                 <Github className="h-4 w-4" />
                 Contribute
               </a>
-              
-              {/* Add Google Translate in mobile navigation */}
-              <div className="p-2">
-                <GoogleTranslate position="mobile" setIsMenuOpen={setIsMenuOpen} />
-              </div>
             </div>
           </div>
         )}
       </nav>
     </header>
   );
-}
+                }
