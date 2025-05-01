@@ -1,3 +1,5 @@
+// src/components/Header.tsx
+
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
@@ -11,6 +13,8 @@ import {
   Trophy,
   BookOpen,
 } from "lucide-react";
+import GoogleTranslate from "./GoogleTranslate";
+import "./GoogleTranslate.css";
 
 export function Header() {
   const location = useLocation();
@@ -91,6 +95,9 @@ export function Header() {
               <Github className="h-4 w-4" />
               Contribute
             </a>
+            
+            {/* Add Google Translate in desktop navigation */}
+            <GoogleTranslate position="desktop" />
           </div>
 
           {/* Mobile Menu Button */}
@@ -177,10 +184,13 @@ export function Header() {
                 <Github className="h-4 w-4" />
                 Contribute
               </a>
+              
+              {/* Add Google Translate in mobile navigation */}
+              <GoogleTranslate position="mobile" setIsMenuOpen={setIsMenuOpen} />
             </div>
           </div>
         )}
       </nav>
     </header>
   );
-}
+          }
