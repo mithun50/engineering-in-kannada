@@ -1,126 +1,56 @@
 /* src/components/GoogleTranslate.css */
 
-/* Hide all Google Translate elements */
-.goog-te-banner-frame,
-#goog-gt-tt,
-.goog-te-balloon-frame,
-div#goog-gt-,
-.goog-tooltip,
-.goog-tooltip:hover,
-.goog-te-gadget-icon,
-#google_translate_element,
-#google_translate_element2,
-#gtranslate_wrapper,
-iframe[src^="https://translate.google.com/"],
-iframe[src^="https://www.google.com/translate"],
-.skiptranslate {
+/* Hide the Google Translate original elements */
+.goog-te-banner-frame {
   display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  height: 0 !important;
-  width: 0 !important;
-  border: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
 }
 
-/* Fix for Google translate changing body and html tags */
+.goog-te-menu-value:hover {
+  text-decoration: none !important;
+}
+
+/* Hide the automatic Google top bar that appears after translation */
 body {
   top: 0 !important;
-  position: static !important;
 }
 
-html {
-  height: auto !important;
+/* Remove the top positioning that Google Translate adds */
+.skiptranslate.goog-te-gadget {
+  font-size: 0 !important;
 }
 
 /* Hide the translate icon in the bottom right */
-.goog-te-gadget {
-  font-size: 0 !important;
-  color: transparent !important;
+.goog-te-gadget-icon {
+  display: none !important;
 }
 
-/* Ensure the combo box is hidden but functional */
-.goog-te-gadget .goog-te-combo {
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  width: 0 !important;
-  display: block !important;
-  position: absolute !important;
-  left: -9999px !important;
+/* Hide the original Google translate widget since we have our custom UI */
+.skiptranslate {
+  display: none !important;
+}
+
+/* Fix for Google translate changing body and html tags */
+body > .skiptranslate {
+  display: none !important;
 }
 
 /* Fix for weird shadow effects */
 .goog-text-highlight {
   background-color: transparent !important;
   box-shadow: none !important;
-  border: none !important;
 }
 
-/* Make sure popups are hidden */
-.goog-te-menu-value,
-.goog-te-menu-value:hover {
-  text-decoration: none !important;
+/* Make the dropdown items readable against dark backgrounds */
+.goog-te-menu2-item div, .goog-te-menu2-item:link div, .goog-te-menu2-item:visited div, .goog-te-menu2-item:active div {
+  color: #333 !important;
 }
 
-/* Reset specific Google styles that might interfere */
-#goog-gt-tt, 
-.goog-te-balloon-frame {
+/* Fix for Google's modifications to the body */
+body {
+  position: static !important;
+}
+
+/* Hide iframe that Google creates */
+iframe.skiptranslate {
   display: none !important;
 }
-
-.goog-text-highlight {
-  background-color: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-/* Fix translations on mobile by overriding problematic styles */
-@media (max-width: 767px) {
-  body {
-    top: 0 !important;
-    position: static !important;
-    min-height: 100% !important;
-  }
-  
-  #goog-gt-tt {
-    display: none !important;
-  }
-}
-
-/* Fix for top bar showing up despite our efforts */
-body > .skiptranslate {
-  display: none !important;
-}
-
-/* Reset specific Google Translate styling that affects layout */
-iframe[id=":1.container"],
-.goog-te-menu-frame {
-  display: none !important;
-}
-
-/* Override any !important styles Google might be applying */
-body[style*="top"] {
-  transform: none !important;
-  -webkit-transform: none !important;
-  -moz-transform: none !important;
-  -o-transform: none !important;
-  top: 0 !important;
-}
-
-/* Fix for Google Translate injected elements */
-.VIpgJd-ZVi9od-ORHb-OEVmcd,
-.VIpgJd-ZVi9od-l4eHX-hSRGPd,
-.VIpgJd-ZVi9od-SmfZ-OEVmcd-ibnC6b {
-  display: none !important;
-}
-
-/* Fix notch for iPhones */
-@supports (padding-top: env(safe-area-inset-top)) {
-  body {
-    padding-top: env(safe-area-inset-top) !important;
-  }
-  }
