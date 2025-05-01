@@ -1,31 +1,9 @@
 // src/components/GoogleTranslate.tsx
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Globe } from 'lucide-react';
-
-// Type declaration for Google Translate API
-declare global {
-  interface Window {
-    googleTranslateElementInit: () => void;
-  }
-}
-
-// Indian languages supported by Google Translate
-const INDIAN_LANGUAGES = [
-  { code: 'en', name: 'English' },
-  { code: 'hi', name: 'हिन्दी (Hindi)' },
-  { code: 'kn', name: 'ಕನ್ನಡ (Kannada)' },
-  { code: 'ta', name: 'தமிழ் (Tamil)' },
-  { code: 'te', name: 'తెలుగు (Telugu)' },
-  { code: 'ml', name: 'മലയാളം (Malayalam)' },
-  { code: 'mr', name: 'मराठी (Marathi)' },
-  { code: 'bn', name: 'বাংলা (Bengali)' },
-  { code: 'gu', name: 'ગુજરાતી (Gujarati)' },
-  { code: 'pa', name: 'ਪੰਜਾਬੀ (Punjabi)' },
-  { code: 'or', name: 'ଓଡ଼ିଆ (Odia)' },
-  { code: 'as', name: 'অসমীয়া (Assamese)' },
-  { code: 'ur', name: 'اردو (Urdu)' }
-];
+import translateService, { INDIAN_LANGUAGES } from '../services/TranslateService';
+import './GoogleTranslate.css';
 
 const GoogleTranslate: React.FC<{
   position?: 'desktop' | 'mobile';
@@ -33,61 +11,41 @@ const GoogleTranslate: React.FC<{
 }> = ({ position = 'desktop', setIsMenuOpen }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('en');
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
+  // Close dropdown when clicking outside
   useEffect(() => {
-    // Check if a language preference is saved in localStorage
-    const savedLanguage = localStorage.getItem('preferred_language');
-    if (savedLanguage) {
-      setSelectedLanguage(savedLanguage);
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
     }
-
-    // Add the Google Translate script to the document
-    const addScript = () => {
-      const script = document.createElement('script');
-      script.src = 
-        '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-      script.async = true;
-      document.body.appendChild(script);
-      return () => {
-        if (document.body.contains(script)) {
-          document.body.removeChild(script);
-        }
-      };
-    };
-
-    // Initialize the Google Translate Element
-    window.googleTranslateElementInit = () => {
-      new (window as any).google.translate.TranslateElement(
-        {
-          pageLanguage: 'en', // Your site's original language (English)
-          includedLanguages: INDIAN_LANGUAGES.map(lang => lang.code).join(','),
-          layout: (window as any).google.translate.TranslateElement.InlineLayout.SIMPLE,
-          autoDisplay: false,
-        },
-        'google_translate_element'
-      );
-    };
-
-    const cleanup = addScript();
+    
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      cleanup();
-      delete window.googleTranslateElementInit;
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
-  // Function to manually trigger translation to a specific language
+  // Initialize translator and set up event listeners
+  useEffect(() => {
+    // Initialize translation service
+    translateService.initialize().then(() => {
+      // Get current language from service
+      const currentLang = translateService.getCurrentLanguage();
+      setSelectedLanguage(currentLang);
+    });
+  }, []);
+
+  // Function to change language
   const changeLanguage = (langCode: string) => {
-    // Save preference to localStorage
-    localStorage.setItem('preferred_language', langCode);
+    // Update UI state
     setSelectedLanguage(langCode);
     
-    // Find the Google Translate select element and change it programmatically
-    const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
-    if (selectElement) {
-      selectElement.value = langCode;
-      selectElement.dispatchEvent(new Event('change'));
-    }
+    // Use service to apply translation
+    translateService.changeLanguage(langCode);
     
+    // Close dropdowns
     setIsDropdownOpen(false);
     if (setIsMenuOpen) {
       setIsMenuOpen(false);
@@ -98,12 +56,8 @@ const GoogleTranslate: React.FC<{
     setIsDropdownOpen(!isDropdownOpen);
   };
   
-  // Render the Google Translate Element (hidden) and our custom UI
   return (
-    <div className="relative">
-      {/* Hidden div for Google Translate Element */}
-      <div id="google_translate_element" className="hidden"></div>
-      
+    <div className="relative" ref={dropdownRef}>
       {/* Custom UI */}
       <div className="relative">
         <button
@@ -111,6 +65,7 @@ const GoogleTranslate: React.FC<{
           className={`flex items-center gap-2 text-sm ${position === 'mobile' ? 'p-2' : ''} text-gray-300 hover:text-primary`}
           aria-expanded={isDropdownOpen}
           aria-haspopup="true"
+          aria-label="Select language"
         >
           <Globe className="h-4 w-4" />
           {INDIAN_LANGUAGES.find(lang => lang.code === selectedLanguage)?.name.split(' ')[0] || 'English'}
