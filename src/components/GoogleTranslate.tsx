@@ -11,7 +11,7 @@ const INDIAN_LANGUAGES = [
   { code: 'ml', name: 'മലയാളം (Malayalam)' },
   { code: 'mr', name: 'मराठी (Marathi)' },
   { code: 'bn', name: 'বাংলা (Bengali)' },
-  { code: 'gu', name: 'ગુજરાતી (Gujarati)' },
+  { code: 'gu', name: 'ગુજરាતી (Gujarati)' },
   { code: 'pa', name: 'ਪੰਜਾਬੀ (Punjabi)' },
   { code: 'or', name: 'ଓଡ଼ିଆ (Odia)' },
   { code: 'as', name: 'অসমীয়া (Assamese)' },
@@ -19,7 +19,6 @@ const INDIAN_LANGUAGES = [
 ];
 
 let isScriptAdded = false;
-let doNotReload = false;
 
 const GoogleTranslate: React.FC<{
   position?: 'desktop' | 'mobile';
@@ -27,6 +26,7 @@ const GoogleTranslate: React.FC<{
 }> = ({ position = 'desktop', setIsMenuOpen }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('en');
+  const [isChangingLanguage, setIsChangingLanguage] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const translateElementRef = useRef<any>(null);
   const isInitializedRef = useRef(false);
@@ -68,8 +68,7 @@ const GoogleTranslate: React.FC<{
           setTimeout(() => {
             const currentLang = localStorage.getItem('preferred_language') || 'en';
             if (currentLang !== 'en') {
-              doNotReload = true;
-              changeLanguage(currentLang);
+              changeLanguageInternal(currentLang);
             }
           }, 1000);
 
@@ -126,12 +125,8 @@ const GoogleTranslate: React.FC<{
     };
   }, []);
 
-  // Function to change the current language without page reload
-  const changeLanguage = (langCode: string) => {
-    // Update state and localStorage
-    setSelectedLanguage(langCode);
-    localStorage.setItem('preferred_language', langCode);
-
+  // Internal function to change language that handles all the Google Translate logic
+  const changeLanguageInternal = (langCode: string) => {
     if (!isInitializedRef.current) {
       console.warn('Google Translate not yet initialized');
       return;
@@ -151,45 +146,19 @@ const GoogleTranslate: React.FC<{
         
         // Force untranslation by using Google's internal API if available
         if ((window as any).google && (window as any).google.translate) {
-          const teCombo = document.querySelector('.goog-te-combo') as HTMLSelectElement;
-          if (teCombo) {
-            teCombo.value = '';
-            teCombo.dispatchEvent(new Event('change', { bubbles: true }));
-          }
-          
-          // Additional untranslation attempts using Google's internal functions
           try {
-            const googleTranslateControl = (window as any).google.translate.TranslateElement.instances[0];
-            if (googleTranslateControl) {
-              const translateContainer = document.getElementById(':1.container');
-              if (translateContainer) {
-                const resetAnchor = translateContainer.querySelector('.goog-te-menu-value span:first-child');
-                if (resetAnchor) {
-                  resetAnchor.click();
-                }
-              }
+            // Try to access the internal APIs to reset translation
+            const doGTranslate = (window as any).doGTranslate;
+            if (typeof doGTranslate === 'function') {
+              doGTranslate('en|en');
             }
           } catch (e) {
-            console.warn('Could not access Google Translate internal APIs:', e);
+            console.warn('Could not access Google Translate doGTranslate function');
           }
         }
-        
-        // Only reload as last resort if specified
-        if (!doNotReload) {
-          setTimeout(() => {
-            window.location.reload();
-          }, 100);
-        } else {
-          doNotReload = false; // Reset for next time
-        }
       } else {
-        console.warn('Google Translate dropdown not found');
-      }
-      
-      // Close UI elements
-      setIsDropdownOpen(false);
-      if (setIsMenuOpen) {
-        setIsMenuOpen(false);
+        // If we can't find the dropdown, reload as a last resort
+        window.location.reload();
       }
       
       return;
@@ -207,50 +176,75 @@ const GoogleTranslate: React.FC<{
         const event = new Event('change', { bubbles: true });
         selectElement.dispatchEvent(event);
         
-        // Try accessing Google's JavaScript API directly as backup
-        if ((window as any).google && (window as any).google.translate) {
-          try {
-            // Sometimes direct API access works better
-            const googleTranslateControl = (window as any).google.translate.TranslateElement.instances[0];
-            if (googleTranslateControl) {
-              googleTranslateControl.c.qg.set(langCode);
-              googleTranslateControl.c.qg.ed(selectElement);
-            }
-          } catch (e) {
-            console.warn('Could not access Google Translate internal APIs:', e);
+        // Try another method through Google's function if available
+        try {
+          const doGTranslate = (window as any).doGTranslate;
+          if (typeof doGTranslate === 'function') {
+            doGTranslate(`en|${langCode}`);
           }
+        } catch (e) {
+          console.warn('Could not access Google Translate doGTranslate function');
         }
       } else {
         console.warn('Google Translate dropdown not found');
+        
+        // Set cookies directly as a fallback
+        document.cookie = `googtrans=/en/${langCode}; path=/`;
+        document.cookie = `googtrans=/en/${langCode}; path=/; domain=${window.location.hostname}`;
+        document.cookie = `googtrans=/en/${langCode}; path=/; domain=.${window.location.hostname}`;
       }
     } catch (error) {
       console.error('Error changing language:', error);
     }
+  };
 
-    // Close UI elements
+  // Public function called from UI that manages state and throttles calls
+  const changeLanguage = (langCode: string) => {
+    // Prevent multiple rapid changes
+    if (isChangingLanguage) return;
+    
+    // Update state
+    setSelectedLanguage(langCode);
+    setIsChangingLanguage(true);
+    localStorage.setItem('preferred_language', langCode);
+    
+    // Close UI elements immediately
     setIsDropdownOpen(false);
     if (setIsMenuOpen) {
       setIsMenuOpen(false);
     }
+    
+    // Handle the actual language change with a small delay
+    setTimeout(() => {
+      changeLanguageInternal(langCode);
+      
+      // Reset changing flag after a delay to prevent rapid clicking
+      setTimeout(() => {
+        setIsChangingLanguage(false);
+      }, 1000);
+    }, 100);
   };
 
   const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+    if (!isChangingLanguage) {
+      setIsDropdownOpen(!isDropdownOpen);
+    }
   };
 
   return (
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={toggleDropdown}
-        className={`flex items-center gap-2 text-sm ${position === 'mobile' ? 'p-2 w-full' : ''} text-gray-300 hover:text-primary`}
+        className={`flex items-center gap-2 text-sm ${position === 'mobile' ? 'p-2 w-full' : ''} text-gray-300 hover:text-primary ${isChangingLanguage ? 'opacity-50 cursor-wait' : ''}`}
         aria-expanded={isDropdownOpen}
         aria-haspopup="true"
+        disabled={isChangingLanguage}
       >
         <Globe className="h-4 w-4" />
         {INDIAN_LANGUAGES.find(lang => lang.code === selectedLanguage)?.name.split(' ')[0] || 'English'}
       </button>
 
-      {isDropdownOpen && (
+      {isDropdownOpen && !isChangingLanguage && (
         <div className={`absolute ${position === 'desktop' ? 'right-0' : 'left-0'} mt-2 w-48 rounded-md shadow-lg bg-dark border border-white/10 z-50`}>
           <div className="py-1" role="menu" aria-orientation="vertical">
             {INDIAN_LANGUAGES.map(language => (
@@ -259,6 +253,7 @@ const GoogleTranslate: React.FC<{
                 onClick={() => changeLanguage(language.code)}
                 className={`block w-full text-left px-4 py-2 text-sm ${selectedLanguage === language.code ? 'text-primary' : 'text-gray-300 hover:text-primary hover:bg-white/5'}`}
                 role="menuitem"
+                disabled={isChangingLanguage}
               >
                 {language.name}
               </button>
