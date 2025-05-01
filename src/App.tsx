@@ -10,21 +10,13 @@ import { BlogPost } from './pages/BlogPost';
 import { Header } from "./components/Header";
 import BackToTop from "./components/BackToTop";
 import * as ga from './utils/analytics';
-import translateService from "./services/TranslateService";
-import "./components/GoogleTranslate.css";
 
-// Analytics and translation wrapper
-function AnalyticsAndTranslationWrapper({ children }: { children: React.ReactNode }) {
+// Google analytics 
+function AnalyticsWrapper({ children }: { children: React.ReactNode }) {
   const location = useLocation();
 
   useEffect(() => {
-    // Google Analytics page view tracking
     ga.pageview(location.pathname + location.search);
-    
-    // Handle translation on route change - apply after a delay to ensure content is loaded
-    setTimeout(() => {
-      translateService.applyStoredTranslation(300);
-    }, 500);
   }, [location]);
 
   return <>{children}</>;
@@ -32,44 +24,47 @@ function AnalyticsAndTranslationWrapper({ children }: { children: React.ReactNod
 
 // Layout component to include Header with all routes
 function Layout({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    // Set up a MutationObserver to fix Google Translate issues
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'childList' && document.body.style.top) {
+          // Reset the top style that Google Translate adds
+          const scrollTop = parseInt(document.body.style.top, 10) * -1;
+          document.body.style.removeProperty('top');
+          document.body.style.position = 'static';
+          window.scrollTo(0, scrollTop);
+        }
+      });
+    });
+    
+    // Start observing the body element for attribute changes
+    observer.observe(document.body, { 
+      attributes: true, 
+      attributeFilter: ['style'] 
+    });
+    
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <>
       <Header />
       <main>
         {children}
       </main>
+      {/* Google Translate Element container will be created once */}
+      <div id="google_translate_element" className="hidden"></div>
     </>
   );
 }
 
 function App() {
-  // Initialize translation service and monitoring
-  useEffect(() => {
-    // Initialize translation service
-    translateService.initialize().then(() => {
-      console.log("Translation service initialized");
-    });
-    
-    // Set up continuous monitoring for Google Translate modifications
-    translateService.setupMonitoring();
-    
-    // Add event listener for content loaded
-    window.addEventListener('DOMContentLoaded', () => {
-      translateService.applyStoredTranslation();
-    });
-    
-    // Add event listener for page visibility changes
-    // This helps when users return to the tab and may need translation reapplied
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'visible') {
-        translateService.applyStoredTranslation();
-      }
-    });
-  }, []);
-
   return (
     <BrowserRouter>
-      <AnalyticsAndTranslationWrapper>
+      <AnalyticsWrapper>
         <Layout>
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -81,7 +76,7 @@ function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Layout>
-      </AnalyticsAndTranslationWrapper>
+      </AnalyticsWrapper>
       <BackToTop />
     </BrowserRouter>
   );
