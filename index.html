@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,51 +11,54 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=%GOOGLE_ANALYTICS_MEASUREMENT_ID%"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', '%GOOGLE_ANALYTICS_MEASUREMENT_ID%');
   </script>
   <!-- End Google Analytics -->
 
-  <!-- Google Translate -->
+  <!-- Google Translate Styling -->
+  <style>
+    #translate-wrapper {
+      background: linear-gradient(to right, #f8fafc, #e2e8f0);
+      padding: 8px 20px;
+      text-align: right;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 14px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    #google_translate_element select {
+      padding: 5px;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+      background-color: #f1f5f9;
+      color: #1e293b;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Google Translate Plugin (Indian Languages Only) -->
+  <div id="translate-wrapper">
+    <span style="margin-right: 10px;">Translate:</span>
+    <div id="google_translate_element" style="display: inline-block;"></div>
+  </div>
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
         pageLanguage: 'en',
-        includedLanguages: 'en,kn,hi,ta,te,ml,mr', // Add the languages you want to support
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
+        includedLanguages: 'hi,kn,ta,te,ml,mr,bn,gu,pa,or',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
       }, 'google_translate_element');
-      
-      // Add responsive styling for mobile
-      const responsiveStyle = document.createElement('style');
-      responsiveStyle.textContent = `
-        @media (max-width: 768px) {
-          .goog-te-menu-value {
-            font-size: 14px;
-          }
-          #google_translate_element {
-            width: 100%;
-            max-width: 300px;
-          }
-          .goog-te-gadget {
-            margin: 0 auto;
-          }
-        }
-      `;
-      document.head.appendChild(responsiveStyle);
     }
   </script>
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <!-- End Google Translate -->
+  <script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-</head>
-
-<body>
-  <!-- Google Translate Element -->
-  <div id="google_translate_element"></div>
-  
+  <!-- React Root -->
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
+
 </body>
 </html>
