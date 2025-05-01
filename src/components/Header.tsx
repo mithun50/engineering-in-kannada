@@ -1,5 +1,3 @@
-// src/components/Header.tsx
-
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
@@ -13,7 +11,6 @@ import {
   Trophy,
   BookOpen,
 } from "lucide-react";
-import GoogleTranslate from "./GoogleTranslate";
 
 export function Header() {
   const location = useLocation();
@@ -48,7 +45,7 @@ export function Header() {
             <Link
               to="/blogs"
               className={`flex items-center gap-2 text-sm ${
-                location.pathname === "/blogs" || location.pathname.startsWith("/blogs/")
+                location.pathname === "/blogs"
                   ? "text-primary"
                   : "text-gray-300 hover:text-primary"
               }`}
@@ -94,26 +91,20 @@ export function Header() {
               <Github className="h-4 w-4" />
               Contribute
             </a>
-            
-            {/* Google Translate in desktop navigation */}
-            <GoogleTranslate position="desktop" />
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-4">
-            <GoogleTranslate position="mobile" setIsMenuOpen={setIsMenuOpen} />
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 text-gray-300 hover:text-primary"
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </button>
-          </div>
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 text-gray-300 hover:text-primary"
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
         </div>
 
         {/* Mobile Navigation */}
@@ -135,7 +126,7 @@ export function Header() {
               <Link
                 to="/blogs"
                 className={`flex items-center gap-2 p-2 text-sm ${
-                  location.pathname === "/blogs" || location.pathname.startsWith("/blogs/")
+                  location.pathname === "/blogs"
                     ? "text-primary"
                     : "text-gray-300 hover:text-primary"
                 }`}
