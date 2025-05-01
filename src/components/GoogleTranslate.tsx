@@ -120,17 +120,22 @@ const GoogleTranslate: React.FC<{
     localStorage.setItem('preferred_language', langCode);
     setSelectedLanguage(langCode);
 
-    if (langCode === 'en') {
-      // Reset to original language
-      const gtFrame = document.querySelector('iframe.goog-te-banner-frame') as HTMLIFrameElement;
-      if (gtFrame) {
-        const innerDoc = gtFrame.contentDocument || gtFrame.contentWindow?.document;
-        const resetButton = innerDoc?.querySelector('.goog-te-button button');
-        if (resetButton) {
-          (resetButton as HTMLButtonElement).click();
-        }
+    // Helper to set cookie
+    const setCookie = (name: string, value: string, days: number) => {
+      let expires = '';
+      if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        expires = '; expires=' + date.toUTCString();
       }
+      document.cookie = name + '=' + (value || '') + expires + '; path=/';
+    };
 
+    if (langCode === 'en') {
+      // Reset cookies
+      setCookie('googtrans', '/en/en', 1);
+
+      // Reset select element
       const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
       if (selectElement) {
         selectElement.value = '';
@@ -138,12 +143,20 @@ const GoogleTranslate: React.FC<{
         selectElement.dispatchEvent(new Event('blur'));
       }
 
+      // Reload page to apply reset
+      setTimeout(() => {
+        window.location.reload();
+      }, 500);
+
       setIsDropdownOpen(false);
       if (setIsMenuOpen) {
         setIsMenuOpen(false);
       }
       return;
     }
+
+    // Set cookie for selected language
+    setCookie('googtrans', `/en/${langCode}`, 1);
 
     const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
     if (selectElement) {
@@ -197,4 +210,4 @@ const GoogleTranslate: React.FC<{
 };
 
 export default GoogleTranslate;
-    
+   
