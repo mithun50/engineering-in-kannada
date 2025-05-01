@@ -6,7 +6,12 @@
   <link rel="icon" type="image/svg+xml" href="images/logo.jpg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Engineering in Kannada</title>
-
+  
+  <!-- Preconnect for Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=%GOOGLE_ANALYTICS_MEASUREMENT_ID%"></script>
   <script>
@@ -17,48 +22,138 @@
   </script>
   <!-- End Google Analytics -->
 
-  <!-- Google Translate Styling -->
-  <style>
-    #translate-wrapper {
-      background: linear-gradient(to right, #f8fafc, #e2e8f0);
-      padding: 8px 20px;
-      text-align: right;
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 14px;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    #google_translate_element select {
-      padding: 5px;
-      border-radius: 6px;
-      border: 1px solid #cbd5e1;
-      background-color: #f1f5f9;
-      color: #1e293b;
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- Google Translate Plugin (Indian Languages Only) -->
-  <div id="translate-wrapper">
-    <span style="margin-right: 10px;">Translate:</span>
-    <div id="google_translate_element" style="display: inline-block;"></div>
-  </div>
+  <!-- Google Translate Script - Added to head to ensure it loads early -->
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
         pageLanguage: 'en',
         includedLanguages: 'hi,kn,ta,te,ml,mr,bn,gu,pa,or',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
       }, 'google_translate_element');
     }
   </script>
-  <script type="text/javascript"
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <!-- React Root -->
-  <div id="root"></div>
+  <!-- Enhanced Google Translate Styling -->
+  <style>
+    /* Base styling */
+    :root {
+      --primary-color: #FFD700;
+      --dark-bg: #1A1A1A;
+      --dark-bg-light: #2A2A2A;
+    }
+    
+    body {
+      background-color: var(--dark-bg);
+      color: white;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Google Translate Container */
+    #translate-wrapper {
+      background: #222;
+      padding: 8px 20px;
+      text-align: right;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 14px;
+      border-bottom: 1px solid #333;
+      position: relative;
+      z-index: 1000;
+    }
+
+    /* Google Translate Element - Basic styling that won't interfere */
+    #google_translate_element {
+      display: inline-block;
+    }
+    
+    #google_translate_element select {
+      padding: 5px;
+      border-radius: 4px;
+      background-color: #333;
+      color: white;
+    }
+    
+    /* Simple loading spinner */
+    .app-loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100%;
+      background-color: var(--dark-bg);
+    }
+    
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(255, 215, 0, 0.2);
+      border-radius: 50%;
+      border-top-color: var(--primary-color);
+      animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Mobile optimization */
+    @media (max-width: 768px) {
+      #translate-wrapper {
+        text-align: center;
+        padding: 8px 10px;
+      }
+    }
+
+    /* Fix for Google Translate iframe */
+    .goog-te-menu-frame {
+      max-width: 100% !important;
+    }
+    
+    /* Force body to not have Google's top property */
+    body {
+      top: 0 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Simple Google Translate Element -->
+  <div id="translate-wrapper">
+    <span style="color: #FFD700; font-weight: 500; margin-right: 10px;">Translate:</span>
+    <div id="google_translate_element" style="display: inline-block;"></div>
+  </div>
+
+  <!-- React Root with Loading Spinner -->
+  <div id="root">
+    <div class="app-loading">
+      <div class="spinner"></div>
+    </div>
+  </div>
+  
   <script type="module" src="/src/main.tsx"></script>
 
+  <!-- Fix for Google Translate issues -->
+  <script>
+    // Fix Google Translate shifting body
+    window.addEventListener('load', function() {
+      // Give time for Google Translate to initialize
+      setTimeout(function() {
+        // Force body top to be 0
+        document.body.style.top = '0px';
+        
+        // Monitor for changes and reset if needed
+        const observer = new MutationObserver(function(mutations) {
+          if (document.body.style.top !== '' && document.body.style.top !== '0px') {
+            document.body.style.top = '0px';
+          }
+        });
+        
+        observer.observe(document.body, { attributes: true, attributeFilter: ['style'] });
+      }, 1000);
+    });
+  </script>
 </body>
 </html>
