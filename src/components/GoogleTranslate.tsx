@@ -44,7 +44,8 @@ const GoogleTranslate: React.FC<{
 
       window.googleTranslateElementInit = () => {
         try {
-          new (window as any).google.translate.TranslateElement(
+          // Define the translate instance globally for easier access
+          (window as any).googleTranslateInstance = new (window as any).google.translate.TranslateElement(
             {
               pageLanguage: 'en',
               includedLanguages: INDIAN_LANGUAGES.map(lang => lang.code).join(','),
@@ -58,14 +59,20 @@ const GoogleTranslate: React.FC<{
           const tryApplySavedLang = () => {
             const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
             if (selectElement) {
-              changeLanguage(savedLanguage);
+              // Wait a bit more to ensure everything is properly initialized
+              setTimeout(() => {
+                // Only change if not English (default)
+                if (savedLanguage !== 'en') {
+                  changeLanguage(savedLanguage);
+                }
+              }, 500);
             } else {
               setTimeout(tryApplySavedLang, 500);
             }
           };
           
-          // Give Google Translate time to initialize
-          setTimeout(tryApplySavedLang, 1000);
+          // Give Google Translate more time to fully initialize
+          setTimeout(tryApplySavedLang, 2000);
 
           // Fix scroll issue caused by Google Translate
           const observer = new MutationObserver(() => {
@@ -123,36 +130,66 @@ const GoogleTranslate: React.FC<{
     setSelectedLanguage(langCode);
     localStorage.setItem('preferred_language', langCode);
 
-    // Delete existing cookies to prevent conflicts
-    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + window.location.hostname + ';';
-    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + window.location.hostname.split('.').slice(-2).join('.') + ';';
-
-    if (langCode === 'en') {
-      // For English, we'll reload the page to reset translation
-      setTimeout(() => {
-        window.location.reload();
-      }, 100);
-    } else {
-      // Set the new translation cookie for the selected language
-      const cookieValue = `/en/${langCode}`;
-      document.cookie = `googtrans=${cookieValue}; path=/;`;
-      document.cookie = `googtrans=${cookieValue}; path=/; domain=${window.location.hostname};`;
-      document.cookie = `googtrans=${cookieValue}; path=/; domain=.${window.location.hostname};`;
-
-      // Find and update the Google Translate dropdown
+    const doTranslate = (langCode: string) => {
+      // Get the Google Translate select element
       const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
-      if (selectElement) {
-        selectElement.value = langCode;
-        selectElement.dispatchEvent(new Event('change'));
-      } else {
-        console.error('Google Translate select element not found.');
+      if (!selectElement) {
+        console.error('Google Translate element not found');
+        return false;
       }
 
-      // Force a translation refresh
-      if ((window as any).google && (window as any).google.translate) {
-        (window as any).google.translate.TranslateElement().setLanguage(langCode);
+      // If English is selected, reset to original language
+      if (langCode === 'en') {
+        // Use Google's API to switch back to original language
+        const googleFrame = document.getElementsByClassName('goog-te-menu-frame')[0] as HTMLIFrameElement;
+        if (googleFrame) {
+          const innerDoc = googleFrame.contentDocument || googleFrame.contentWindow?.document;
+          if (innerDoc) {
+            const originBtn = innerDoc.getElementsByTagName('button')[0];
+            if (originBtn) {
+              originBtn.click();
+              setIsDropdownOpen(false);
+              if (setIsMenuOpen) setIsMenuOpen(false);
+              return true;
+            }
+          }
+        }
+        
+        // If the above doesn't work, just reload the page
+        window.location.reload();
+        return true;
       }
+      
+      // Set the dropdown value and trigger change
+      selectElement.value = langCode;
+      
+      // Create and dispatch proper events for the Google Translate element
+      const event = new Event('change', { bubbles: true });
+      selectElement.dispatchEvent(event);
+      
+      return true;
+    };
+
+    // First ensure Google Translate is properly loaded before attempting to translate
+    if ((window as any).google && (window as any).google.translate) {
+      doTranslate(langCode);
+    } else {
+      console.log('Google Translate not ready, retrying...');
+      // Try again after a short delay
+      setTimeout(() => {
+        if ((window as any).google && (window as any).google.translate) {
+          doTranslate(langCode);
+        } else {
+          console.error('Google Translate failed to load properly');
+          // As a last resort, try the cookie-based approach
+          if (langCode === 'en') {
+            document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            window.location.reload();
+          } else {
+            document.cookie = `googtrans=/en/${langCode}; path=/;`;
+          }
+        }
+      }, 1000);
     }
 
     // Close dropdowns
