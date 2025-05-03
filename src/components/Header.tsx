@@ -104,7 +104,7 @@ export function Header() {
             <div className="md:hidden flex items-center ml-2">
               <div className="flex items-center">
                 <Globe className="h-4 w-4 text-primary mr-1" />
-                <div id="google_translate_element_mobile_header" className="scale-75 origin-left"></div>
+                <div id="google_translate_element_mobile_header" className="inline-block"></div>
               </div>
             </div>
           </div>
