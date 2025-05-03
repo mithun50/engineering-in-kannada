@@ -39,12 +39,19 @@ export function Header() {
       
       // Define the initialization function
       window.googleTranslateElementInit = function() {
+        // Create the main translate element
         new (window as any).google.translate.TranslateElement({
           pageLanguage: 'en',
           includedLanguages: 'hi,kn,ta,te,ml,mr,bn,gu,pa,or',
           layout: (window as any).google.translate.TranslateElement.InlineLayout.SIMPLE,
           autoDisplay: false
         }, 'google_translate_element');
+        
+        // Create a duplicate for mobile (if element exists)
+        const mobileElement = document.querySelector('.google_translate_element_mobile');
+        if (mobileElement) {
+          mobileElement.innerHTML = document.getElementById('google_translate_element')?.innerHTML || '';
+        }
       };
       
       // Create and append the script
@@ -81,11 +88,6 @@ export function Header() {
 
   return (
     <header className="bg-dark/50 backdrop-blur-sm border-b border-white/10 sticky top-0 z-50">
-      <div className="bg-[#222] py-2 px-4 sm:px-6 lg:px-8 text-right border-b border-[#333]">
-        <span className="text-primary font-medium mr-2">Translate:</span>
-        <div id="google_translate_element" className="inline-block"></div>
-      </div>
-      
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
@@ -159,6 +161,12 @@ export function Header() {
               <Github className="h-4 w-4" />
               Contribute
             </a>
+            
+            {/* Translate Button */}
+            <div className="flex items-center gap-2 text-sm border-l border-white/10 pl-5 ml-1">
+              <Globe className="h-4 w-4 text-primary" />
+              <div id="google_translate_element" className="inline-block"></div>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -245,6 +253,13 @@ export function Header() {
                 <Github className="h-4 w-4" />
                 Contribute
               </a>
+              
+              {/* Mobile Translate Button */}
+              <div className="flex items-center gap-2 p-2 mt-2 text-sm border-t border-white/10 pt-3">
+                <Globe className="h-4 w-4 text-primary" />
+                <span className="text-primary font-medium">Translate:</span>
+                <div className="google_translate_element_mobile"></div>
+              </div>
             </div>
           </div>
         )}
