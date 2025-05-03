@@ -47,13 +47,13 @@ export function Header() {
           autoDisplay: false
         }, 'google_translate_element');
         
-        // Create a separate instance for mobile
+        // Create a separate instance for mobile header
         new (window as any).google.translate.TranslateElement({
           pageLanguage: 'en',
           includedLanguages: 'hi,kn,ta,te,ml,mr,bn,gu,pa,or',
           layout: (window as any).google.translate.TranslateElement.InlineLayout.SIMPLE,
           autoDisplay: false
-        }, 'google_translate_element_mobile');
+        }, 'google_translate_element_mobile_header');
       };
       
       // Create and append the script
@@ -99,6 +99,14 @@ export function Header() {
                 Engineering in Kannada
               </span>
             </Link>
+            
+            {/* Mobile Translate Button - Next to title */}
+            <div className="md:hidden flex items-center ml-2">
+              <div className="flex items-center">
+                <Globe className="h-4 w-4 text-primary mr-1" />
+                <div id="google_translate_element_mobile_header" className="scale-75 origin-left"></div>
+              </div>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
@@ -164,7 +172,7 @@ export function Header() {
               Contribute
             </a>
             
-            {/* Translate Button */}
+            {/* Desktop Translate Button */}
             <div className="flex items-center gap-2 text-sm border-l border-white/10 pl-5 ml-1">
               <Globe className="h-4 w-4 text-primary" />
               <div id="google_translate_element" className="inline-block"></div>
@@ -255,13 +263,6 @@ export function Header() {
                 <Github className="h-4 w-4" />
                 Contribute
               </a>
-              
-              {/* Mobile Translate Button */}
-              <div className="flex items-center gap-2 p-2 mt-2 text-sm border-t border-white/10 pt-3">
-                <Globe className="h-4 w-4 text-primary" />
-                <span className="text-primary font-medium">Translate:</span>
-                <div id="google_translate_element_mobile"></div>
-              </div>
             </div>
           </div>
         )}
@@ -285,14 +286,27 @@ export function Header() {
           max-width: 100% !important;
         }
         
+        /* Mobile header translate element styles */
+        #google_translate_element_mobile_header .goog-te-combo {
+          font-size: 12px !important;
+          padding: 2px !important;
+          border-radius: 4px;
+          background-color: rgba(30, 30, 30, 0.6);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          color: white;
+        }
+        
         /* Mobile optimization */
         @media (max-width: 768px) {
-          #translate-wrapper {
-            text-align: center;
-            padding: 8px 10px;
+          .scale-75 {
+            transform: scale(0.75);
+          }
+          
+          .origin-left {
+            transform-origin: left;
           }
         }
       `}</style>
     </header>
   );
-                                 }
+      }
