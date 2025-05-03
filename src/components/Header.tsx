@@ -47,11 +47,13 @@ export function Header() {
           autoDisplay: false
         }, 'google_translate_element');
         
-        // Create a duplicate for mobile (if element exists)
-        const mobileElement = document.querySelector('.google_translate_element_mobile');
-        if (mobileElement) {
-          mobileElement.innerHTML = document.getElementById('google_translate_element')?.innerHTML || '';
-        }
+        // Create a separate instance for mobile
+        new (window as any).google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'hi,kn,ta,te,ml,mr,bn,gu,pa,or',
+          layout: (window as any).google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false
+        }, 'google_translate_element_mobile');
       };
       
       // Create and append the script
@@ -258,7 +260,7 @@ export function Header() {
               <div className="flex items-center gap-2 p-2 mt-2 text-sm border-t border-white/10 pt-3">
                 <Globe className="h-4 w-4 text-primary" />
                 <span className="text-primary font-medium">Translate:</span>
-                <div className="google_translate_element_mobile" className="inline-block"></div>
+                <div id="google_translate_element_mobile"></div>
               </div>
             </div>
           </div>
@@ -293,4 +295,4 @@ export function Header() {
       `}</style>
     </header>
   );
-      }
+            }
