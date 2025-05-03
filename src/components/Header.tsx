@@ -28,18 +28,27 @@ export function Header() {
   useEffect(() => {
     // Add Google Translate script
     const addScript = () => {
-      // Skip if script already exists
+      // Always ensure translation elements are ready
       if (document.querySelector('script[src="//translate.google.com/translate_a/element.js"]')) {
-        // If script exists but translate element needs initialization
+        // Force re-initialization if needed
         if (window.googleTranslateElementInit) {
           window.googleTranslateElementInit();
         }
+        
+        // Ensure mobile element is visible by checking after a delay
+        setTimeout(() => {
+          const mobileElement = document.getElementById('google_translate_element_mobile_header');
+          if (mobileElement && !mobileElement.firstChild) {
+            window.googleTranslateElementInit();
+          }
+        }, 500);
+        
         return;
       }
       
       // Define the initialization function
       window.googleTranslateElementInit = function() {
-        // Create the main translate element
+        // Create the main translate element for desktop
         new (window as any).google.translate.TranslateElement({
           pageLanguage: 'en',
           includedLanguages: 'hi,kn,ta,te,ml,mr,bn,gu,pa,or',
@@ -51,7 +60,7 @@ export function Header() {
         new (window as any).google.translate.TranslateElement({
           pageLanguage: 'en',
           includedLanguages: 'hi,kn,ta,te,ml,mr,bn,gu,pa,or',
-          layout: (window as any).google.translate.TranslateElement.InlineLayout.SIMPLE,
+          layout: (window as any).google.translate.TranslateElement.InlineLayout.HORIZONTAL,
           autoDisplay: false
         }, 'google_translate_element_mobile_header');
       };
@@ -92,10 +101,10 @@ export function Header() {
     <header className="bg-dark/50 backdrop-blur-sm border-b border-white/10 sticky top-0 z-50">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center">
+          <div className="flex items-center flex-wrap">
             <Link to="/" className="flex items-center gap-2">
               <GraduationCap className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold text-white">
+              <span className="text-xl md:text-xl font-bold text-white">
                 Engineering in Kannada
               </span>
             </Link>
@@ -287,26 +296,47 @@ export function Header() {
         }
         
         /* Mobile header translate element styles */
+        #google_translate_element_mobile_header {
+          min-width: 90px;
+        }
+        
         #google_translate_element_mobile_header .goog-te-combo {
-          font-size: 12px !important;
-          padding: 2px !important;
+          font-size: 11px !important;
+          padding: 1px 2px !important;
+          max-width: 90px;
           border-radius: 4px;
-          background-color: rgba(30, 30, 30, 0.6);
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          background-color: rgba(30, 30, 30, 0.8);
+          border: 1px solid rgba(255, 255, 255, 0.3);
           color: white;
+        }
+        
+        /* Remove extra Google elements */
+        .goog-te-gadget {
+          font-size: 0 !important;
+          color: transparent !important;
+        }
+        
+        .skiptranslate span {
+          display: none !important;
+        }
+        
+        .goog-te-gadget .goog-te-combo {
+          margin: 0 !important;
         }
         
         /* Mobile optimization */
         @media (max-width: 768px) {
-          .scale-75 {
-            transform: scale(0.75);
+          #google_translate_element_mobile_header .goog-te-combo {
+            height: 24px;
           }
           
-          .origin-left {
-            transform-origin: left;
+          /* Make the mobile title text smaller to accommodate translate */
+          .text-xl {
+            font-size: 1rem;
+            line-height: 1.5rem;
           }
         }
       `}</style>
     </header>
   );
-      }
+        }
