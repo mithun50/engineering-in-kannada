@@ -258,7 +258,7 @@ export function Header() {
               <div className="flex items-center gap-2 p-2 mt-2 text-sm border-t border-white/10 pt-3">
                 <Globe className="h-4 w-4 text-primary" />
                 <span className="text-primary font-medium">Translate:</span>
-                <div className="google_translate_element_mobile"></div>
+                <div className="google_translate_element_mobile" className="inline-block"></div>
               </div>
             </div>
           </div>
