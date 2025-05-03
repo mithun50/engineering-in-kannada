@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   GraduationCap,
@@ -17,69 +17,77 @@ import {
 declare global {
   interface Window {
     googleTranslateElementInit: () => void;
+    google: any;
   }
 }
 
 export function Header() {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const translateInitialized = useRef(false);
 
   // Initialize Google Translate
   useEffect(() => {
-    // Add Google Translate script
-    const addScript = () => {
-      // Always ensure translation elements are ready
-      if (document.querySelector('script[src="//translate.google.com/translate_a/element.js"]')) {
-        // Force re-initialization if needed
-        if (window.googleTranslateElementInit) {
-          window.googleTranslateElementInit();
-        }
-        
-        // Ensure mobile element is visible by checking after a delay
-        setTimeout(() => {
-          const mobileElement = document.getElementById('google_translate_element_mobile_header');
-          if (mobileElement && !mobileElement.firstChild) {
-            window.googleTranslateElementInit();
-          }
-        }, 500);
-        
-        return;
-      }
-      
-      // Define the initialization function
+    const initializeTranslate = () => {
+      // Define initialization function
       window.googleTranslateElementInit = function() {
-        // Create the main translate element for desktop
-        new (window as any).google.translate.TranslateElement({
-          pageLanguage: 'en',
-          includedLanguages: 'hi,kn,ta,te,ml,mr,bn,gu,pa,or',
-          layout: (window as any).google.translate.TranslateElement.InlineLayout.SIMPLE,
-          autoDisplay: false
-        }, 'google_translate_element');
-        
-        // Create a separate instance for mobile header
-        new (window as any).google.translate.TranslateElement({
-          pageLanguage: 'en',
-          includedLanguages: 'hi,kn,ta,te,ml,mr,bn,gu,pa,or',
-          layout: (window as any).google.translate.TranslateElement.InlineLayout.HORIZONTAL,
-          autoDisplay: false
-        }, 'google_translate_element_mobile_header');
+        try {
+          // Desktop version
+          new window.google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'hi,kn,ta,te,ml,mr,bn,gu,pa,or',
+            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+          }, 'google_translate_element');
+          
+          // Mobile version in header
+          new window.google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'hi,kn,ta,te,ml,mr,bn,gu,pa,or',
+            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+          }, 'google_translate_element_mobile_header');
+          
+          translateInitialized.current = true;
+          console.log('Google Translate initialized');
+        } catch (error) {
+          console.error('Error initializing Google Translate:', error);
+        }
       };
-      
-      // Create and append the script
-      const script = document.createElement('script');
-      script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-      script.async = true;
-      document.head.appendChild(script);
+
+      // Create and load the script if not already loaded
+      if (!document.querySelector('script[src="//translate.google.com/translate_a/element.js"]')) {
+        const script = document.createElement('script');
+        script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+        console.log('Google Translate script added');
+      } else if (window.google && window.google.translate) {
+        // If script exists but elements not initialized
+        window.googleTranslateElementInit();
+      }
     };
 
-    addScript();
-    
+    initializeTranslate();
+
+    // Additional check to ensure elements are initialized
+    const checkInterval = setInterval(() => {
+      const mobileElement = document.getElementById('google_translate_element_mobile_header');
+      if (mobileElement && (!mobileElement.firstChild || mobileElement.children.length === 0)) {
+        if (window.google && window.google.translate) {
+          window.googleTranslateElementInit();
+          console.log('Re-initializing Google Translate');
+        }
+      } else if (mobileElement && mobileElement.children.length > 0) {
+        clearInterval(checkInterval);
+      }
+    }, 1000);
+
     // Fix for Google Translate shifting body
     const fixTranslateIssues = () => {
-      // Force body top to be 0
       document.body.style.top = '0px';
       
-      // Monitor for changes and reset if needed
       const observer = new MutationObserver(function(mutations) {
         if (document.body.style.top !== '' && document.body.style.top !== '0px') {
           document.body.style.top = '0px';
@@ -89,11 +97,10 @@ export function Header() {
       observer.observe(document.body, { attributes: true, attributeFilter: ['style'] });
     };
     
-    // Allow time for Google Translate to initialize
-    const timerId = setTimeout(fixTranslateIssues, 1000);
+    setTimeout(fixTranslateIssues, 1000);
     
     return () => {
-      clearTimeout(timerId);
+      clearInterval(checkInterval);
     };
   }, []);
 
@@ -101,20 +108,45 @@ export function Header() {
     <header className="bg-dark/50 backdrop-blur-sm border-b border-white/10 sticky top-0 z-50">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center flex-wrap">
-            <Link to="/" className="flex items-center gap-2">
+          {/* Title and mobile translate section */}
+          <div className="flex flex-row items-center">
+            {/* Title */}
+            <div className="flex items-center">
               <GraduationCap className="h-8 w-8 text-primary" />
-              <span className="text-xl md:text-xl font-bold text-white">
+              <Link to="/" className="text-lg sm:text-xl font-bold text-white whitespace-nowrap">
                 Engineering in Kannada
-              </span>
-            </Link>
+              </Link>
+            </div>
             
             {/* Mobile Translate Button - Next to title */}
-            <div className="md:hidden flex items-center ml-2">
-              <div className="flex items-center">
-                <Globe className="h-4 w-4 text-primary mr-1" />
-                <div id="google_translate_element_mobile_header" className="inline-block"></div>
-              </div>
+            <div className="md:hidden ml-2 flex items-center">
+              <Globe className="h-4 w-4 text-primary mr-1" />
+              <select 
+                id="mobile-language-select"
+                className="text-xs bg-gray-800 border border-gray-700 text-white rounded-sm px-1 py-0.5"
+                onChange={(e) => {
+                  // Fallback simple language selector that updates Google Translate
+                  const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+                  if (selectElement) {
+                    selectElement.value = e.target.value;
+                    selectElement.dispatchEvent(new Event('change'));
+                  }
+                }}
+              >
+                <option value="">Select</option>
+                <option value="kn">ಕನ್ನಡ</option>
+                <option value="hi">हिंदी</option>
+                <option value="ta">தமிழ்</option>
+                <option value="te">తెలుగు</option>
+                <option value="ml">മലയാളം</option>
+                <option value="mr">मराठी</option>
+                <option value="bn">বাংলা</option>
+                <option value="gu">ગુજરાતી</option>
+                <option value="pa">ਪੰਜਾਬੀ</option>
+                <option value="or">ଓଡ଼ିଆ</option>
+              </select>
+              {/* Hidden element for Google Translate to connect to */}
+              <div id="google_translate_element_mobile_header" className="hidden"></div>
             </div>
           </div>
 
@@ -295,48 +327,36 @@ export function Header() {
           max-width: 100% !important;
         }
         
-        /* Mobile header translate element styles */
-        #google_translate_element_mobile_header {
-          min-width: 90px;
-        }
-        
-        #google_translate_element_mobile_header .goog-te-combo {
-          font-size: 11px !important;
-          padding: 1px 2px !important;
-          max-width: 90px;
-          border-radius: 4px;
-          background-color: rgba(30, 30, 30, 0.8);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          color: white;
-        }
-        
-        /* Remove extra Google elements */
+        /* Remove all extra content from Google translate */
         .goog-te-gadget {
           font-size: 0 !important;
           color: transparent !important;
         }
         
-        .skiptranslate span {
+        /* Hide Google's attribution */
+        .VIpgJd-ZVi9od-l4eHX-hSRGPd,
+        .VIpgJd-ZVi9od-ORHb-OEVmcd,
+        .goog-te-gadget-icon {
           display: none !important;
         }
         
-        .goog-te-gadget .goog-te-combo {
-          margin: 0 !important;
+        /* Make the dropdown more compact */
+        .goog-te-combo {
+          padding: 2px !important;
+          border-radius: 4px !important;
+          font-size: 12px !important;
+          background-color: rgba(30, 30, 30, 0.8) !important;
+          border: 1px solid rgba(255, 255, 255, 0.3) !important;
+          color: white !important;
         }
         
-        /* Mobile optimization */
-        @media (max-width: 768px) {
-          #google_translate_element_mobile_header .goog-te-combo {
-            height: 24px;
-          }
-          
-          /* Make the mobile title text smaller to accommodate translate */
-          .text-xl {
-            font-size: 1rem;
-            line-height: 1.5rem;
-          }
+        /* Custom mobile language selector */
+        #mobile-language-select {
+          font-size: 12px;
+          height: 24px;
+          min-width: 80px;
         }
       `}</style>
     </header>
   );
-        }
+            }
