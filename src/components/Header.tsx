@@ -21,6 +21,7 @@ declare global {
   }
 }
 
+
 export function Header() {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
