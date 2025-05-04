@@ -1,12 +1,22 @@
-import React from 'react';
+import { useState } from 'react';
 import coursesData from '../data/courses.json';
 import { CourseCard } from '../components/CourseCard';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { AnnouncementBanner } from '../components/AnnouncementBanner';
 import { Course } from '../types';
+import { useSearchStore } from '../store/search'; // 🟡 import global search
 
 export function HomePage() {
+  const { query, setQuery } = useSearchStore();
+  const [showSearch, setShowSearch] = useState(false);
+
+
+  const filteredCourses = (coursesData.courses as Course[]).filter((course) =>
+    course.title.toLowerCase().includes(query.toLowerCase()) ||
+    course.description.toLowerCase().includes(query.toLowerCase())
+  );
+
   return (
     <div className="min-h-screen bg-dark">
       <Header />
@@ -35,12 +45,37 @@ export function HomePage() {
         </div>
 
         <div className="mt-16">
-          <h2 className="text-2xl font-bold text-white">Available Courses</h2>
-          <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {(coursesData.courses as Course[]).map((course) => (
-              <CourseCard key={course.id} course={course} />
-            ))}
-          </div>
+        <div className="flex items-center justify-between">
+  <h2 className="text-2xl font-bold text-white">Available Courses</h2>
+  <div className="flex items-center space-x-2">
+    <button
+      onClick={() => setShowSearch((prev) => !prev)}
+      className="text-white hover:text-yellow-400 text-xl"
+      aria-label="Search"
+    >
+      🔍
+    </button>
+    {showSearch && (
+      <input
+        type="text"
+        placeholder="Search courses..."
+        className="rounded-md px-3 py-1 bg-gray-800 text-white border border-gray-600 focus:outline-none"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
+    )}
+  </div>
+</div>
+
+          {filteredCourses.length > 0 ? (
+            <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {filteredCourses.map((course) => (
+                <CourseCard key={course.id} course={course} />
+              ))}
+            </div>
+          ) : (
+            <p className="mt-4 text-center text-gray-400">No courses found.</p>
+          )}
         </div>
       </main>
       <Footer />

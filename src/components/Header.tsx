@@ -92,7 +92,7 @@ export function Header() {
               Contribute
             </a>
           </div>
-
+          
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
