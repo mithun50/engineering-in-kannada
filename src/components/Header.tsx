@@ -37,19 +37,38 @@ export function Header() {
             pageLanguage: 'en',
             includedLanguages: 'hi,kn,ta,te,ml,mr,bn,gu,pa,or',
             layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false
+            autoDisplay: false,
+            gaTrack: false
           }, 'google_translate_element');
           
-          // Mobile version in header
+          // Mobile version in header - same style as desktop
           new window.google.translate.TranslateElement({
             pageLanguage: 'en',
             includedLanguages: 'hi,kn,ta,te,ml,mr,bn,gu,pa,or',
             layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false
+            autoDisplay: false,
+            gaTrack: false
           }, 'google_translate_element_mobile_header');
           
           translateInitialized.current = true;
           console.log('Google Translate initialized');
+          
+          // Fix layout issues when language changes
+          const fixTranslateLayout = () => {
+            // Force the width to be constrained
+            document.body.style.width = '100%';
+            document.body.style.overflow = 'hidden auto';
+            document.body.style.position = 'static';
+          };
+          
+          // Add event listeners to fix layout when language changes
+          const selects = document.querySelectorAll('.goog-te-combo');
+          selects.forEach(select => {
+            select.addEventListener('change', () => {
+              setTimeout(fixTranslateLayout, 300);
+            });
+          });
+          
         } catch (error) {
           console.error('Error initializing Google Translate:', error);
         }
@@ -84,19 +103,43 @@ export function Header() {
       }
     }, 1000);
 
-    // Fix for Google Translate shifting body
+    // Fix for Google Translate shifting body and layout issues
     const fixTranslateIssues = () => {
+      // Reset all positioning and width issues caused by Google Translate
       document.body.style.top = '0px';
+      document.body.style.position = 'static';
+      document.body.style.width = '100%';
+      document.body.style.overflowX = 'hidden';
       
+      // Create a more comprehensive observer that fixes multiple issues
       const observer = new MutationObserver(function(mutations) {
+        // Check for style changes to body
         if (document.body.style.top !== '' && document.body.style.top !== '0px') {
           document.body.style.top = '0px';
+          document.body.style.position = 'static';
+          document.body.style.width = '100%';
+          document.body.style.overflowX = 'hidden';
         }
+        
+        // Remove any Google banners that might appear
+        const banners = document.querySelectorAll('.goog-te-banner-frame, .skiptranslate');
+        banners.forEach(banner => {
+          if (banner instanceof HTMLElement) {
+            banner.style.display = 'none';
+          }
+        });
       });
       
-      observer.observe(document.body, { attributes: true, attributeFilter: ['style'] });
+      // Observe both style and child changes
+      observer.observe(document.body, { 
+        attributes: true, 
+        attributeFilter: ['style'], 
+        childList: true,
+        subtree: true
+      });
     };
     
+    // Apply fixes after Google Translate loads
     setTimeout(fixTranslateIssues, 1000);
     
     return () => {
@@ -121,32 +164,8 @@ export function Header() {
             {/* Mobile Translate Button - Next to title */}
             <div className="md:hidden ml-2 flex items-center">
               <Globe className="h-4 w-4 text-primary mr-1" />
-              <select 
-                id="mobile-language-select"
-                className="text-xs bg-gray-800 border border-gray-700 text-white rounded-sm px-1 py-0.5"
-                onChange={(e) => {
-                  // Fallback simple language selector that updates Google Translate
-                  const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
-                  if (selectElement) {
-                    selectElement.value = e.target.value;
-                    selectElement.dispatchEvent(new Event('change'));
-                  }
-                }}
-              >
-                <option value="">Select</option>
-                <option value="kn">ಕನ್ನಡ</option>
-                <option value="hi">हिंदी</option>
-                <option value="ta">தமிழ்</option>
-                <option value="te">తెలుగు</option>
-                <option value="ml">മലയാളം</option>
-                <option value="mr">मराठी</option>
-                <option value="bn">বাংলা</option>
-                <option value="gu">ગુજરાતી</option>
-                <option value="pa">ਪੰਜਾਬੀ</option>
-                <option value="or">ଓଡ଼ିଆ</option>
-              </select>
               {/* Hidden element for Google Translate to connect to */}
-              <div id="google_translate_element_mobile_header" className="hidden"></div>
+              <div id="google_translate_element_mobile_header"></div>
             </div>
           </div>
 
@@ -320,17 +339,29 @@ export function Header() {
         /* Force body to not have Google's top property */
         body {
           top: 0 !important;
+          position: static !important;
+          width: 100% !important;
+          min-height: 100% !important;
+          overflow-x: hidden !important;
+        }
+        
+        /* Fix overall layout issues */
+        html, body {
+          max-width: 100vw !important;
+          overflow-x: hidden !important;
         }
         
         /* Fix for Google Translate iframe */
         .goog-te-menu-frame {
           max-width: 100% !important;
+          box-shadow: 0 0 4px rgba(0,0,0,0.2) !important;
         }
         
         /* Remove all extra content from Google translate */
         .goog-te-gadget {
           font-size: 0 !important;
           color: transparent !important;
+          margin: 0 !important;
         }
         
         /* Hide Google's attribution */
@@ -340,23 +371,41 @@ export function Header() {
           display: none !important;
         }
         
-        /* Make the dropdown more compact */
+        /* Make the dropdown more compact and consistent */
         .goog-te-combo {
-          padding: 2px !important;
+          padding: 2px 4px !important;
           border-radius: 4px !important;
           font-size: 12px !important;
           background-color: rgba(30, 30, 30, 0.8) !important;
           border: 1px solid rgba(255, 255, 255, 0.3) !important;
           color: white !important;
+          height: 24px !important;
+          min-width: 120px !important;
+          margin: 0 !important;
         }
         
-        /* Custom mobile language selector */
-        #mobile-language-select {
-          font-size: 12px;
-          height: 24px;
-          min-width: 80px;
+        /* Fix for translated content width issues */
+        .skiptranslate,
+        #goog-gt-tt,
+        .goog-te-balloon-frame {
+          display: none !important;
+        }
+        
+        /* Hide the banner that appears after translation */
+        .goog-te-banner-frame {
+          display: none !important;
+        }
+        
+        /* Ensure consistent look between mobile and desktop */
+        #google_translate_element_mobile_header .goog-te-combo {
+          min-width: 80px !important;
+        }
+        
+        /* Fix for iframe issues */
+        iframe[id=":1.container"] {
+          display: none !important;
         }
       `}</style>
     </header>
   );
-            }
+      }
