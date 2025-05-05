@@ -178,7 +178,7 @@ export function Header() {
               <div id="google_translate_element" className="inline-block"></div>
             </div>
           </div>
-
+          
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
