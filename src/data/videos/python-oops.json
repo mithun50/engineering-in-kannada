@@ -5,7 +5,7 @@
       "id": "python-oops-1",
       "title": "1. Introduction to Object Oriented Programming",
       "type": "Concept",
-      "youtubeUrl": "https://www.youtube.com/watch?v=aXuYPVStgdk&list=PLlGueSbLhZoBRnTsGiDJeTXuQCALOTN07&index=23&pp=iAQB0gcJCTgDd0p55Nqk",
+      "youtubeUrl": "https://www.youtube.com/embed/aXuYPVStgdk",
       "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/15.md",
       "codingQuestionUrl": ""
     },
@@ -13,7 +13,7 @@
       "id": "python-oops-2",
       "title": "2. Constructor, self and optional parameters",
       "type": "Concept",
-      "youtubeUrl": "https://www.youtube.com/watch?v=at9RaJC3Jsg&list=PLlGueSbLhZoBRnTsGiDJeTXuQCALOTN07&index=24&pp=iAQB",
+      "youtubeUrl": "https://www.youtube.com/embed/at9RaJC3Jsg",
       "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/16.md",
       "codingQuestionUrl": ""
     },
@@ -21,7 +21,7 @@
       "id": "python-oops-3",
       "title": "3. Pillars of OOPs Part 1 : Abstraction and Encapsulation",
       "type": "Concept",
-      "youtubeUrl": "https://www.youtube.com/watch?v=ucdxseIpfYE",
+      "youtubeUrl": "https://www.youtube.com/embed/ucdxseIpfYE",
       "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/17.md",
       "codingQuestionUrl": ""
     },
@@ -29,7 +29,7 @@
       "id": "python-oops-4",
       "title": "4. Pillars of OOPs Part 2 : Inheritance and Polymorphism",
       "type": "Concept",
-      "youtubeUrl": "https://www.youtube.com/watch?v=g14iWkxRCQs",
+      "youtubeUrl": "https://www.youtube.com/embed/g14iWkxRCQs",
       "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/17.md",
       "codingQuestionUrl": ""
     },
@@ -37,9 +37,9 @@
       "id": "python-oops-5",
       "title": "5. Getters Setters, Overloading & Overriding, Abstract Classes",
       "type": "Concept",
-      "youtubeUrl": "https://www.youtube.com/watch?v=3TVZmjMeMKg",
+      "youtubeUrl": "https://www.youtube.com/embed/3TVZmjMeMKg",
       "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/18.md",
       "codingQuestionUrl": ""
     }
   ]
-} 
+}

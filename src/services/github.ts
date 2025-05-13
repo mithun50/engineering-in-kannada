@@ -1,7 +1,7 @@
 const REPO_OWNER = "chandansgowda";
 const REPO_NAME = "engineering-in-kannada";
 const GITHUB_API_BASE = "https://api.github.com";
-const GITHUB_TOKEN = import.meta.env.GITHUB_TOKEN as string;
+const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN as string;
 
 interface GitHubUser {
   login: string;

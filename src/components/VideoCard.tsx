@@ -6,6 +6,7 @@ import confetti from "canvas-confetti";
 import { dispatchToast } from "../utils/toastWithCustomMessages";
 import { useBreakpoint } from "../utils/useBreakPoint";
 import { NotesViewer } from "./NotesViewer";
+import EmbedVideoComponent from "./EmbedVideoComponent";
 
 interface VideoCardProps {
   video: Video;
@@ -24,10 +25,12 @@ export function VideoCard({ video }: VideoCardProps) {
   const checkboxRef = React.useRef<HTMLButtonElement>(null);
   const isDesktop = useBreakpoint();
   const [showNotes, setShowNotes] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
 
   const playCelebrationSound = () => {
     const audioContext = new (window.AudioContext ||
-      (window as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext)();
+      (window as { webkitAudioContext?: typeof AudioContext })
+        .webkitAudioContext)();
 
     // Create multiple oscillators for a more celebratory sound
     const frequencies = [800, 1000, 1200];
@@ -173,7 +176,16 @@ export function VideoCard({ video }: VideoCardProps) {
           <button
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-dark transition-colors hover:bg-primary/80"
-            onClick={() => handleNotesAndVideoClick(video.youtubeUrl)}
+            onClick={() => {
+              if (!video.youtubeUrl) {
+                dispatchToast(
+                  "Video coming soon!",
+                  isDesktop ? "top-right" : "bottom-center"
+                );
+                return;
+              }
+              setShowVideo(true);
+            }}
           >
             <PlayCircle className="h-4 w-4" />
             Watch Video
@@ -199,6 +211,13 @@ export function VideoCard({ video }: VideoCardProps) {
           )}
         </div>
       </div>
+      {showVideo && video.youtubeUrl && (
+        <EmbedVideoComponent
+          url={video.youtubeUrl}
+          onClose={() => setShowVideo(false)}
+        />
+      )}
+
       {showNotes && video.notesUrl && (
         <NotesViewer url={video.notesUrl} onClose={() => setShowNotes(false)} />
       )}
