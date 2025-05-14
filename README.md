@@ -4,15 +4,14 @@ A platform for learning engineering concepts in Kannada through YouTube playlist
 
 ## Table of Contents
 
-  - [Adding a New Course](#adding-a-new-course)
-  - [Adding a Blog Post](#adding-a-blog-post)
-  - [Updating Existing Content](#updating-existing-content)
-  - [Contribution Guidelines](#contribution-guidelines)
-  - [Local Development](#local-development)
-  - [Notes for Contributors](#notes-for-contributors)
-  - [Features](#features)
-  - [Technologies Used](#technologies-used)
-
+- [Adding a New Course](#adding-a-new-course)
+- [Adding a Blog Post](#adding-a-blog-post)
+- [Updating Existing Content](#updating-existing-content)
+- [Contribution Guidelines](#contribution-guidelines)
+- [Local Development](#local-development)
+- [Notes for Contributors](#notes-for-contributors)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
 
 ## Adding a New Course
 
@@ -134,7 +133,7 @@ A platform for learning engineering concepts in Kannada through YouTube playlist
    - Create a `.env` file in the project root
    - Add your GitHub token:
      ```env
-     GITHUB_TOKEN=your_github_token_here
+     VITE_GITHUB_TOKEN=your_github_token_here
      ```
    - Replace `your_github_token_here` with the token you copied
 
