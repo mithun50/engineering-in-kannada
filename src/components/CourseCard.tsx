@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Course } from '../types';
-import { BookOpen, Star } from 'lucide-react';
-import { useProgressStore } from '../store/progress';
-import { getTotalVideos } from '../utils/courseUtils';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Course } from "../types";
+import { BookOpen, Star } from "lucide-react";
+import { useProgressStore } from "../store/progress";
+import { getTotalVideos } from "../utils/courseUtils";
 
 interface CourseCardProps {
   course: Course;
@@ -16,7 +16,7 @@ export function CourseCard({ course }: CourseCardProps) {
   const [totalVideos, setTotalVideos] = useState(0);
 
   useEffect(() => {
-    getTotalVideos(course.id).then(count => setTotalVideos(count));
+    getTotalVideos(course.id).then((count) => setTotalVideos(count));
   }, [course.id]);
 
   const handleStarClick = (e: React.MouseEvent) => {
@@ -39,11 +39,16 @@ export function CourseCard({ course }: CourseCardProps) {
         <button
           onClick={handleStarClick}
           className={`absolute top-4 right-4 p-2 rounded-full transition-colors ${
-            isStarred ? 'bg-primary text-dark' : 'bg-white/10 text-white hover:bg-white/20'
+            isStarred
+              ? "bg-primary text-dark"
+              : "bg-white/10 text-white hover:bg-white/20"
           }`}
           aria-label={isStarred ? "Remove from watchlist" : "Add to watchlist"}
         >
-          <Star className="h-5 w-5" fill={isStarred ? "currentColor" : "none"} />
+          <Star
+            className="h-5 w-5"
+            fill={isStarred ? "currentColor" : "none"}
+          />
         </button>
         <div className="absolute bottom-4 left-4">
           <span className="inline-flex items-center rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary backdrop-blur-sm">
@@ -56,7 +61,9 @@ export function CourseCard({ course }: CourseCardProps) {
           <BookOpen className="h-5 w-5 text-primary" />
           <span className="text-sm text-gray-400">{totalVideos} videos</span>
         </div>
-        <h3 className="mt-2 text-xl font-semibold text-white">{course.title}</h3>
+        <h3 className="mt-2 text-xl font-semibold text-white">
+          {course.title}
+        </h3>
         <p className="mt-2 text-gray-400">{course.description}</p>
       </div>
     </div>

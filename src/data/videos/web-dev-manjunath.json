@@ -2,18 +2,18 @@
   "courseId": "web-dev-manjunath",
   "videos": [
     {
-      "id": "web-dev-1", 
+      "id": "web-dev-1",
       "title": "1. Introduction to HTML and CSS",
       "type": "Concept",
-      "youtubeUrl": "https://www.youtube.com/watch?v=mVbsESNhDAk&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=1&pp=iAQB",
+      "youtubeUrl": "https://www.youtube.com/embed/mVbsESNhDAk",
       "notesUrl": "",
       "codingQuestionUrl": ""
     },
     {
       "id": "web-dev-2",
       "title": "2. CSS Basics",
-      "type": "Concept", 
-      "youtubeUrl": "https://www.youtube.com/watch?v=kzoveSCMJAU&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=2&pp=iAQB",
+      "type": "Concept",
+      "youtubeUrl": "https://www.youtube.com/embed/kzoveSCMJAU",
       "notesUrl": "",
       "codingQuestionUrl": ""
     },
@@ -21,7 +21,7 @@
       "id": "web-dev-3",
       "title": "3. CSS Grid and Flexbox",
       "type": "Hands-On",
-      "youtubeUrl": "https://www.youtube.com/watch?v=TkpulmeSEqI&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=3&pp=iAQB",
+      "youtubeUrl": "https://www.youtube.com/embed/TkpulmeSEqI",
       "notesUrl": "",
       "codingQuestionUrl": ""
     },
@@ -29,15 +29,15 @@
       "id": "web-dev-4",
       "title": "4. Media Queries and Responsive Design",
       "type": "Hands-On",
-      "youtubeUrl": "https://www.youtube.com/watch?v=rEootTokgu4&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=4&pp=iAQB",
+      "youtubeUrl": "https://www.youtube.com/embed/rEootTokgu4",
       "notesUrl": "",
       "codingQuestionUrl": ""
     },
     {
-      "id": "web-dev-5", 
+      "id": "web-dev-5",
       "title": "5. CSS Animation",
       "type": "Hands-On",
-      "youtubeUrl": "https://www.youtube.com/watch?v=eCwXvcJuYi8&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=5&pp=iAQB",
+      "youtubeUrl": "https://www.youtube.com/embed/eCwXvcJuYi8",
       "notesUrl": "",
       "codingQuestionUrl": ""
     },
@@ -45,15 +45,15 @@
       "id": "web-dev-6",
       "title": "6. Website Project Part 1",
       "type": "Project",
-      "youtubeUrl": "https://www.youtube.com/watch?v=5W73TFVgcmo&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=6&pp=iAQB",
+      "youtubeUrl": "https://www.youtube.com/embed/5W73TFVgcmo",
       "notesUrl": "",
       "codingQuestionUrl": ""
     },
     {
       "id": "web-dev-7",
       "title": "7. Website Project Part 2",
-      "type": "Project", 
-      "youtubeUrl": "https://www.youtube.com/watch?v=16eg-s66txE&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=7&pp=iAQB",
+      "type": "Project",
+      "youtubeUrl": "https://www.youtube.com/embed/16eg-s66txE",
       "notesUrl": "",
       "codingQuestionUrl": ""
     }
