@@ -67,3 +67,18 @@ export interface BlogPost {
   content: string;
   slug: string;
 }
+
+export interface Link {
+  id: string;
+  title: string;
+  description: string;
+  thumbnail: string;
+  coverImage?: string;
+  url: string;
+}
+
+export interface LinkCategory {
+  id: string;
+  title: string;
+  links: Link[];
+}
