@@ -6,6 +6,7 @@ import { LeaderboardPage } from "./pages/LeaderboardPage";
 import BackToTop from "./components/BackToTop";
 import { Blogs } from './pages/Blogs';
 import { BlogPost } from './pages/BlogPost';
+import { LinksPage } from './pages/LinksPage';
 import * as ga from './utils/analytics';
 
 //Google analytics 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/leaderboard" element={<LeaderboardPage />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogs/:slug" element={<BlogPost />} />
+        <Route path="/links" element={<LinksPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AnalyticsWrapper>

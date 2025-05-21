@@ -1,0 +1,81 @@
+{ 
+  "categories": [
+    {
+      "id": "social",
+      "title": "Social Media",
+      "links": [
+        {
+          "id": "youtube",
+          "title": "YouTube",
+          "description": "Engineering tutorials in Kannada",
+          "coverImage": "https://i.ytimg.com/vi/8c74mXV2lJ0/maxresdefault.jpg",
+          "url": "https://www.youtube.com/@EngineeringinKannada",
+          "icon": "Youtube"
+        },
+        {
+          "id": "instagram",
+          "title": "Instagram",
+          "description": "Short-form tutorials and updates",
+          "coverImage": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7",
+          "url": "https://www.instagram.com/engineering_in_kannada/",
+          "icon": "Instagram"
+        },
+        {
+          "id": "twitter",
+          "title": "Twitter",
+          "description": "Tech updates and announcements",
+          "coverImage": "",
+          "url": "https://twitter.com/chandansgowdru",
+          "icon": "Twitter"
+        }
+      ]
+    },
+    {
+      "id": "professional",
+      "title": "Professional",
+      "links": [
+        {
+          "id": "github",
+          "title": "GitHub",
+          "description": "Open source projects and contributions",
+          "coverImage": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb",
+          "url": "https://github.com/chandansgowda",
+          "icon": "Github"
+        },
+        {
+          "id": "linkedin",
+          "title": "LinkedIn",
+          "description": "Professional profile and network",
+          "coverImage": "https://images.unsplash.com/photo-1611944212129-29977ae1398c",
+          "url": "https://www.linkedin.com/in/chandan-s-gowda-4b2913183/",
+          "icon": "Linkedin"
+        }
+      ]
+    },
+    {
+      "id": "resources",
+      "title": "Resources",
+      "links": [
+        {
+          "id": "notes",
+          "title": "Study Notes",
+          "description": "Free learning resources and notes",
+          "coverImage": "https://images.unsplash.com/photo-1517842645767-c639042777db",
+          "url": "https://github.com/chandansgowda/learn-python-in-kannada",
+          "icon": "FileText"
+        },
+        {
+          "id": "discord",
+          "title": "Discord Community",
+          "description": "Join our learning community",
+          "coverImage": "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff",
+          "url": "https://discord.gg/example",
+          "icon": "MessageSquare"
+        }
+      ]
+    }
+  ]
+}
+
+
+
