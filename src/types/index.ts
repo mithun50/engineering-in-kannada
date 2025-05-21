@@ -72,7 +72,6 @@ export interface Link {
   id: string;
   title: string;
   description: string;
-  thumbnail: string;
   coverImage?: string;
   url: string;
   icon?: string;
