@@ -75,6 +75,7 @@ export interface Link {
   thumbnail: string;
   coverImage?: string;
   url: string;
+  icon?: string;
 }
 
 export interface LinkCategory {

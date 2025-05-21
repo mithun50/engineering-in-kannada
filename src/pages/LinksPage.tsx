@@ -1,30 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { 
-  ExternalLink, 
-  Youtube, 
-  Instagram, 
-  Twitter, 
-  Github, 
-  Linkedin, 
-  FileText, 
-  MessageCircle,
-  ArrowLeft
-} from 'lucide-react';
+import * as LucideIcons from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import linksData from '../data/links.json';
 import { LinkCategory } from '../types';
 
-// Map of link IDs to Lucide icons
-const iconMap: Record<string, React.ReactNode> = {
-  youtube: <Youtube className="w-6 h-6 text-primary" />,
-  instagram: <Instagram className="w-6 h-6 text-primary" />,
-  twitter: <Twitter className="w-6 h-6 text-primary" />,
-  github: <Github className="w-6 h-6 text-primary" />,
-  linkedin: <Linkedin className="w-6 h-6 text-primary" />,
-  notes: <FileText className="w-6 h-6 text-primary" />,
-  discord: <MessageCircle className="w-6 h-6 text-primary" />
+// Dynamic icon component
+const DynamicIcon = ({ iconName }: { iconName: string }) => {
+  const IconComponent = (LucideIcons as any)[iconName] || ExternalLink;
+  return <IconComponent className="w-6 h-6 text-primary" />;
 };
 
 export function LinksPage() {
@@ -80,9 +64,9 @@ export function LinksPage() {
                       <div className="p-6">
                         <div className="flex items-center gap-2">
                           <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
-                            {iconMap[link.id] || <ExternalLink className="w-4 h-4 text-primary" />}
+                            {link.icon ? <DynamicIcon iconName={link.icon} /> : <ExternalLink className="w-4 h-4 text-primary" />}
                           </div>
-                          <span className="text-sm text-gray-400">{link.id}</span>
+                          {/* <span className="text-sm text-gray-400">{link.id}</span> */}
                         </div>
                         <h3 className="mt-2 text-xl font-semibold text-white flex items-center gap-2">
                           {link.title}
@@ -103,7 +87,7 @@ export function LinksPage() {
                       <div className="p-6 flex-1 flex flex-col">
                         <div className="flex items-center gap-3 mb-4">
                           <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-                            {iconMap[link.id] || <ExternalLink className="w-6 h-6 text-primary" />}
+                            {link.icon ? <DynamicIcon iconName={link.icon} /> : <ExternalLink className="w-6 h-6 text-primary" />}
                           </div>
                           <div>
                             <h3 className="text-xl font-semibold text-white">
@@ -114,7 +98,7 @@ export function LinksPage() {
                         </div>
                         <p className="text-gray-400 mt-2 flex-grow">{link.description}</p>
                         <div className="mt-6 pt-4 border-t border-white/10 flex justify-between items-center">
-                          <span className="text-sm text-primary">Visit {link.id}</span>
+                          <span className="text-sm text-primary">Visit</span>
                           <ExternalLink className="h-4 w-4 text-primary opacity-70 group-hover:opacity-100" />
                         </div>
                       </div>
@@ -130,12 +114,4 @@ export function LinksPage() {
     </div>
   );
 }
-
-
-
-
-
-
-
-
 
