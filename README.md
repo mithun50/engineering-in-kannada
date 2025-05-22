@@ -1,5 +1,7 @@
 # Engineering in Kannada
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/319b429d-ad40-467a-9d30-8c1d4cb3f75a/deploy-status)](https://app.netlify.com/projects/engineeringinkannada/deploys)
+
 A platform for learning engineering concepts in Kannada through YouTube playlists from Engineering in Kannada.
 
 ## Table of Contents
