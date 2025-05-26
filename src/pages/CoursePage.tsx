@@ -2,13 +2,15 @@ import React, { Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import coursesData from '../data/courses.json';
 import { VideoCard } from '../components/VideoCard';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Share2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { useProgressStore } from '../store/progress';
 import { Video } from '../types';
 import { ToastContainer } from 'react-toastify';
+import { dispatchToast } from '../utils/toastWithCustomMessages';
+import { useBreakpoint } from '../utils/useBreakPoint';
 
 // Create a component to render the video list
 const VideoList = React.lazy(() => {
@@ -57,6 +59,26 @@ const VideoList = React.lazy(() => {
 export function CoursePage() {
   const { courseId } = useParams<{ courseId: string }>();
   const course = coursesData.courses.find((c) => c.id === courseId);
+  const isDesktop = useBreakpoint();
+  
+  // Share handler for the course
+  const handleShare = async () => {
+    if (!course) return;
+    const url = `${window.location.origin}/course/${course.id}`;
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: course.title,
+          url,
+        });
+      } catch (err) {
+        dispatchToast(
+          "Share failed",
+          isDesktop ? "top-right" : "bottom-center"
+        );
+      }
+    }
+  };
   
   if (!course) {
     return (
@@ -84,9 +106,20 @@ export function CoursePage() {
             Back to courses
           </Link>
         </div>
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white sm:text-4xl">{course.title}</h1>
-          <p className="mt-2 text-white/60">{course.description}</p>
+        <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <h1 className="text-3xl font-bold text-white sm:text-4xl flex items-center gap-3">
+              {course.title}
+              <button
+                onClick={handleShare}
+                className="ml-2 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+                aria-label="Share course"
+              >
+                <Share2 className="h-5 w-5" />
+              </button>
+            </h1>
+            <p className="mt-2 text-white/60">{course.description}</p>
+          </div>
         </div>
         <Suspense fallback={<div className="text-white">Loading videos...</div>}>
           <VideoList courseId={courseId!} />
