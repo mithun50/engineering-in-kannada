@@ -71,11 +71,13 @@ export function CoursePage() {
           title: course.title,
           url,
         });
-      } catch (err) {
-        dispatchToast(
-          "Share failed",
-          isDesktop ? "top-right" : "bottom-center"
-        );
+      } catch (err: any) {
+        if (err.name !== 'AbortError') {
+          dispatchToast(
+            "Share failed",
+            isDesktop ? "top-right" : "bottom-center"
+          );
+        }
       }
     }
   };

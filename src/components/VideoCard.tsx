@@ -131,11 +131,13 @@ export function VideoCard({ video }: VideoCardProps) {
           title: video.title,
           url: watchUrl,
         });
-      } catch (err) {
-        dispatchToast(
-          "Share failed",
-          isDesktop ? "top-right" : "bottom-center"
-        );
+      } catch (err: any) {
+        if (err.name !== 'AbortError') {
+          dispatchToast(
+            "Share failed",
+            isDesktop ? "top-right" : "bottom-center"
+          );
+        }
       }
     }
   };
