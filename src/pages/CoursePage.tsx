@@ -65,6 +65,22 @@ export function CoursePage() {
   const handleShare = async () => {
     if (!course) return;
     const url = `${window.location.origin}/course/${course.id}`;
+
+    // Always copy to clipboard first
+    try {
+      await navigator.clipboard.writeText(url);
+      dispatchToast(
+        "Link copied to clipboard!",
+        isDesktop ? "top-right" : "bottom-center"
+      );
+    } catch (err) {
+      dispatchToast(
+        "Failed to copy link",
+        isDesktop ? "top-right" : "bottom-center"
+      );
+    }
+
+    // Then try to open share modal
     if (navigator.share) {
       try {
         await navigator.share({

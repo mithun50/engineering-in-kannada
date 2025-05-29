@@ -125,6 +125,21 @@ export function VideoCard({ video }: VideoCardProps) {
       .split('?')[0];
     const watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
+    // Always copy to clipboard first
+    try {
+      await navigator.clipboard.writeText(watchUrl);
+      dispatchToast(
+        "Link copied to clipboard!",
+        isDesktop ? "top-right" : "bottom-center"
+      );
+    } catch (err) {
+      dispatchToast(
+        "Failed to copy link",
+        isDesktop ? "top-right" : "bottom-center"
+      );
+    }
+
+    // Then try to open share modal
     if (navigator.share) {
       try {
         await navigator.share({
