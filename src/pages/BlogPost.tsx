@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { ScrollToTop } from '../components/ScrollToTop'; // 🟢 Import ScrollToTop component
 import { ArrowLeft } from 'lucide-react';
 
 export const BlogPost: React.FC = () => {
@@ -14,6 +15,7 @@ export const BlogPost: React.FC = () => {
   if (!blog) {
     return (
       <div className="min-h-screen bg-dark text-white">
+        <ScrollToTop /> {/* 🟢 Add ScrollToTop component */}
         <Header />
         <div className="container mx-auto px-4 py-8">
           <h1 className="text-4xl font-bold mb-4">Blog Post Not Found</h1>
@@ -28,10 +30,11 @@ export const BlogPost: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-dark text-white">
+      <ScrollToTop /> {/* 🟢 Add ScrollToTop component */}
       <Header />
       <div className="container mx-auto px-4 py-12">
         <Link 
-          to="/blogs" 
+          to="/blogs"
           className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-8"
         >
           <ArrowLeft className="h-4 w-4" />
@@ -80,4 +83,4 @@ export const BlogPost: React.FC = () => {
       <Footer />
     </div>
   );
-}; 
+};

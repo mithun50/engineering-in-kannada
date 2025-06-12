@@ -4,6 +4,8 @@ import * as LucideIcons from 'lucide-react';
 import { ExternalLink } from 'lucide-react';
 import linksData from '../data/links.json';
 import { LinkCategory } from '../types';
+import { ScrollToTop } from "../components/ScrollToTop"; 
+
 
 // Dynamic icon component
 const DynamicIcon = ({ iconName }: { iconName: string }) => {
@@ -16,6 +18,7 @@ export function LinksPage() {
 
   return (
     <div className="min-h-screen bg-dark">
+      <ScrollToTop />
       <Header />
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
