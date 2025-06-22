@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Video } from "../types";
 import { PlayCircle, FileText, CheckCircle, Star, Code } from "lucide-react";
 import { useProgressStore } from "../store/progress";
@@ -12,6 +13,7 @@ interface VideoCardProps {
 }
 
 export function VideoCard({ video }: VideoCardProps) {
+  const { t, i18n } = useTranslation(); // Make sure to get i18n instance
   const {
     isVideoCompleted,
     markVideoComplete,
@@ -29,34 +31,25 @@ export function VideoCard({ video }: VideoCardProps) {
     const audioContext = new (window.AudioContext ||
       (window as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext)();
 
-    // Create multiple oscillators for a more celebratory sound
     const frequencies = [800, 1000, 1200];
     const oscillators = frequencies.map((freq) => {
       const osc = audioContext.createOscillator();
       const gain = audioContext.createGain();
-
       osc.connect(gain);
       gain.connect(audioContext.destination);
-
       osc.type = "sine";
       osc.frequency.setValueAtTime(freq, audioContext.currentTime);
       gain.gain.setValueAtTime(0.1, audioContext.currentTime);
-
       return { osc, gain };
     });
 
-    // Start all oscillators
     oscillators.forEach(({ osc }) => osc.start());
-
-    // Create a fade out effect
     oscillators.forEach(({ gain }) => {
       gain.gain.exponentialRampToValueAtTime(
         0.01,
         audioContext.currentTime + 0.5
       );
     });
-
-    // Stop all oscillators after the sound completes
     setTimeout(() => {
       oscillators.forEach(({ osc }) => osc.stop());
     }, 500);
@@ -66,8 +59,6 @@ export function VideoCard({ video }: VideoCardProps) {
     if (!completed) {
       markVideoComplete(video.id);
       playCelebrationSound();
-
-      // Multiple confetti bursts
       const defaults = {
         spread: 360,
         ticks: 100,
@@ -77,23 +68,10 @@ export function VideoCard({ video }: VideoCardProps) {
         shapes: ["star"],
         colors: ["FFE400", "FFBD00", "E89400", "FFCA6C", "FDFFB8"],
       };
-
       function shoot() {
-        confetti({
-          ...defaults,
-          particleCount: 40,
-          scalar: 1.2,
-          shapes: ["star"],
-        });
-
-        confetti({
-          ...defaults,
-          particleCount: 10,
-          scalar: 0.75,
-          shapes: ["circle"],
-        });
+        confetti({ ...defaults, particleCount: 40, scalar: 1.2, shapes: ["star"] });
+        confetti({ ...defaults, particleCount: 10, scalar: 0.75, shapes: ["circle"] });
       }
-
       setTimeout(shoot, 0);
       setTimeout(shoot, 100);
       setTimeout(shoot, 200);
@@ -110,19 +88,19 @@ export function VideoCard({ video }: VideoCardProps) {
   const handleNotesAndVideoClick = (uri: string | undefined) => {
     if (!uri) {
       dispatchToast(
-        "🚀 Coming Soon! Stay tuned.",
+        t('comingSoon'), // Use translation
         isDesktop ? "top-right" : "bottom-center"
       );
       return;
     }
-
-    // Check if it's a GitHub markdown URL
     if (uri.includes("github.com") && uri.includes(".md")) {
       setShowNotes(true);
     } else {
       open(uri);
     }
   };
+
+  const videoTypeKey = video.type.toLowerCase() as 'theory' | 'practice' | 'project';
 
   return (
     <>
@@ -131,11 +109,11 @@ export function VideoCard({ video }: VideoCardProps) {
           <div className="flex-1">
             <div className="flex items-center gap-3">
               <h3 className="text-base font-semibold text-white sm:text-lg">
-                {video.title}
+                {i18n.language === 'kn' && video.title_kn ? video.title_kn : video.title}
               </h3>
             </div>
             <span className="mt-1 inline-flex items-center rounded-full bg-primary/20 px-2 py-1 text-xs font-medium text-primary sm:px-3">
-              {video.type}
+              {t(videoTypeKey)}
             </span>
           </div>
           <div className="flex items-center gap-2">
@@ -147,7 +125,7 @@ export function VideoCard({ video }: VideoCardProps) {
                   : "bg-white/10 text-gray-300 hover:bg-white/20"
               }`}
               aria-label={
-                starred ? "Remove from bookmarks" : "Add to bookmarks"
+                starred ? t('removeFromBookmarks') : t('addToBookmarks')
               }
             >
               <Star
@@ -163,7 +141,7 @@ export function VideoCard({ video }: VideoCardProps) {
                   ? "bg-green-500/20 text-green-500 hover:bg-green-500/30"
                   : "bg-white/10 text-gray-300 hover:bg-white/20"
               }`}
-              aria-label={completed ? "Mark as incomplete" : "Mark as complete"}
+              aria-label={completed ? t('markAsIncomplete') : t('markAsComplete')}
             >
               <CheckCircle className="h-5 w-5" />
             </button>
@@ -176,7 +154,7 @@ export function VideoCard({ video }: VideoCardProps) {
             onClick={() => handleNotesAndVideoClick(video.youtubeUrl)}
           >
             <PlayCircle className="h-4 w-4" />
-            Watch Video
+            {t('watchVideo')}
           </button>
           <button
             rel="noopener noreferrer"
@@ -184,7 +162,7 @@ export function VideoCard({ video }: VideoCardProps) {
             onClick={() => handleNotesAndVideoClick(video.notesUrl)}
           >
             <FileText className="h-4 w-4" />
-            View Notes
+            {t('viewNotes')}
           </button>
           {video.codingQuestionUrl && (
             <a
@@ -194,7 +172,7 @@ export function VideoCard({ video }: VideoCardProps) {
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-white/10 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/20"
             >
               <Code className="h-4 w-4" />
-              Practice
+              {t('practice')}
             </a>
           )}
         </div>

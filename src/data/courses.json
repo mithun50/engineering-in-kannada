@@ -3,35 +3,45 @@
     {
       "id": "python-fundamentals",
       "title": "Python in Kannada Basics",
+      "title_kn": "ಕನ್ನಡದಲ್ಲಿ ಪೈಥಾನ್ ಮೂಲಗಳು",
       "description": "Learn Python basics in Kannada from zero with real-world examples.",
+      "description_kn": "ನೈಜ-ಪ್ರಪಂಚದ ಉದಾಹರಣೆಗಳೊಂದಿಗೆ ಮೊದಲಿನಿಂದ ಕನ್ನಡದಲ್ಲಿ ಪೈಥಾನ್ ಮೂಲಭೂತ ವಿಷಯಗಳನ್ನು ಕಲಿಯಿರಿ.",
       "thumbnail": "https://i3.ytimg.com/vi/8c74mXV2lJ0/hqdefault.jpg",
       "difficulty": "Beginner"
     },
     {
       "id": "python-oops",
       "title": "Python OOPS in Kannada",
+      "title_kn": "ಕನ್ನಡದಲ್ಲಿ ಪೈಥಾನ್ OOPS",
       "description": "Learn Object Oriented Programming in Python in Kannada with real-world examples.",
+      "description_kn": "ನೈಜ-ಪ್ರಪಂಚದ ಉದಾಹರಣೆಗಳೊಂದಿಗೆ ಕನ್ನಡದಲ್ಲಿ ಪೈಥಾನ್‌ನಲ್ಲಿ ಆಬ್ಜೆಕ್ಟ್ ಓರಿಯೆಂಟೆಡ್ ಪ್ರೋಗ್ರಾಮಿಂಗ್ ಕಲಿಯಿರಿ.",
       "thumbnail": "https://i3.ytimg.com/vi/aXuYPVStgdk/hqdefault.jpg",
       "difficulty": "Intermediate"
     },
     {
       "id": "web-dev-manjunath",
       "title": "Web Development in Kannada",
+      "title_kn": "ಕನ್ನಡದಲ್ಲಿ ವೆಬ್ ಡೆವಲಪ್‌ಮೆಂಟ್",
       "description": "Learn HTML, CSS and JS basics with Manjunath in Kannada with hands-on project.",
+      "description_kn": "ಕನ್ನಡದಲ್ಲಿ ಮಂಜುನಾಥ್ ಅವರೊಂದಿಗೆ HTML, CSS ಮತ್ತು JS ಮೂಲಭೂತ ವಿಷಯಗಳನ್ನು ಹ್ಯಾಂಡ್ಸ್-ಆನ್ ಪ್ರಾಜೆಕ್ಟ್‌ನೊಂದಿಗೆ ಕಲಿಯಿರಿ.",
       "thumbnail": "https://i3.ytimg.com/vi/mVbsESNhDAk/hqdefault.jpg",
       "difficulty": "Beginner"
     },
     {
       "id": "c-fundamentals",
       "title": "C Programming in Kannada",
+      "title_kn": "ಕನ್ನಡದಲ್ಲಿ ಸಿ ಪ್ರೋಗ್ರಾಮಿಂಗ್",
       "description": "Basic C Programming in Kannada crash course.",
+      "description_kn": "ಕನ್ನಡದಲ್ಲಿ ಮೂಲಭೂತ ಸಿ ಪ್ರೋಗ್ರಾಮಿಂಗ್ ಕ್ರ್ಯಾಶ್ ಕೋರ್ಸ್.",
       "thumbnail": "https://i.ytimg.com/vi/0sd6OpPG2UM/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDYHXnfNHb_1mSOjLYbePMJPKVqaA",
       "difficulty": "Beginner"
     },
     {
       "id": "dsa-c",
       "title": "Data Structures and Algorithms in C",
+      "title_kn": "ಸಿ ನಲ್ಲಿ ಡೇಟಾ ಸ್ಟ್ರಕ್ಚರ್‌ಗಳು ಮತ್ತು ಅಲ್ಗಾರಿದಮ್‌ಗಳು",
       "description": "Learn Data Structures and Algorithms in C in Kannada.",
+      "description_kn": "ಕನ್ನಡದಲ್ಲಿ ಸಿ ನಲ್ಲಿ ಡೇಟಾ ಸ್ಟ್ರಕ್ಚರ್‌ಗಳು ಮತ್ತು ಅಲ್ಗಾರಿದಮ್‌ಗಳನ್ನು ಕಲಿಯಿರಿ.",
       "thumbnail": "https://i.ytimg.com/vi/iDe1fWnneCA/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAZH7kV7J3uszbIxnRQowDjt7rpCg",
       "difficulty": "Intermediate"
     }

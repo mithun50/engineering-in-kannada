@@ -4,6 +4,7 @@
     {
       "id": "web-dev-1", 
       "title": "1. Introduction to HTML and CSS",
+      "title_kn": "1. HTML ಮತ್ತು CSS ಗೆ ಪರಿಚಯ",
       "type": "Concept",
       "youtubeUrl": "https://www.youtube.com/watch?v=mVbsESNhDAk&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=1&pp=iAQB",
       "notesUrl": "",
@@ -12,6 +13,7 @@
     {
       "id": "web-dev-2",
       "title": "2. CSS Basics",
+      "title_kn": "2. CSS ಮೂಲಗಳು",
       "type": "Concept", 
       "youtubeUrl": "https://www.youtube.com/watch?v=kzoveSCMJAU&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=2&pp=iAQB",
       "notesUrl": "",
@@ -20,6 +22,7 @@
     {
       "id": "web-dev-3",
       "title": "3. CSS Grid and Flexbox",
+      "title_kn": "3. CSS ಗ್ರಿಡ್ ಮತ್ತು ಫ್ಲೆಕ್ಸ್‌ಬಾಕ್ಸ್",
       "type": "Hands-On",
       "youtubeUrl": "https://www.youtube.com/watch?v=TkpulmeSEqI&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=3&pp=iAQB",
       "notesUrl": "",
@@ -28,6 +31,7 @@
     {
       "id": "web-dev-4",
       "title": "4. Media Queries and Responsive Design",
+      "title_kn": "4. ಮೀಡಿಯಾ ಕ್ವೆರಿಗಳು ಮತ್ತು ರೆಸ್ಪಾನ್ಸಿವ್ ಡಿಸೈನ್",
       "type": "Hands-On",
       "youtubeUrl": "https://www.youtube.com/watch?v=rEootTokgu4&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=4&pp=iAQB",
       "notesUrl": "",
@@ -36,6 +40,7 @@
     {
       "id": "web-dev-5", 
       "title": "5. CSS Animation",
+      "title_kn": "5. CSS ಅನಿಮೇಷನ್",
       "type": "Hands-On",
       "youtubeUrl": "https://www.youtube.com/watch?v=eCwXvcJuYi8&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=5&pp=iAQB",
       "notesUrl": "",
@@ -44,6 +49,7 @@
     {
       "id": "web-dev-6",
       "title": "6. Website Project Part 1",
+      "title_kn": "6. ವೆಬ್‌ಸೈಟ್ ಪ್ರಾಜೆಕ್ಟ್ ಭಾಗ 1",
       "type": "Project",
       "youtubeUrl": "https://www.youtube.com/watch?v=5W73TFVgcmo&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=6&pp=iAQB",
       "notesUrl": "",
@@ -52,6 +58,7 @@
     {
       "id": "web-dev-7",
       "title": "7. Website Project Part 2",
+      "title_kn": "7. ವೆಬ್‌ಸೈಟ್ ಪ್ರಾಜೆಕ್ಟ್ ಭಾಗ 2",
       "type": "Project", 
       "youtubeUrl": "https://www.youtube.com/watch?v=16eg-s66txE&list=PLlGueSbLhZoAd3iIu-ZsX-YPeYnxrvUwG&index=7&pp=iAQB",
       "notesUrl": "",

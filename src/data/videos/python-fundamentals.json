@@ -4,6 +4,7 @@
     {
       "id": "python-fundamentals-1",
       "title": "1. Introduction to Coding and Python",
+      "title_kn": "1. ಕೋಡಿಂಗ್ ಮತ್ತು ಪೈಥಾನ್‌ಗೆ ಪರಿಚಯ",
       "type": "Theory",
       "youtubeUrl": "https://www.youtube.com/watch?v=8c74mXV2lJ0&list=PLlGueSbLhZoBRnTsGiDJeTXuQCALOTN07&index=1&pp=iAQB",
       "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/1.md",
@@ -12,6 +13,7 @@
     {
       "id": "python-fundamentals-2",
       "title": "2. Python Variables and Data Types",
+      "title_kn": "2. ಪೈಥಾನ್ ವೇರಿಯೇಬಲ್‌ಗಳು ಮತ್ತು ಡೇಟಾ ಪ್ರಕಾರಗಳು",
       "type": "Theory",
       "youtubeUrl": "https://www.youtube.com/watch?v=jr1FF9-VAJs&list=PLlGueSbLhZoBRnTsGiDJeTXuQCALOTN07&index=2&pp=iAQB",
       "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/2.md",
@@ -20,6 +22,7 @@
     {
       "id": "python-fundamentals-3a",
       "title": "3. Input and Output/Print",
+      "title_kn": "3. ಇನ್‌ಪುಟ್ ಮತ್ತು ಔಟ್‌ಪುಟ್/ಪ್ರಿಂಟ್",
       "type": "Theory",
       "youtubeUrl": "https://youtu.be/0qo3QEidzjA?si=j8I60CnKANp9RFPz",
       "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/3.md",
@@ -28,6 +31,7 @@
     {
       "id": "python-fundamentals-3b",
       "title": "4. String Data Type",
+      "title_kn": "4. ಸ್ಟ್ರಿಂಗ್ ಡೇಟಾ ಪ್ರಕಾರ",
       "type": "Theory",
       "youtubeUrl": "https://youtu.be/AWptcpgp8XU?si=f5s6Y54_kzERNxYV",
       "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/3.md",
@@ -36,6 +40,7 @@
     {
       "id": "python-fundamentals-4",
       "title": "5. Operators",
+      "title_kn": "5. ಆಪರೇಟರ್‌ಗಳು",
       "type": "Theory",
       "youtubeUrl": "https://youtu.be/w8tfQWolQnE?si=JZFRvtEv4qCrLpNX",
       "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/4.md",
@@ -44,6 +49,7 @@
     {
       "id": "python-fundamentals-5",
       "title": "6. Lists Operations, Methods and Functions",
+      "title_kn": "6. ಲಿಸ್ಟ್‌ಗಳ ಕಾರ್ಯಾಚರಣೆಗಳು, ವಿಧಾನಗಳು ಮತ್ತು ಕಾರ್ಯಗಳು",
       "type": "Theory",
       "youtubeUrl": "https://youtu.be/bvohjRepLz0?si=4aHBo5lCkdVP5-GA",
       "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/5.md",
@@ -52,6 +58,7 @@
     {
       "id": "python-fundamentals-6",
       "title": "7. Tuples and Sets Operations & Difference",
+      "title_kn": "7. ಟಪಲ್‌ಗಳು ಮತ್ತು ಸೆಟ್‌ಗಳ ಕಾರ್ಯಾಚರಣೆಗಳು ಮತ್ತು ವ್ಯತ್ಯಾಸ",
       "type": "Theory",
       "youtubeUrl": "https://youtu.be/Y3WapTGp7vc?si=Ve1ZwJdIvF6Dppn4",
       "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/6.md",
@@ -60,6 +67,7 @@
     {
       "id": "python-fundamentals-7",
       "title": "8. Dictionaries Operations, Methods and Functions",
+      "title_kn": "8. ಡಿಕ್ಷನರಿಗಳ ಕಾರ್ಯಾಚರಣೆಗಳು, ವಿಧಾನಗಳು ಮತ್ತು ಕಾರ್ಯಗಳು",
       "type": "Theory",
       "youtubeUrl": "https://youtu.be/S_xF9ThJ8Jw?si=JOrmQHsQJSEEPxhH",
       "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/7.md",
@@ -68,6 +76,7 @@
     {
       "id": "python-fundamentals-8",
       "title": "9. Conditional Statements: if, elif, else",
+      "title_kn": "9. ಷರತ್ತುಬದ್ಧ ಹೇಳಿಕೆಗಳು: if, elif, else",
       "type": "Theory",
       "youtubeUrl": "https://youtu.be/lMdSvt68BkE?si=Q2OHqEOODBh2qJs7",
       "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/8.md",
@@ -76,6 +85,7 @@
     {
       "id": "python-fundamentals-9",
       "title": "10. While Loops",
+      "title_kn": "10. ವೈಲ್ ಲೂಪ್‌ಗಳು",
       "type": "Theory",
       "youtubeUrl": "https://www.youtube.com/watch?v=LzMNs0nhZW0",
       "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/9.md",
@@ -84,6 +94,7 @@
     {
       "id": "python-fundamentals-10",
       "title": "11. For Loops",
+      "title_kn": "11. ಫಾರ್ ಲೂಪ್‌ಗಳು",
       "type": "Theory",
       "youtubeUrl": "https://www.youtube.com/watch?v=dqhhBt_YF0o",
       "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/10.md",
@@ -92,6 +103,7 @@
     {
       "id": "python-fundamentals-11",
       "title": "12. Comprehensions in Lists and Dictionaries",
+      "title_kn": "12. ಲಿಸ್ಟ್‌ಗಳು ಮತ್ತು ಡಿಕ್ಷನರಿಗಳಲ್ಲಿ ಕಾಂಪ್ರಹೆನ್ಷನ್‌ಗಳು",
       "type": "Theory",
       "youtubeUrl": "https://www.youtube.com/watch?v=VYDVqCQy5mg",
       "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/11.md",
@@ -100,6 +112,7 @@
     {
       "id": "python-fundamentals-12",
       "title": "13. Functions, Parameters, Local vs Global var",
+      "title_kn": "13. ಫಂಕ್ಷನ್‌ಗಳು, ಪ್ಯಾರಾಮೀಟರ್‌ಗಳು, ಲೋಕಲ್ vs ಗ್ಲೋಬಲ್ ವೇರಿಯಬಲ್‌ಗಳು",
       "type": "Theory",
       "youtubeUrl": "https://www.youtube.com/watch?v=-5XRSvBjyW8",
       "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/12.md",
@@ -108,6 +121,7 @@
     {
       "id": "python-fundamentals-13",
       "title": "14. Lambda Functions, Recursion, args and kwargs",
+      "title_kn": "14. ಲ್ಯಾಂಬ್ಡಾ ಫಂಕ್ಷನ್‌ಗಳು, ರಿಕರ್ಷನ್, ಆರ್ಗ್ಸ್ ಮತ್ತು ಕ್ವಾರ್ಗ್ಸ್",
       "type": "Theory",
       "youtubeUrl": "https://www.youtube.com/watch?v=COH03FV6YlU",
       "notesUrl": "https://github.com/chandansgowda/learn-python-in-kannada/blob/main/notes/13.md",
