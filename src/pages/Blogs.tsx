@@ -21,7 +21,7 @@ export function Blogs() {
             <div className="h-0.5 w-12 bg-primary/50"></div>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-yellow-400 to-primary bg-clip-text text-transparent pb-2">
-            Explore Our Tech Blogs
+            {t('blogPageHeader')}
           </h1>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
