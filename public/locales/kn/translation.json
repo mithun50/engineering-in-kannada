@@ -21,5 +21,14 @@
   "progress": "ಪ್ರಗತಿ",
   "connectWithMe": "ನನ್ನೊಂದಿಗೆ ಸಂಪರ್ಕ ಸಾಧಿಸಿ",
   "linksPageSubtitle": "ನನ್ನ ಎಲ್ಲಾ ಪ್ರೊಫೈಲ್‌ಗಳು ಮತ್ತು ಸಂಪನ್ಮೂಲಗಳನ್ನು ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ ಹುಡುಕಿ",
-  "visitLink": "ಭೇಟಿ ನೀಡಿ"
+  "visitLink": "ಭೇಟಿ ನೀಡಿ",
+  "leaderboardTitle": "ಕೊಡುಗೆದಾರರ ಲೀಡರ್‌ಬೋರ್ಡ್",
+  "leaderboardSubtitle": "ಕನ್ನಡದಲ್ಲಿ ಇಂಜಿನಿಯರಿಂಗ್ ಶಿಕ್ಷಣವನ್ನು ಸುಲಭವಾಗಿ ತಲುಪಿಸಲು ಸಹಾಯ ಮಾಡುವ ನಮ್ಮ ಅದ್ಭುತ ಕೊಡುಗೆದಾರರನ್ನು ಆಚರಿಸುತ್ತಿದ್ದೇವೆ.",
+  "leaderboardError": "ಕೊಡುಗೆದಾರರ ಡೇಟಾವನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ. ದಯವಿಟ್ಟು ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+  "leaderboardRank": "ಶ್ರೇಣಿ",
+  "leaderboardContributor": "ಕೊಡುಗೆದಾರರು",
+  "leaderboardPRs": "PRಗಳು",
+  "leaderboardIssues": "ಸಮಸ್ಯೆಗಳು",
+  "leaderboardCommits": "ಕಮಿಟ್‌ಗಳು",
+  "leaderboardProfile": "ಪ್ರೊಫೈಲ್"
 }

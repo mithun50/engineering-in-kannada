@@ -21,5 +21,14 @@
   "progress": "Progress",
   "connectWithMe": "Connect With Me",
   "linksPageSubtitle": "Find all my profiles and resources in one place",
-  "visitLink": "Visit"
+  "visitLink": "Visit",
+  "leaderboardTitle": "Contributor Leaderboard",
+  "leaderboardSubtitle": "Celebrating our amazing contributors who help make engineering education accessible in Kannada.",
+  "leaderboardError": "Failed to load contributor data. Please try again later.",
+  "leaderboardRank": "Rank",
+  "leaderboardContributor": "Contributor",
+  "leaderboardPRs": "PRs",
+  "leaderboardIssues": "Issues",
+  "leaderboardCommits": "Commits",
+  "leaderboardProfile": "Profile"
 }
