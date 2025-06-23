@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next'; // Import useTranslation
 
 
 export const BlogPost: React.FC = () => {
+  const { t } = useTranslation(); 
   const { slug } = useParams<{ slug: string }>();
   const blog = slug ? getBlogPost(slug) : null;
 
