@@ -173,7 +173,8 @@ This project uses `i18next` for internationalization.
      ```env
      VITE_GITHUB_TOKEN=your_github_token_here
      ```
-   - Replace `your_github_token_here` with the token you copied
+   - Replace `your_github_token_here` with the token you copied.
+   - **Important for Deployment:** This token is crucial for the Contributor Leaderboard to function correctly on a deployed site (e.g., Netlify). Ensure `VITE_GITHUB_TOKEN` is also set as an environment variable in your hosting provider's settings. Without it, GitHub API requests will be unauthenticated and likely fail due to rate limiting, preventing the leaderboard from loading.
 
 ### Installation
 
