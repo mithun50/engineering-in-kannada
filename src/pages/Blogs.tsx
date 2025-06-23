@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next'; // Import useTranslation
 
 
 export function Blogs() {
+  const { t } = useTranslation();
   const blogs = getBlogPosts();
 
   return (
