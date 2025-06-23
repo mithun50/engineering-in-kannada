@@ -22,25 +22,26 @@ export function HomePage() {
 
       try {
         if (lang === 'kn') {
-          loadedCoursesData = (await import('../data/courses.kn.json')).default;
-        } else {
-          // Fallback to default English version or if courses.en.json exists
           try {
-            loadedCoursesData = (await import('../data/courses.en.json')).default;
-          } catch (e) {
+            loadedCoursesData = (await import('../data/courses.kn.json')).default;
+          } catch (knError) {
+            console.warn("Failed to load courses.kn.json, falling back to default.", knError);
             loadedCoursesData = (await import('../data/courses.json')).default;
           }
+        } else {
+          // For 'en' or any other language, load the default courses.json
+          loadedCoursesData = (await import('../data/courses.json')).default;
         }
         setCourses(loadedCoursesData.courses || []);
       } catch (error) {
-        console.error("Failed to load courses:", error);
-        // Attempt to load default if language specific fails
+        console.error("Failed to load courses, attempting absolute fallback:", error);
+        // Absolute fallback if primary logic fails catastrophically
         try {
-          loadedCoursesData = (await import('../data/courses.json')).default;
-          setCourses(loadedCoursesData.courses || []);
+          const fallbackData = (await import('../data/courses.json')).default;
+          setCourses(fallbackData.courses || []);
         } catch (defaultError) {
-          console.error("Failed to load default courses.json:", defaultError);
-          setCourses([]); // Set to empty if all attempts fail
+          console.error("Failed to load default courses.json as absolute fallback:", defaultError);
+          setCourses([]);
         }
       } finally {
         setLoading(false);

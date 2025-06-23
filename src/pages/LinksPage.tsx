@@ -25,22 +25,24 @@ export function LinksPage() {
       const lang = i18n.language;
       try {
         if (lang === 'kn') {
-          loadedLinksData = (await import('../data/links.kn.json')).default;
-        } else {
           try {
-            loadedLinksData = (await import('../data/links.en.json')).default;
-          } catch (e) {
+            loadedLinksData = (await import('../data/links.kn.json')).default;
+          } catch (knError) {
+            console.warn("Failed to load links.kn.json, falling back to default.", knError);
             loadedLinksData = (await import('../data/links.json')).default;
           }
+        } else {
+          // For 'en' or any other language, load the default links.json
+          loadedLinksData = (await import('../data/links.json')).default;
         }
         setCategories(loadedLinksData.categories || []);
       } catch (error) {
-        console.error("Failed to load links data:", error);
+        console.error("Failed to load links data, attempting absolute fallback:", error);
         try {
-          loadedLinksData = (await import('../data/links.json')).default;
-          setCategories(loadedLinksData.categories || []);
+          const fallbackData = (await import('../data/links.json')).default;
+          setCategories(fallbackData.categories || []);
         } catch (defaultError) {
-          console.error("Failed to load default links.json:", defaultError);
+          console.error("Failed to load default links.json as absolute fallback:", defaultError);
           setCategories([]);
         }
       } finally {

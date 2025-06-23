@@ -24,22 +24,24 @@ const VideoList = React.lazy(() => {
         const lang = i18n.language;
         try {
           if (lang === 'kn') {
-            videoDataModule = await import(`../data/videos/${courseId}.kn.json`);
-          } else {
             try {
-              videoDataModule = await import(`../data/videos/${courseId}.en.json`);
-            } catch (e) {
+              videoDataModule = await import(`../data/videos/${courseId}.kn.json`);
+            } catch (knError) {
+              console.warn(`Failed to load videos ${courseId}.kn.json, falling back to default.`, knError);
               videoDataModule = await import(`../data/videos/${courseId}.json`);
             }
+          } else {
+            // For 'en' or any other language, load the default .json
+            videoDataModule = await import(`../data/videos/${courseId}.json`);
           }
           setVideos(videoDataModule.default?.videos || videoDataModule.videos || []);
         } catch (error) {
-          console.error(`Failed to load videos for ${courseId}.${lang}.json:`, error);
+          console.error(`Failed to load videos for ${courseId}, attempting absolute fallback:`, error);
           try {
-            videoDataModule = await import(`../data/videos/${courseId}.json`);
-            setVideos(videoDataModule.default?.videos || videoDataModule.videos || []);
+            const fallbackVideoData = await import(`../data/videos/${courseId}.json`);
+            setVideos(fallbackVideoData.default?.videos || fallbackVideoData.videos || []);
           } catch (defaultError) {
-            console.error(`Failed to load default videos for ${courseId}.json:`, defaultError);
+            console.error(`Failed to load default videos for ${courseId}.json as absolute fallback:`, defaultError);
             setVideos([]);
           }
         }
@@ -87,24 +89,26 @@ export function CoursePage() {
       const lang = i18n.language;
       try {
         if (lang === 'kn') {
-          loadedCoursesData = (await import('../data/courses.kn.json')).default;
-        } else {
           try {
-            loadedCoursesData = (await import('../data/courses.en.json')).default;
-          } catch (e) {
+            loadedCoursesData = (await import('../data/courses.kn.json')).default;
+          } catch (knError) {
+            console.warn(`Failed to load courses.kn.json for ${courseId}, falling back to default.`, knError);
             loadedCoursesData = (await import('../data/courses.json')).default;
           }
+        } else {
+          // For 'en' or any other language, load the default courses.json
+          loadedCoursesData = (await import('../data/courses.json')).default;
         }
         const foundCourse = loadedCoursesData.courses.find((c: Course) => c.id === courseId);
         setCourse(foundCourse || null);
       } catch (error) {
-        console.error("Failed to load course details:", error);
+        console.error(`Failed to load course details for ${courseId}, attempting absolute fallback:`, error);
         try {
-            loadedCoursesData = (await import('../data/courses.json')).default;
-            const foundCourse = loadedCoursesData.courses.find((c: Course) => c.id === courseId);
+            const fallbackData = (await import('../data/courses.json')).default;
+            const foundCourse = fallbackData.courses.find((c: Course) => c.id === courseId);
             setCourse(foundCourse || null);
         } catch (defaultError) {
-            console.error("Failed to load default courses.json for course details:", defaultError);
+            console.error(`Failed to load default courses.json as absolute fallback for ${courseId}:`, defaultError);
             setCourse(null);
         }
       }
