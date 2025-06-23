@@ -1,0 +1,39 @@
+{
+  "courses": [
+    {
+      "id": "python-fundamentals",
+      "title": "ಕನ್ನಡದಲ್ಲಿ ಪೈಥಾನ್ ಮೂಲಗಳು",
+      "description": "ನೈಜ-ಪ್ರಪಂಚದ ಉದಾಹರಣೆಗಳೊಂದಿಗೆ ಮೊದಲಿನಿಂದ ಕನ್ನಡದಲ್ಲಿ ಪೈಥಾನ್ ಮೂಲಭೂತ ವಿಷಯಗಳನ್ನು ಕಲಿಯಿರಿ.",
+      "thumbnail": "https://i3.ytimg.com/vi/8c74mXV2lJ0/hqdefault.jpg",
+      "difficulty": "ಹರಿಕಾರ"
+    },
+    {
+      "id": "python-oops",
+      "title": "Python OOPS in Kannada",
+      "description": "Learn Object Oriented Programming in Python in Kannada with real-world examples.",
+      "thumbnail": "https://i3.ytimg.com/vi/aXuYPVStgdk/hqdefault.jpg",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "web-dev-manjunath",
+      "title": "Web Development in Kannada",
+      "description": "Learn HTML, CSS and JS basics with Manjunath in Kannada with hands-on project.",
+      "thumbnail": "https://i3.ytimg.com/vi/mVbsESNhDAk/hqdefault.jpg",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "c-fundamentals",
+      "title": "C Programming in Kannada",
+      "description": "Basic C Programming in Kannada crash course.",
+      "thumbnail": "https://i.ytimg.com/vi/0sd6OpPG2UM/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDYHXnfNHb_1mSOjLYbePMJPKVqaA",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "dsa-c",
+      "title": "Data Structures and Algorithms in C",
+      "description": "Learn Data Structures and Algorithms in C in Kannada.",
+      "thumbnail": "https://i.ytimg.com/vi/iDe1fWnneCA/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAZH7kV7J3uszbIxnRQowDjt7rpCg",
+      "difficulty": "Intermediate"
+    }
+  ]
+}
