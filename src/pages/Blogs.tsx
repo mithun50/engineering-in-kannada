@@ -4,6 +4,8 @@ import { truncateWords } from '../utils/textUtils';
 import { Calendar, User, Tag, BookOpen } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { useTranslation } from 'react-i18next'; // Import useTranslation
+
 
 export function Blogs() {
   const blogs = getBlogPosts();
