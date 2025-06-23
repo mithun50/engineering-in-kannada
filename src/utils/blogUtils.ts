@@ -129,7 +129,7 @@ export const getBlogPost = (slug: string): BlogPost | null => {
     slug,
     lang: postLang,
   };
-}; if the above logic correctly assigns or returns null
+}; // if the above logic correctly assigns or returns null
   // if (!metadata || !content) {
   //   return null; 
   // }
