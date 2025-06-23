@@ -117,22 +117,6 @@ export const getBlogPost = (slug: string): BlogPost | null => {
     // No valid combination found for the given slug
     return null;
   }
-  
-  // This check is redundant if the above logic correctly assigns or returns null
-  // if (!metadata || !content) {
-  //   return null; 
-  // }
-
-  return {
-    metadata,
-    content,
-    slug,
-    lang: postLang,
-  };
-}; // if the above logic correctly assigns or returns null
-  // if (!metadata || !content) {
-  //   return null; 
-  // }
 
   return {
     metadata,
