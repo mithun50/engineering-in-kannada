@@ -1,11 +1,13 @@
 import React, { Suspense, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 // import coursesData from '../data/courses.json'; // To be loaded dynamically
+import { MetaTags } from '../components/MetaTags'; // Import MetaTags
 import { VideoCard } from '../components/VideoCard';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import ShareButtons from '../components/ShareButtons'; // Import ShareButtons
 import { useProgressStore } from '../store/progress';
 import { Video, Course } from '../types'; // Added Course type
 import { ToastContainer } from 'react-toastify';
@@ -143,6 +145,12 @@ export function CoursePage() {
 
   return (
     <div className="min-h-screen bg-dark">
+      <MetaTags
+        title={course.title}
+        description={course.description}
+        imageUrl={course.thumbnail} // Assuming 'thumbnail' is part of Course type and holds an absolute URL or relative path
+        url={window.location.href}
+      />
       <Header />
       <main className="container mx-auto px-4 py-8">
         <div className="mb-8">
@@ -158,6 +166,7 @@ export function CoursePage() {
           <h1 className="text-3xl font-bold text-white sm:text-4xl">{course.title}</h1>
           <p className="mt-2 text-white/60">{course.description}</p>
         </div>
+        <ShareButtons url={window.location.href} title={course.title} />
         <Suspense fallback={<div className="text-white">{t('loadingVideos')}</div>}>
           {courseId && <VideoList courseId={courseId} />} {/* Ensure courseId is passed */}
         </Suspense>

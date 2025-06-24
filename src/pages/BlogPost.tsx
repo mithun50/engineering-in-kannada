@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { getBlogPost } from '../utils/blogUtils';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { MetaTags } from '../components/MetaTags'; // Import MetaTags
+import ShareButtons from '../components/ShareButtons'; // Import ShareButtons
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ArrowLeft } from 'lucide-react';
@@ -31,6 +33,13 @@ export const BlogPost: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-dark text-white">
+      <MetaTags
+        title={blog.metadata.title}
+        description={blog.metadata.description}
+        // Assuming no specific image per blog post, using default. Can be enhanced later if blog metadata includes images.
+        url={window.location.href}
+        keywords={blog.metadata.tags?.join(', ')}
+      />
       <Header />
       <div className="container mx-auto px-4 py-12">
         <Link 
@@ -72,6 +81,7 @@ export const BlogPost: React.FC = () => {
               </span>
             ))}
           </div>
+          <ShareButtons url={window.location.href} title={blog.metadata.title} text={blog.metadata.description} />
           <div className="h-px bg-white/10 mb-12"></div>
           <article className="prose prose-invert max-w-none prose-headings:text-white prose-p:text-gray-200 prose-strong:text-white prose-code:text-primary">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>

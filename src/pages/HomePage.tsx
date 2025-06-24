@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'; // Added useEffect for data loading
+import { MetaTags } from '../components/MetaTags'; // Import MetaTags
 import { CourseCard } from '../components/CourseCard';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -61,6 +62,11 @@ export function HomePage() {
 
   return (
     <div className="min-h-screen bg-dark">
+      <MetaTags
+        title={t('homePageTitle') || "Home - Engineering in Kannada"}
+        description={t('homePageTagline') || "Your gateway to learning engineering concepts in Kannada. Explore courses, tutorials, and articles."}
+        url={window.location.href}
+      />
       <Header />
       <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="text-center">
