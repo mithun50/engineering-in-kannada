@@ -1,5 +1,5 @@
 import React from 'react';
-import { LuShare2 } from 'lucide-react'; // Using Lucide for consistency
+import { Share2 } from 'lucide-react'; // Corrected icon name
 
 interface ShareButtonProps {
   url?: string;
@@ -43,10 +43,9 @@ export const ShareButton: React.FC<ShareButtonProps> = ({ url, title, className 
       aria-label="Share"
       title="Share"
     >
-      <LuShare2 size={18} />
+      <Share2 size={18} />
     </button>
   );
 };
 
 export default ShareButton;
-
