@@ -31,5 +31,11 @@
   "leaderboardIssues": "Issues",
   "leaderboardCommits": "Commits",
   "leaderboardProfile": "Profile",
-  "blogPageHeader": "Explore Our Tech Blogs"
+  "blogPageHeader": "Explore Our Tech Blogs",
+  "linkCopiedToClipboard": "Link copied to clipboard!",
+  "failedToCopyLink": "Failed to copy link.",
+  "shareThis": "Share this",
+  "shareOn": "Share on",
+  "copyLink": "Copy Link",
+  "copied": "Copied!"
 }

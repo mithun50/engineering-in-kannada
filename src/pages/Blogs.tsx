@@ -5,12 +5,17 @@ import { truncateWords } from '../utils/textUtils';
 import { Calendar, User, Tag, BookOpen } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { useTranslation } from 'react-i18next'; // Import useTranslation
-
+import { useTranslation } from 'react-i18next';
+import { BlogPost } from '../types'; // For useState typing
+import ShareButtons from '../components/ShareButtons'; // For upcoming share button integration
 
 export function Blogs() {
-  const { t } = useTranslation();
-  const blogs = getBlogPosts();
+  const { t, i18n } = useTranslation(); // Ensure i18n is destructured
+  const [blogs, setBlogs] = useState<BlogPost[]>([]); // Use state for blogs
+
+  useEffect(() => {
+    setBlogs(getBlogPosts()); // Fetch/update blogs when language changes
+  }, [i18n.language]); // Dependency on language change
 
   return (
     <div className="min-h-screen bg-dark">
@@ -31,7 +36,7 @@ export function Blogs() {
             <Link
               key={blog.slug}
               to={`/blogs/${blog.slug}`}
-              className="group cursor-pointer overflow-hidden rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 transition-all duration-300 hover:scale-[1.02] hover:bg-white/20"
+              className="group cursor-pointer flex flex-col justify-between overflow-hidden rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 transition-all duration-300 hover:scale-[1.02] hover:bg-white/20"
             >
               <div className="p-6">
                 <div className="flex items-center gap-4 text-gray-400 text-sm mb-4">
@@ -61,6 +66,13 @@ export function Blogs() {
                     </span>
                   ))}
                 </div>
+                <div className="mt-4 pt-4 border-t border-white/10" onClick={(e) => e.stopPropagation()}>
+                  <ShareButtons
+                    url={`${window.location.origin}/blogs/${blog.slug}`}
+                    title={blog.metadata.title}
+                    variant="icon"
+                  />
+                </div>
               </div>
             </Link>
           ))}
@@ -69,4 +81,4 @@ export function Blogs() {
       <Footer />
     </div>
   );
-} 
+}

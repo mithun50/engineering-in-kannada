@@ -31,5 +31,11 @@
   "leaderboardIssues": "ಸಮಸ್ಯೆಗಳು",
   "leaderboardCommits": "ಕಮಿಟ್‌ಗಳು",
   "leaderboardProfile": "ಪ್ರೊಫೈಲ್",
-  "blogPageHeader": "ನಮ್ಮ ಟೆಕ್ ಬ್ಲಾಗ್‌ಗಳನ್ನು ಅನ್ವೇಷಿಸಿ"
+  "blogPageHeader": "ನಮ್ಮ ಟೆಕ್ ಬ್ಲಾಗ್‌ಗಳನ್ನು ಅನ್ವೇಷಿಸಿ",
+  "linkCopiedToClipboard": "ಲಿಂಕ್ ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಲಾಗಿದೆ!",
+  "failedToCopyLink": "ಲಿಂಕ್ ನಕಲಿಸಲು ವಿಫಲವಾಯಿತು.",
+  "shareThis": "ಇದನ್ನು ಹಂಚಿಕೆಮಾಡಿ",
+  "shareOn": "ಇದರಲ್ಲಿ ಹಂಚಿಕೆಮಾಡಿ",
+  "copyLink": "ಲಿಂಕ್ ನಕಲಿಸಿ",
+  "copied": "ನಕಲಿಸಲಾಗಿದೆ!"
 }
