@@ -66,12 +66,14 @@ export function Blogs() {
                     </span>
                   ))}
                 </div>
-                <div className="mt-4 pt-4 border-t border-white/10 flex justify-end" onClick={(e) => e.stopPropagation()}>
-                  <CardSharePopover
-                    url={`${window.location.origin}/blogs/${blog.slug}`}
-                    title={blog.metadata.title}
-                  />
-                </div>
+                {blog && blog.slug && blog.metadata && blog.metadata.title && (
+                  <div className="mt-4 pt-4 border-t border-white/10 flex justify-end" onClick={(e) => e.stopPropagation()}>
+                    <CardSharePopover
+                      url={`${window.location.origin}/blogs/${blog.slug}`}
+                      title={blog.metadata.title}
+                    />
+                  </div>
+                )}
               </div>
             </Link>
           ))}

@@ -66,13 +66,14 @@ export function CourseCard({ course }: CourseCardProps) {
           {course.title}
         </h3>
         <p className="mt-2 text-gray-400">{course.description}</p>
-        <div className="mt-4 flex justify-end" onClick={(e) => e.stopPropagation()}>
-          {/* Added flex justify-end and kept stopPropagation */}
-          <CardSharePopover
-            url={`${window.location.origin}/course/${course.id}`}
-            title={course.title}
-          />
-        </div>
+        {course && course.id && course.title && (
+          <div className="mt-4 flex justify-end" onClick={(e) => e.stopPropagation()}>
+            <CardSharePopover
+              url={`${window.location.origin}/course/${course.id}`}
+              title={course.title}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
