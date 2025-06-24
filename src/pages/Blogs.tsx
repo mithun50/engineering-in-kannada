@@ -7,7 +7,7 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { useTranslation } from 'react-i18next';
 import { BlogPost } from '../types'; // For useState typing
-import ShareButtons from '../components/ShareButtons'; // For upcoming share button integration
+import CardSharePopover from '../components/CardSharePopover'; // Changed import
 
 export function Blogs() {
   const { t, i18n } = useTranslation(); // Ensure i18n is destructured
@@ -66,11 +66,10 @@ export function Blogs() {
                     </span>
                   ))}
                 </div>
-                <div className="mt-4 pt-4 border-t border-white/10" onClick={(e) => e.stopPropagation()}>
-                  <ShareButtons
+                <div className="mt-4 pt-4 border-t border-white/10 flex justify-end" onClick={(e) => e.stopPropagation()}>
+                  <CardSharePopover
                     url={`${window.location.origin}/blogs/${blog.slug}`}
                     title={blog.metadata.title}
-                    variant="icon"
                   />
                 </div>
               </div>

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Course } from "../types";
 import { BookOpen, Star } from "lucide-react";
 import { useProgressStore } from "../store/progress";
-import ShareButtons from "./ShareButtons"; // Import ShareButtons
+import CardSharePopover from "./CardSharePopover"; // Changed import to CardSharePopover
 import { getTotalVideos } from "../utils/courseUtils";
 
 interface CourseCardProps {
@@ -66,11 +66,11 @@ export function CourseCard({ course }: CourseCardProps) {
           {course.title}
         </h3>
         <p className="mt-2 text-gray-400">{course.description}</p>
-        <div className="mt-4" onClick={(e) => e.stopPropagation()}>
-          <ShareButtons
+        <div className="mt-4 flex justify-end" onClick={(e) => e.stopPropagation()}>
+          {/* Added flex justify-end and kept stopPropagation */}
+          <CardSharePopover
             url={`${window.location.origin}/course/${course.id}`}
             title={course.title}
-            variant="icon"
           />
         </div>
       </div>
