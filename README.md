@@ -122,15 +122,16 @@ A platform for learning engineering concepts in Kannada through YouTube playlist
 ## Internationalization (i18n)
 
 This project uses `i18next` for internationalization.
+- **Supported Languages**:
+  - English (`en`)
+  - Kannada (`kn`)
 - **UI Strings**: Stored in `public/locales/<lang-code>/translation.json`.
-  - `en`: English
-  - `kn`: Kannada
-- **Content (Courses, Links)**: Translated versions of JSON files are stored with a language code suffix, e.g., `courses.kn.json`, `links.kn.json`. The application attempts to load the current language's file and falls back to the default (e.g., `courses.json`) if not found.
+- **Content (Courses, Links, Announcements)**: Translated versions of JSON files are stored with a language code suffix, e.g., `courses.kn.json`, `links.kn.json`, or use translation keys within the main JSON file (e.g. `announcements.json` uses keys that are then looked up in the `translation.json` files). The application attempts to load the current language's file or strings and falls back to the default English version if not found.
 - **Content (Blogs)**:
     - Metadata: `metadata.<lang-code>.json` (e.g., `metadata.kn.json`).
     - Content: `content.<lang-code>.md` (e.g., `content.kn.md`).
     - The system will automatically try to load `metadata.<lang>.json` and `content.<lang>.md` based on the selected language, falling back to default `metadata.json` and `content.md` if translations are not present.
-- **Language Switching**: Blog pages now dynamically update to reflect language changes immediately without requiring a page reload.
+- **Language Switching**: Users can switch languages using the language switcher component in the header. Blog pages now dynamically update to reflect language changes immediately without requiring a page reload.
 
 ### Adding a New Language for UI Strings
 
