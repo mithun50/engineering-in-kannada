@@ -2,16 +2,15 @@ import { BlogMetadata, BlogPost } from '../types';
 import i18n from '../i18n'; // Import i18n instance
 
 // Import all blog content files (e.g., content.md, content.kn.md, etc.)
-const allContentModules: Record<string, string> = import.meta.glob('../blogs/*/content*.md', {
+// When removing query and import options, glob returns modules like: { default: "markdown content" }
+const allContentModules: Record<string, { default: string }> = import.meta.glob('../blogs/*/content*.md', {
   eager: true,
-  query: '?raw', // Imports the raw content of the file
-  import: 'default', // Imports the default export (the raw string)
 });
 
 // Import all metadata files (e.g., metadata.json, metadata.kn.json, etc.)
-const allMetadataModules: Record<string, BlogMetadata> = import.meta.glob('../blogs/*/metadata*.json', {
+// When removing import option, glob returns modules like: { default: { title: "..." } }
+const allMetadataModules: Record<string, { default: BlogMetadata }> = import.meta.glob('../blogs/*/metadata*.json', {
   eager: true,
-  import: 'default', // Imports the default export (the JSON object)
 });
 
 export const getBlogPosts = (): BlogPost[] => {
@@ -28,48 +27,60 @@ export const getBlogPosts = (): BlogPost[] => {
       continue;
     }
 
-    let metadata: BlogMetadata | undefined;
-    let content: string | undefined; // For list view, content is mainly for description or snippet
+    let metadataMod: { default: BlogMetadata } | undefined;
+    let contentMod: { default: string } | undefined;
     let postLang = currentLang; // Assume current language initially
 
     // 1. Try current language metadata
     const currentLangMetadataPath = `../blogs/${slug}/metadata.${currentLang}.json`;
     if (allMetadataModules[currentLangMetadataPath]) {
-      metadata = allMetadataModules[currentLangMetadataPath];
+      metadataMod = allMetadataModules[currentLangMetadataPath];
       // Try corresponding current language content for this metadata
       const currentLangContentPath = `../blogs/${slug}/content.${currentLang}.md`;
       if (allContentModules[currentLangContentPath]) {
-        content = allContentModules[currentLangContentPath];
+        contentMod = allContentModules[currentLangContentPath];
       } else {
         // Fallback to default content if current lang content not found for current lang metadata
-        content = allContentModules[`../blogs/${slug}/content.md`];
+        const defaultContentPath = `../blogs/${slug}/content.md`;
+        if (allContentModules[defaultContentPath]) {
+          contentMod = allContentModules[defaultContentPath];
+        }
       }
     } 
     // 2. Fallback to default language metadata (metadata.json)
     else {
       const defaultMetadataPath = `../blogs/${slug}/metadata.json`;
       if (allMetadataModules[defaultMetadataPath]) {
-        metadata = allMetadataModules[defaultMetadataPath];
+        metadataMod = allMetadataModules[defaultMetadataPath];
         postLang = 'en'; // Metadata is default, so post lang is default
         // Try corresponding current language content (if metadata was default but content for current lang exists)
         const currentLangContentPath = `../blogs/${slug}/content.${currentLang}.md`;
         if (allContentModules[currentLangContentPath]) {
-          content = allContentModules[currentLangContentPath];
+          contentMod = allContentModules[currentLangContentPath];
         } else {
           // Fallback to default content for default metadata
-          content = allContentModules[`../blogs/${slug}/content.md`];
+          const defaultContentPath = `../blogs/${slug}/content.md`;
+          if (allContentModules[defaultContentPath]) {
+            contentMod = allContentModules[defaultContentPath];
+          }
         }
       }
     }
 
-    if (metadata) {
+    if (metadataMod && metadataMod.default) {
+      const metadata = metadataMod.default;
+      // Use contentMod.default if available, otherwise use metadata.description. If contentMod is undefined, content is undefined.
+      const content = contentMod && contentMod.default ? contentMod.default : (metadataMod.default ? metadataMod.default.description : undefined);
+      
       posts.push({
         metadata,
-        content: content || metadata.description, // Use description as snippet
+        content: content || metadata.description, // Ensure there's a fallback for content
         slug,
         lang: postLang,
       });
       processedSlugs.add(slug);
+    } else {
+      console.warn(`Metadata module or default export missing for slug: ${slug} in getBlogPosts`);
     }
   }
 
@@ -78,8 +89,8 @@ export const getBlogPosts = (): BlogPost[] => {
 
 export const getBlogPost = (slug: string): BlogPost | null => {
   const currentLang = i18n.language || 'en';
-  let metadata: BlogMetadata | undefined;
-  let content: string | undefined;
+  let metadataMod: { default: BlogMetadata } | undefined;
+  let contentMod: { default: string } | undefined;
   let postLang = currentLang;
 
   // Strategy:
@@ -95,28 +106,43 @@ export const getBlogPost = (slug: string): BlogPost | null => {
 
   if (allMetadataModules[currentLangMetadataPath] && allContentModules[currentLangContentPath]) {
     // Case 1: Full current language match
-    metadata = allMetadataModules[currentLangMetadataPath];
-    content = allContentModules[currentLangContentPath];
+    metadataMod = allMetadataModules[currentLangMetadataPath];
+    contentMod = allContentModules[currentLangContentPath];
     // postLang is already currentLang
   } else if (allMetadataModules[currentLangMetadataPath] && allContentModules[defaultContentPath]) {
     // Case 2: Current language metadata, default content
-    metadata = allMetadataModules[currentLangMetadataPath];
-    content = allContentModules[defaultContentPath];
+    metadataMod = allMetadataModules[currentLangMetadataPath];
+    contentMod = allContentModules[defaultContentPath];
     // postLang is currentLang (metadata language takes precedence)
   } else if (allMetadataModules[defaultMetadataPath] && allContentModules[currentLangContentPath]) {
     // Case 3: Default metadata, current language content
-    metadata = allMetadataModules[defaultMetadataPath];
-    content = allContentModules[currentLangContentPath];
+    metadataMod = allMetadataModules[defaultMetadataPath];
+    contentMod = allContentModules[currentLangContentPath];
     postLang = 'en'; // Metadata is default
   } else if (allMetadataModules[defaultMetadataPath] && allContentModules[defaultContentPath]) {
     // Case 4: Full default fallback
-    metadata = allMetadataModules[defaultMetadataPath];
-    content = allContentModules[defaultContentPath];
+    metadataMod = allMetadataModules[defaultMetadataPath];
+    contentMod = allContentModules[defaultContentPath];
     postLang = 'en';
   } else {
     // No valid combination found for the given slug
+    console.warn(`No valid metadata/content combination found for slug: ${slug} and lang: ${currentLang}`);
     return null;
   }
+  
+  // Ensure the modules and their default exports exist
+  if (!metadataMod || !metadataMod.default) {
+    console.error(`Metadata module or default export missing for slug: ${slug}`);
+    return null;
+  }
+  // For getBlogPost, content is essential. If contentMod or its default is missing, it's an error.
+  if (!contentMod || !contentMod.default) {
+    console.error(`Content module or default export missing for slug: ${slug}`);
+    return null;
+  }
+
+  const metadata = metadataMod.default;
+  const content = contentMod.default;
 
   return {
     metadata,
