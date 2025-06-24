@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Share2 } from 'lucide-react';
 import ShareButtons from './ShareButtons';
 import useOnClickOutside from '../utils/useOnClickOutside';
