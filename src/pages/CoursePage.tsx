@@ -7,7 +7,7 @@ import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import ShareButtons from '../components/ShareButtons'; // Import ShareButtons
+import ShareButton from '../components/ShareButton'; // Import the new ShareButton
 import { useProgressStore } from '../store/progress';
 import { Video, Course } from '../types'; // Added Course type
 import { ToastContainer } from 'react-toastify';
@@ -166,7 +166,9 @@ export function CoursePage() {
           <h1 className="text-3xl font-bold text-white sm:text-4xl">{course.title}</h1>
           <p className="mt-2 text-white/60">{course.description}</p>
         </div>
-        <ShareButtons url={window.location.href} title={course.title} />
+        <div className="my-4 flex justify-start"> {/* Added a wrapper for alignment, my-4 for margin */}
+          <ShareButton url={window.location.href} title={course.title} />
+        </div>
         <Suspense fallback={<div className="text-white">{t('loadingVideos')}</div>}>
           {courseId && <VideoList courseId={courseId} />} {/* Ensure courseId is passed */}
         </Suspense>
