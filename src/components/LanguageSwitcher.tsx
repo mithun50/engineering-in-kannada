@@ -10,6 +10,8 @@ const LanguageSwitcher: React.FC = () => {
     i18n.changeLanguage(newLang);
   };
 
+  const currentLanguageDisplay = i18n.language === 'kn' ? 'ಕನ್ನಡ' : i18n.language.toUpperCase();
+
   return (
     <button
       onClick={toggleLanguage}
@@ -18,7 +20,7 @@ const LanguageSwitcher: React.FC = () => {
     >
       <Globe size={20} />
       <span className="ml-1.5 text-xs font-medium">
-        {i18n.language.toUpperCase()}
+        {currentLanguageDisplay}
       </span>
     </button>
   );

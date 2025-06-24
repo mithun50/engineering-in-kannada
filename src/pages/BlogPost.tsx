@@ -23,7 +23,7 @@ import { useTranslation } from 'react-i18next'; // Import useTranslation
 
 export const BlogPost: React.FC = () => {
 
-  const { t } = useTranslation(); 
+  const { t } = useTranslation();
 
   const { slug } = useParams<{ slug: string }>();
 
@@ -76,9 +76,9 @@ export const BlogPost: React.FC = () => {
 
       <div className="container mx-auto px-4 py-12">
 
-        <Link 
+        <Link
 
-          to="/blogs" 
+          to="/blogs"
 
           className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-8"
 
@@ -86,7 +86,7 @@ export const BlogPost: React.FC = () => {
 
           <ArrowLeft className="h-4 w-4" />
 
-          Back to Blogs
+          {t('backToBlogs')}
 
         </Link>
 
@@ -156,9 +156,9 @@ export const BlogPost: React.FC = () => {
 
           {/* Replaced ShareButtons with ShareButton. It will use current page URL and title by default. */}
           <div className="mb-8 flex justify-end"> {/* Added a wrapper for alignment if needed */}
-            <ShareButton 
-              url={window.location.href} 
-              title={blog.metadata.title} 
+            <ShareButton
+              url={window.location.href}
+              title={blog.metadata.title}
               // className="text-lg" // Example: if we want to make it slightly larger here
             />
           </div>
@@ -184,5 +184,4 @@ export const BlogPost: React.FC = () => {
 
   );
 
-}; 
-
+};

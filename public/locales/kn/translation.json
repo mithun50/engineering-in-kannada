@@ -31,6 +31,7 @@
   "leaderboardIssues": "ಸಮಸ್ಯೆಗಳು",
   "leaderboardCommits": "ಕಮಿಟ್‌ಗಳು",
   "leaderboardProfile": "ಪ್ರೊಫೈಲ್",
+  "leaderboardError": "ಕೊಡುಗೆದಾರರ ಡೇಟಾವನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ. ದಯವಿಟ್ಟು ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
   "blogPageHeader": "ನಮ್ಮ ಟೆಕ್ ಬ್ಲಾಗ್‌ಗಳನ್ನು ಅನ್ವೇಷಿಸಿ",
   "linkCopiedToClipboard": "ಲಿಂಕ್ ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಲಾಗಿದೆ!",
   "failedToCopyLink": "ಲಿಂಕ್ ನಕಲಿಸಲು ವಿಫಲವಾಯಿತು.",
@@ -38,5 +39,6 @@
   "shareOn": "ಇದರಲ್ಲಿ ಹಂಚಿಕೆಮಾಡಿ",
   "copyLink": "ಲಿಂಕ್ ನಕಲಿಸಿ",
   "copied": "ನಕಲಿಸಲಾಗಿದೆ!",
-  "share": "ಹಂಚಿಕೆಮಾಡಿ"
+  "share": "ಹಂಚಿಕೆಮಾಡಿ",
+  "backToBlogs": "ಬ್ಲಾಗ್‌ಗಳಿಗೆ ಹಿಂತಿರುಗಿ"
 }
