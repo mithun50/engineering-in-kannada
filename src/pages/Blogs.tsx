@@ -7,7 +7,7 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { useTranslation } from 'react-i18next';
 import { BlogPost } from '../types'; // For useState typing
-import CardSharePopover from '../components/CardSharePopover'; // Changed import
+import ShareButton from '../components/ShareButton'; // Import the new ShareButton
 
 export function Blogs() {
   const { t, i18n } = useTranslation(); // Ensure i18n is destructured
@@ -67,8 +67,8 @@ export function Blogs() {
                   ))}
                 </div>
                 {blog && blog.slug && blog.metadata && blog.metadata.title && (
-                  <div className="mt-4 pt-4 border-t border-white/10 flex justify-end" onClick={(e) => e.stopPropagation()}>
-                    <CardSharePopover
+                  <div className="mt-4 pt-4 border-t border-white/10 flex justify-end"> {/* onClick prop removed here as ShareButton handles its own click */}
+                    <ShareButton
                       url={`${window.location.origin}/blogs/${blog.slug}`}
                       title={blog.metadata.title}
                     />
