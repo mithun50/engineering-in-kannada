@@ -79,7 +79,6 @@ A platform for learning engineering concepts in Kannada through YouTube playlist
 4. **(Optional) Add translations for the blog post:**
    - Create `src/blogs/your-blog-slug/metadata.kn.json` (for Kannada) or `metadata.<lang-code>.json`. Translate the relevant fields (`title`, `description`, `tags`).
    - Create `src/blogs/your-blog-slug/content.kn.md` (for Kannada) or `content.<lang-code>.md`. Translate the markdown content.
-   *(Note: Full internationalization for blogs is pending an update to `src/utils/blogUtils.ts`)*
 
 
 ## Updating Existing Content
@@ -130,7 +129,8 @@ This project uses `i18next` for internationalization.
 - **Content (Blogs)**:
     - Metadata: `metadata.<lang-code>.json` (e.g., `metadata.kn.json`).
     - Content: `content.<lang-code>.md` (e.g., `content.kn.md`).
-    - *Note: Full support for loading localized blog content is currently pending an update to `src/utils/blogUtils.ts`.*
+    - The system will automatically try to load `metadata.<lang>.json` and `content.<lang>.md` based on the selected language, falling back to default `metadata.json` and `content.md` if translations are not present.
+- **Language Switching**: Blog pages now dynamically update to reflect language changes immediately without requiring a page reload.
 
 ### Adding a New Language for UI Strings
 

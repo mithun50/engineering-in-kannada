@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getBlogPosts } from '../utils/blogUtils';
 import { truncateWords } from '../utils/textUtils';
