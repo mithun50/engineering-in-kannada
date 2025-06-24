@@ -52,10 +52,12 @@ export function HomePage() {
     fetchCourses();
   }, [i18n.language]); // Reload courses when language changes
 
-  const filteredCourses = courses.filter((course) =>
-    course.title.toLowerCase().includes(query.toLowerCase()) ||
-    (course.description && course.description.toLowerCase().includes(query.toLowerCase()))
-  );
+  const filteredCourses = courses.filter((course) => {
+    if (!course) return false; // Guard against undefined/null course objects
+    const titleMatch = typeof course.title === 'string' && course.title.toLowerCase().includes(query.toLowerCase());
+    const descriptionMatch = typeof course.description === 'string' && course.description.toLowerCase().includes(query.toLowerCase());
+    return titleMatch || descriptionMatch;
+  });
 
   // No changes needed for the return part from the previous static text translation step
   // just ensuring the useEffect for data loading is now correctly placed.

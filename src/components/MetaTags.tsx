@@ -24,11 +24,38 @@ export const MetaTags: React.FC<MetaTagsProps> = ({
   const pageTitle = title ? `${title} | ${DEFAULT_TITLE}` : DEFAULT_TITLE;
   const pageDescription = description || DEFAULT_DESCRIPTION;
   const pageImageUrl = imageUrl || DEFAULT_IMAGE_URL;
-  const pageUrl = url || window.location.href;
   const pageKeywords = keywords || DEFAULT_KEYWORDS;
 
-  // Ensure the imageUrl is absolute, as required by OG tags
-  const absoluteImageUrl = pageImageUrl.startsWith('http') ? pageImageUrl : `${window.location.origin}${pageImageUrl}`;
+  const getWindowLocationHref = () => {
+    if (typeof window !== 'undefined' && window.location) {
+      return window.location.href;
+    }
+    return '';
+  };
+
+  const getWindowLocationOrigin = () => {
+    if (typeof window !== 'undefined' && window.location) {
+      return window.location.origin;
+    }
+    return '';
+  };
+
+  const pageUrl = url || getWindowLocationHref();
+  const baseUrl = getWindowLocationOrigin();
+
+  let absoluteImageUrl = pageImageUrl;
+  if (!pageImageUrl.startsWith('http')) {
+    if (baseUrl) {
+      if (pageImageUrl.startsWith('/')) {
+        absoluteImageUrl = `${baseUrl}${pageImageUrl}`;
+      } else {
+        absoluteImageUrl = `${baseUrl}/${pageImageUrl}`;
+      }
+    }
+    // If no baseUrl, absoluteImageUrl remains pageImageUrl (which might be relative).
+    // This is generally fine for <meta property="og:image"> if the path is absolute from root like /images/foo.png
+    // but a full URL is preferred. For client-side rendering, baseUrl should almost always be available.
+  }
 
   return (
     <Helmet>

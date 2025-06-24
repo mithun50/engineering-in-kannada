@@ -10,8 +10,14 @@ interface CardSharePopoverProps {
   text?: string;
 }
 
-export const CardSharePopover: React.FC<CardSharePopoverProps> = ({ url, title, text }) => {
+export const CardSharePopover: React.FC<CardSharePopoverProps> = ({
+  url: initialUrl,
+  title: initialTitle,
+  text
+}) => {
   const { t } = useTranslation();
+  const url = initialUrl || ''; // Default to empty string
+  const title = initialTitle || ''; // Default to empty string
   const [isOpen, setIsOpen] = useState(false);
   const popoverRef = useRef<HTMLDivElement>(null);
 

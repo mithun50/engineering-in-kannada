@@ -20,10 +20,17 @@ const socialPlatforms = [
   { name: 'WhatsApp', icon: <Share2 size={18} />, color: 'text-green-500', constructUrl: (url: string, title: string) => `https://api.whatsapp.com/send?text=${encodeURIComponent(title + ' ' + url)}` },
 ];
 
-export const ShareButtons: React.FC<ShareButtonsProps> = ({ url, title, text, variant = 'full' }) => {
+export const ShareButtons: React.FC<ShareButtonsProps> = ({
+  url: initialUrl,
+  title: initialTitle,
+  text,
+  variant = 'full'
+}) => {
   const { t } = useTranslation();
+  const url = initialUrl || ''; // Default to empty string
+  const title = initialTitle || ''; // Default to empty string
   const [copied, setCopied] = useState(false);
-  const shareText = text || title;
+  const shareText = text || title; // title here is already defaulted
 
   const handleCopyLink = async () => {
     try {
