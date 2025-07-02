@@ -4,12 +4,14 @@ import { truncateWords } from '../utils/textUtils';
 import { Calendar, User, Tag, BookOpen } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { ScrollToTop } from '../components/ScrollToTop'; // 🟢 Import ScrollToTop component
 
 export function Blogs() {
   const blogs = getBlogPosts();
 
   return (
     <div className="min-h-screen bg-dark">
+      <ScrollToTop /> {/* 🟢 Add ScrollToTop component */}
       <Header />
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-20">
@@ -65,4 +67,4 @@ export function Blogs() {
       <Footer />
     </div>
   );
-} 
+}

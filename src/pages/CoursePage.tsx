@@ -6,6 +6,7 @@ import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { ScrollToTop } from '../components/ScrollToTop'; // 🟢 Import ScrollToTop component
 import { useProgressStore } from '../store/progress';
 import { Video } from '../types';
 import { ToastContainer } from 'react-toastify';
@@ -61,6 +62,7 @@ export function CoursePage() {
   if (!course) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-dark">
+        <ScrollToTop /> {/* 🟢 Add ScrollToTop component */}
         <div className="text-center">
           <h2 className="text-2xl font-bold text-white">Course not found</h2>
           <Link to="/" className="mt-4 text-primary hover:text-primary/80">
@@ -73,6 +75,7 @@ export function CoursePage() {
 
   return (
     <div className="min-h-screen bg-dark">
+      <ScrollToTop /> {/* 🟢 Add ScrollToTop component */}
       <Header />
       <main className="container mx-auto px-4 py-8">
         <div className="mb-8">
