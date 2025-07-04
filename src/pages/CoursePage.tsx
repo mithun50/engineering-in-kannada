@@ -171,9 +171,7 @@ export function CoursePage() {
             <p className="mt-2 text-white/60">{course.description}</p>
           </div>
         </div>
-        <div className="my-4 flex justify-start"> {/* Added a wrapper for alignment, my-4 for margin */}
-          <ShareButton url={window.location.href} title={course.title} />
-        </div>
+        
         <Suspense fallback={<div className="text-white">{t('loadingVideos')}</div>}>
           {courseId && <VideoList courseId={courseId} />} {/* Ensure courseId is passed */}
         </Suspense>
