@@ -6,6 +6,8 @@ import { ExternalLink } from 'lucide-react';
 import { LinkCategory } from '../types';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import ScrollToTop from '../components/ScrollToTop'; // update path if different
+
 
 // Dynamic icon component
 const DynamicIcon = ({ iconName }: { iconName: string }) => {
