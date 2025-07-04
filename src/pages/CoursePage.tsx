@@ -166,14 +166,8 @@ export function CoursePage() {
           <div>
             <h1 className="text-3xl font-bold text-white sm:text-4xl flex items-center gap-3">
               {course.title}
-              <button
-                onClick={handleShare}
-                className="ml-2 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
-                aria-label="Share course"
-              >
-                <Share2 className="h-5 w-5" />
-              </button>
-            </h1>
+              <ShareButton url={window.location.href} title={course.title} />
+           </h1>
             <p className="mt-2 text-white/60">{course.description}</p>
           </div>
         </div>
