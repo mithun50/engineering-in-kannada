@@ -1,6 +1,7 @@
 import React from "react";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import { ScrollToTop } from "../components/ScrollToTop"; 
 import { Github, Loader2 } from "lucide-react";
 import { fetchLeaderboardData, GitHubContributor } from "../services/github";
 import { useTranslation } from 'react-i18next'; // Import useTranslation
@@ -33,6 +34,7 @@ export function LeaderboardPage() {
 
   return (
     <div className="min-h-screen bg-dark">
+      <ScrollToTop /> {/* 🟢 Add ScrollToTop component */}
       <Header />
       <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="text-center mb-12">

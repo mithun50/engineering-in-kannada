@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Video } from "../types";
-import { PlayCircle, FileText, CheckCircle, Star, Code } from "lucide-react";
+import { PlayCircle, FileText, CheckCircle, Star, Code, Share2 } from "lucide-react";
 import { useProgressStore } from "../store/progress";
 import confetti from "canvas-confetti";
 import { toastWithCustomMessages } from "../utils/toastWithCustomMessages"; // Changed import
@@ -110,6 +110,53 @@ export function VideoCard({ video }: VideoCardProps) {
     toggleVideoStarred(video.id);
   };
 
+  const handleShare = async () => {
+    if (!video.youtubeUrl) {
+      dispatchToast(
+        "Video not available yet!",
+        isDesktop ? "top-right" : "bottom-center"
+      );
+      return;
+    }
+
+    // Extract video ID and create watch URL
+    const videoId = video.youtubeUrl
+      .replace('https://www.youtube.com/embed/', '')
+      .split('?')[0];
+    const watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
+
+    // Always copy to clipboard first
+    try {
+      await navigator.clipboard.writeText(watchUrl);
+      dispatchToast(
+        "Link copied to clipboard!",
+        isDesktop ? "top-right" : "bottom-center"
+      );
+    } catch (err) {
+      dispatchToast(
+        "Failed to copy link",
+        isDesktop ? "top-right" : "bottom-center"
+      );
+    }
+
+    // Then try to open share modal
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: video.title,
+          url: watchUrl,
+        });
+      } catch (err: any) {
+        if (err.name !== 'AbortError') {
+          dispatchToast(
+            "Share failed",
+            isDesktop ? "top-right" : "bottom-center"
+          );
+        }
+      }
+    }
+  };
+
   const handleNotesAndVideoClick = (uri: string | undefined) => {
     if (!uri) {
       toastWithCustomMessages.showInfo( // Changed to showInfo
@@ -142,6 +189,13 @@ export function VideoCard({ video }: VideoCardProps) {
             </span>
           </div>
           <div className="flex items-center gap-2">
+            <button
+              onClick={handleShare}
+              className="rounded-full p-2 bg-white/10 text-gray-300 hover:bg-white/20 transition-colors"
+              aria-label="Share video"
+            >
+              <Share2 className="h-5 w-5" />
+            </button>
             <button
               onClick={handleStar}
               className={`rounded-full p-2 transition-colors ${

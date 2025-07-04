@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 // import coursesData from '../data/courses.json'; // To be loaded dynamically
 import { MetaTags } from '../components/MetaTags'; // Import MetaTags
 import { VideoCard } from '../components/VideoCard';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Share2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -162,9 +162,20 @@ export function CoursePage() {
             {t('backToCourses')}
           </Link>
         </div>
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white sm:text-4xl">{course.title}</h1>
-          <p className="mt-2 text-white/60">{course.description}</p>
+        <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <h1 className="text-3xl font-bold text-white sm:text-4xl flex items-center gap-3">
+              {course.title}
+              <button
+                onClick={handleShare}
+                className="ml-2 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+                aria-label="Share course"
+              >
+                <Share2 className="h-5 w-5" />
+              </button>
+            </h1>
+            <p className="mt-2 text-white/60">{course.description}</p>
+          </div>
         </div>
         <div className="my-4 flex justify-start"> {/* Added a wrapper for alignment, my-4 for margin */}
           <ShareButton url={window.location.href} title={course.title} />

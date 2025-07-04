@@ -4,6 +4,7 @@ import { CourseCard } from '../components/CourseCard';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { AnnouncementBanner } from '../components/AnnouncementBanner';
+import { ScrollToTop } from '../components/ScrollToTop'; 
 import { Course } from '../types';
 import { useSearchStore } from '../store/search';
 import { useTranslation } from 'react-i18next'; // Import useTranslation
