@@ -266,10 +266,7 @@ export function VideoCard({ video }: VideoCardProps) {
         </div>
       </div>
       {showVideo && video.youtubeUrl && (
-        <EmbedVideoComponent
-          url={video.youtubeUrl}
-          onClose={() => setShowVideo(false)}
-        />
+        window.open(video.youtubeUrl, '_blank')
       )}
 
       {showNotes && video.notesUrl && (
