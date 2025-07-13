@@ -266,7 +266,7 @@ export function VideoCard({ video }: VideoCardProps) {
         </div>
       </div>
       {showVideo && video.youtubeUrl && (
-        window.open(video.youtubeUrl, '_blank')
+        window.open(video.youtubeUrl, '_blank', 'noopener,noreferrer')
       )}
 
       {showNotes && video.notesUrl && (
