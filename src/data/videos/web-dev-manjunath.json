@@ -5,7 +5,7 @@
       "id": "web-dev-1",
       "title": "1. Introduction to HTML and CSS",
       "type": "Concept",
-      "youtubeUrl": "https://www.youtube.com/embed/mVbsESNhDAk",
+      "youtubeUrl": "https://www.youtube.com/watch?v=mVbsESNhDAk",
       "notesUrl": "",
       "codingQuestionUrl": ""
     },
@@ -13,7 +13,7 @@
       "id": "web-dev-2",
       "title": "2. CSS Basics",
       "type": "Concept",
-      "youtubeUrl": "https://www.youtube.com/embed/kzoveSCMJAU",
+      "youtubeUrl": "https://www.youtube.com/watch?v=kzoveSCMJAU",
       "notesUrl": "",
       "codingQuestionUrl": ""
     },
@@ -21,7 +21,7 @@
       "id": "web-dev-3",
       "title": "3. CSS Grid and Flexbox",
       "type": "Hands-On",
-      "youtubeUrl": "https://www.youtube.com/embed/TkpulmeSEqI",
+      "youtubeUrl": "https://www.youtube.com/watch?v=TkpulmeSEqI",
       "notesUrl": "",
       "codingQuestionUrl": ""
     },
@@ -29,7 +29,7 @@
       "id": "web-dev-4",
       "title": "4. Media Queries and Responsive Design",
       "type": "Hands-On",
-      "youtubeUrl": "https://www.youtube.com/embed/rEootTokgu4",
+      "youtubeUrl": "https://www.youtube.com/watch?v=rEootTokgu4",
       "notesUrl": "",
       "codingQuestionUrl": ""
     },
@@ -37,7 +37,7 @@
       "id": "web-dev-5",
       "title": "5. CSS Animation",
       "type": "Hands-On",
-      "youtubeUrl": "https://www.youtube.com/embed/eCwXvcJuYi8",
+      "youtubeUrl": "https://www.youtube.com/watch?v=eCwXvcJuYi8",
       "notesUrl": "",
       "codingQuestionUrl": ""
     },
@@ -45,7 +45,7 @@
       "id": "web-dev-6",
       "title": "6. Website Project Part 1",
       "type": "Project",
-      "youtubeUrl": "https://www.youtube.com/embed/5W73TFVgcmo",
+      "youtubeUrl": "https://www.youtube.com/watch?v=5W73TFVgcmo",
       "notesUrl": "",
       "codingQuestionUrl": ""
     },
@@ -53,7 +53,7 @@
       "id": "web-dev-7",
       "title": "7. Website Project Part 2",
       "type": "Project",
-      "youtubeUrl": "https://www.youtube.com/embed/16eg-s66txE",
+      "youtubeUrl": "https://www.youtube.com/watch?v=16eg-s66txE",
       "notesUrl": "",
       "codingQuestionUrl": ""
     }

@@ -5,7 +5,7 @@
       "id": "c-basics-crash-old-1",
       "title": "1. Introduction to C",
       "type": "Theory + Code",
-      "youtubeUrl": "https://www.youtube.com/embed/0sd6OpPG2UM",
+      "youtubeUrl": "https://www.youtube.com/watch?v=0sd6OpPG2UM",
       "notesUrl": "",
       "codingQuestionUrl": ""
     },
@@ -13,7 +13,7 @@
       "id": "c-basics-crash-old-2",
       "title": "2. Loops and Switch case ",
       "type": "Theory + Code",
-      "youtubeUrl": "https://www.youtube.com/embed/LEb_PirvYEU",
+      "youtubeUrl": "https://www.youtube.com/watch?v=LEb_PirvYEU",
       "notesUrl": "",
       "codingQuestionUrl": ""
     },
@@ -21,7 +21,7 @@
       "id": "c-basics-crash-old-3",
       "title": "3. Arrays and Matrices",
       "type": "Theory + Code",
-      "youtubeUrl": "https://www.youtube.com/embed/RWMHf5kRmDo",
+      "youtubeUrl": "https://www.youtube.com/watch?v=RWMHf5kRmDo",
       "notesUrl": "",
       "codingQuestionUrl": ""
     },
@@ -29,7 +29,7 @@
       "id": "c-basics-crash-old-4",
       "title": "4. Functions and Standard Library ",
       "type": "Theory + Code",
-      "youtubeUrl": "https://www.youtube.com/embed/ZNltu1NUGz4",
+      "youtubeUrl": "https://www.youtube.com/watch?v=ZNltu1NUGz4",
       "notesUrl": "",
       "codingQuestionUrl": ""
     }
