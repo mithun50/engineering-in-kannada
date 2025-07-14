@@ -265,9 +265,13 @@ export function VideoCard({ video }: VideoCardProps) {
           )}
         </div>
       </div>
-      {showVideo && video.youtubeUrl && (
-        window.open(video.youtubeUrl, '_blank', 'noopener,noreferrer')
-      )}
+      {showVideo && video.youtubeUrl && (() => {
+        const videoId = video.youtubeUrl
+          .replace('https://www.youtube.com/embed/', '')
+          .split('?')[0];
+        const watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
+        window.open(watchUrl, '_blank', 'noopener,noreferrer');
+      })()}
 
       {showNotes && video.notesUrl && (
         <NotesViewer url={video.notesUrl} onClose={() => setShowNotes(false)} />
