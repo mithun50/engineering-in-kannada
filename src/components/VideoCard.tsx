@@ -120,10 +120,8 @@ export function VideoCard({ video }: VideoCardProps) {
     }
 
     // Extract video ID and create watch URL
-    const videoId = video.youtubeUrl
-      .replace('https://www.youtube.com/embed/', '')
-      .split('?')[0];
-    const watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
+    const watchUrl = video.youtubeUrl
+    
 
     // Always copy to clipboard first
     try {
@@ -266,10 +264,7 @@ export function VideoCard({ video }: VideoCardProps) {
         </div>
       </div>
       {showVideo && video.youtubeUrl && (
-        <EmbedVideoComponent
-          url={video.youtubeUrl}
-          onClose={() => setShowVideo(false)}
-        />
+        window.open(video.youtubeUrl, '_blank', 'noopener,noreferrer')
       )}
 
       {showNotes && video.notesUrl && (
