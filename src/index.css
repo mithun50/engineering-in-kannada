@@ -12,3 +12,35 @@
     margin-top: 10vh;
     }
 }
+/* 🔒 Block Google's banner at top */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+body {
+  top: 0px !important;
+}
+
+/* 🧯 Hide the floating tooltip that overlaps navbar */
+#goog-gt-tt {
+  display: none !important;
+}
+
+/* 🧼 Hide the dropdown iframe */
+iframe.goog-te-menu-frame {
+  display: none !important;
+}
+
+/* 🧹 Hide logo and extra Google elements */
+.goog-logo-link,
+.goog-te-gadget span,
+.goog-text-highlight {
+  display: none !important;
+}
+
+/* 🔧 Stop layout from breaking */
+.skiptranslate {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  z-index: 0 !important;
+}
