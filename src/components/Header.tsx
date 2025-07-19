@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Home, Trophy, FileText, Link2 } from "lucide-react";
+import GoogleTranslate from "./GoogleTranslate";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -73,8 +74,10 @@ export function Header() {
             </Link>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
+          <div className="flex items-center gap-4">
+            <GoogleTranslate />
+            {/* Mobile Menu Button */}
+            <button
             className="md:hidden text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
