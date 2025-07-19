@@ -78,11 +78,12 @@ export function Header() {
             <GoogleTranslate />
             {/* Mobile Menu Button */}
             <button
-            className="md:hidden text-white"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+              className="md:hidden text-white"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -141,4 +142,5 @@ export function Header() {
       </div>
     </header>
   );
-}
+                }
+                
