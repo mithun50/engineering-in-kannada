@@ -7,6 +7,7 @@ import { AnnouncementBanner } from '../components/AnnouncementBanner';
 import { ScrollToTop } from '../components/ScrollToTop'; 
 import { Course } from '../types';
 import { useSearchStore } from '../store/search'; // 🟡 import global search
+import Chatbot from '../components/Chatbot';
 
 export function HomePage() {
   const { query, setQuery } = useSearchStore();
@@ -80,6 +81,7 @@ export function HomePage() {
         </div>
       </main>
       <Footer />
+      <Chatbot />
     </div>
   );
 }
