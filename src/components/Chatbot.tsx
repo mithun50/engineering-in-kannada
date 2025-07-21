@@ -24,7 +24,7 @@ const Chatbot: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
+      const genAI = new GoogleGenerativeAI("AIzaSyAPNnBonKq66HrM4hJek027glt1wymJQrs");
       const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
       const result = await model.generateContent(
         `You are an AI assistant for a YouTube channel named "Engineering in Kannada". Your name is "EiK Assistant". You should only answer questions related to engineering, technology, and education. You should not answer questions about other topics. If you are asked a question that is not related to these topics, you should politely decline to answer and say that you can only answer questions related to engineering, technology, and education.
