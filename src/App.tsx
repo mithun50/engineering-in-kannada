@@ -8,6 +8,7 @@ import { Blogs } from './pages/Blogs';
 import { BlogPost } from './pages/BlogPost';
 import { LinksPage } from './pages/LinksPage';
 import * as ga from './utils/analytics';
+import Chatbot from './components/Chatbot';
 
 //Google analytics 
 function AnalyticsWrapper({ children }: { children: React.ReactNode }) {
@@ -38,6 +39,7 @@ function App() {
         </Routes>
       </AnalyticsWrapper>
       <BackToTop />
+      <Chatbot />
     </BrowserRouter>
   );
 }
