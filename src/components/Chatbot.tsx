@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isFullScreen, setIsFullScreen] = useState(false);
   const [messages, setMessages] = useState<{ text: string; sender: 'user' | 'bot' }[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
+  };
+
+  const toggleFullScreen = () => {
+    setIsFullScreen(!isFullScreen);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,11 +33,13 @@ const Chatbot: React.FC = () => {
     try {
       const genAI = new GoogleGenerativeAI("AIzaSyAPNnBonKq66HrM4hJek027glt1wymJQrs");
       const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
-      const result = await model.generateContent(
-        `You are an AI assistant for a YouTube channel named "Engineering in Kannada". Your name is "EiK Assistant". You should only answer questions related to engineering, technology, and education. You should not answer questions about other topics. If you are asked a question that is not related to these topics, you should politely decline to answer and say that you can only answer questions related to engineering, technology, and education.
-
-        Here is the user's question: ${input}`
-      );
+      const chat = model.startChat({
+        history: messages.map((msg) => ({
+          role: msg.sender === 'user' ? 'user' : 'model',
+          parts: [{ text: msg.text }],
+        })),
+      });
+      const result = await chat.sendMessage(input);
       const response = await result.response;
       const text = await response.text();
 
@@ -56,9 +65,21 @@ const Chatbot: React.FC = () => {
       </button>
 
       {isOpen && (
-        <div className="absolute bottom-20 right-0 w-80 bg-gray-800 rounded-lg shadow-xl flex flex-col h-96">
-          <div className="bg-gray-900 p-4 rounded-t-lg">
+        <div
+          className={`absolute bottom-20 right-0 bg-gray-800 rounded-lg shadow-xl flex flex-col ${
+            isFullScreen
+              ? 'w-screen h-screen top-0 right-0 bottom-0 left-0'
+              : 'w-80 h-96'
+          }`}
+        >
+          <div className="bg-gray-900 p-4 rounded-t-lg flex justify-between items-center">
             <h3 className="text-white text-lg font-semibold">Chat with our AI</h3>
+            <button
+              onClick={toggleFullScreen}
+              className="text-white hover:text-gray-400"
+            >
+              {isFullScreen ? 'Exit Fullscreen' : 'Fullscreen'}
+            </button>
           </div>
           <div className="flex-1 p-4 overflow-y-auto">
             {messages.map((msg, index) => (
@@ -73,7 +94,7 @@ const Chatbot: React.FC = () => {
                       : 'bg-gray-700 text-white'
                   }`}
                 >
-                  {msg.text}
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{msg.text}</ReactMarkdown>
                 </div>
               </div>
             ))}
