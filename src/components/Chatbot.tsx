@@ -81,10 +81,10 @@ const Chatbot: React.FC = () => {
 
       {isOpen && (
         <div
-          className={`absolute bottom-20 right-0 bg-gray-800 rounded-lg shadow-xl flex flex-col ${
+          className={`bg-gray-800 rounded-lg shadow-xl flex flex-col ${
             isFullScreen
-              ? 'w-screen h-screen top-0 right-0 bottom-0 left-0'
-              : 'w-80 h-96'
+              ? 'fixed inset-0'
+              : 'absolute bottom-20 right-0 w-80 h-96'
           }`}
         >
           <div className="bg-gray-900 p-4 rounded-t-lg flex justify-between items-center">
