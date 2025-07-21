@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -9,6 +9,17 @@ const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState<{ text: string; sender: 'user' | 'bot' }[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const savedMessages = localStorage.getItem('chatHistory');
+    if (savedMessages) {
+      setMessages(JSON.parse(savedMessages));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('chatHistory', JSON.stringify(messages));
+  }, [messages]);
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
@@ -110,7 +121,7 @@ const Chatbot: React.FC = () => {
               </div>
             )}
           </div>
-          <div className="p-4 bg-gray-900 rounded-b-lg flex">
+          <div className="p-4 bg-gray-900 rounded-b-lg flex z-[1000]">
             <input
               type="text"
               value={input}
