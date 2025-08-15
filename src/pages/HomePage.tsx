@@ -6,6 +6,7 @@ import { Footer } from '../components/Footer';
 import { AnnouncementBanner } from '../components/AnnouncementBanner';
 import { ScrollToTop } from '../components/ScrollToTop'; 
 import { Course } from '../types';
+import { Search } from 'lucide-react';
 import { useSearchStore } from '../store/search'; // 🟡 import global search
 
 export function HomePage() {
@@ -46,21 +47,21 @@ export function HomePage() {
         </div>
 
         <div className="mt-16">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <h2 className="text-2xl font-bold text-white">Available Courses</h2>
-            <div className="flex items-center space-x-2">
+            <div className="flex w-full items-center space-x-2 md:w-auto">
               <button
                 onClick={() => setShowSearch((prev) => !prev)}
-                className="text-white hover:text-yellow-400 text-xl"
+                className="text-white hover:text-yellow-400"
                 aria-label="Search"
               >
-                🔍
+                <Search className="h-6 w-6" />
               </button>
               {showSearch && (
                 <input
                   type="text"
                   placeholder="Search courses..."
-                  className="rounded-md px-3 py-1 bg-gray-800 text-white border border-gray-600 focus:outline-none"
+                  className="w-full rounded-md border border-gray-600 bg-gray-800 px-3 py-1 text-white focus:outline-none md:w-auto"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                 />
@@ -82,4 +83,4 @@ export function HomePage() {
       <Footer />
     </div>
   );
-}
+            }
