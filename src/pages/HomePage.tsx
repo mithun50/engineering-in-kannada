@@ -8,10 +8,12 @@ import { ScrollToTop } from '../components/ScrollToTop';
 import { Course } from '../types';
 import { Search } from 'lucide-react';
 import { useSearchStore } from '../store/search'; // 🟡 import global search
+import { useBreakpoint } from '../utils/useBreakPoint';
 
 export function HomePage() {
   const { query, setQuery } = useSearchStore();
   const [showSearch, setShowSearch] = useState(false);
+  const isDesktop = useBreakpoint();
   
   const filteredCourses = (coursesData.courses as Course[]).filter((course) =>
     course.title.toLowerCase().includes(query.toLowerCase()) ||
@@ -48,16 +50,18 @@ export function HomePage() {
 
         <div className="mt-16">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <h2 className="text-2xl font-bold text-white">Available Courses</h2>
-            <div className="flex w-full items-center space-x-2 md:w-auto">
-              <button
-                onClick={() => setShowSearch((prev) => !prev)}
-                className="text-white hover:text-yellow-400"
-                aria-label="Search"
-              >
-                <Search className="h-6 w-6" />
-              </button>
-              {showSearch && (
+            <h2 className="text-2xl font-bold text-white text-center md:text-left">Available Courses</h2>
+            <div className="flex w-full items-center justify-center space-x-2 md:w-auto md:justify-start">
+              {isDesktop && (
+                <button
+                  onClick={() => setShowSearch((prev) => !prev)}
+                  className="text-white hover:text-yellow-400"
+                  aria-label="Search"
+                >
+                  <Search className="h-6 w-6" />
+                </button>
+              )}
+              {(!isDesktop || showSearch) && (
                 <input
                   type="text"
                   placeholder="Search courses..."
@@ -84,3 +88,4 @@ export function HomePage() {
     </div>
   );
             }
+            
